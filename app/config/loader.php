@@ -98,23 +98,15 @@ class Loader{
 	private function setRouter(){
 		$router = new Router();
 
-
-		$router->get('/admin',
-			[
-				'module'	=> 'admin',
-				'controller'=> 'home',
-				'action'	=> 'index'
-			]
-		);
-
+		//Đăng nhập
 		$router->any('/login',
 			[
 				'module'	=> 'admin',
-				'controller'=> 'user',
+				'controller'=> 'user',	
 				'action'	=> 'login'
 			]
 		);
-
+		//Đăng xuất
 		$router->any('/logout',
 			[
 				'module'	=> 'admin',
@@ -123,7 +115,115 @@ class Loader{
 			]
 		);
 
-		
+		//Đăng ký
+		$router->any('/register',
+			[
+				'module'	=> 'default',
+				'controller'=> 'user',
+				'action'	=> 'register'
+			]
+		);
+		//Thông tin sản phẩm và giá
+		$router->any('/products',
+			[
+				'module'	=> 'default',
+				'controller'=> 'product',
+				'action'	=> 'product_info'
+			]
+		);
+		//Thông tin chi tiết sản phẩm
+		$router->any('/product-detail',
+			[
+				'module'	=> 'default',
+				'controller'=> 'product',
+				'action'	=> 'product_info'
+			]
+		);
+		//Giới thiệu
+		$router->any('/intro',
+			[
+				'module'	=> 'default',
+				'controller'=> 'intro',
+				'action'	=> 'index'
+			]
+		);
+		//Liên hệ
+		$router->any('/contact',
+			[
+				'module'	=> 'default',
+				'controller'=> 'contact',
+				'action'	=> 'index'
+			]
+		);
+
+		//tin tức
+		$router->any('/news',
+			[
+				'module'	=> 'default',
+				'controller'=> 'news',
+				'action'	=> 'index'
+			]
+		);
+
+
+		//Giỏ hàng
+		$router->any('/cart',
+			[
+				'module'	=> 'default',
+				'controller'=> 'cart',
+				'action'	=> 'index'
+			]
+		);
+
+		//Đơn hàng
+		$router->any('/saleorder',
+			[
+				'module'	=> 'default',
+				'controller'=> 'saleorder',
+				'action'	=> 'index'
+			]
+		);
+
+
+		//Thông tin thanh toán
+		$router->any('/payment',
+			[
+				'module'	=> 'default',
+				'controller'=> 'payment',
+				'action'	=> 'index'
+			]
+		);
+
+		//Thay đổi thông tin cá nhân
+		$router->any('/userinfo',
+			[
+				'module'	=> 'default',
+				'controller'=> 'userinfo',
+				'action'	=> 'index'
+			]
+		);
+
+
+		//quên mật khẩu
+		$router->any('/forgotpass',
+			[
+				'module'	=> 'default',
+				'controller'=> 'userinfo',
+				'action'	=> 'forgotpass'
+			]
+		);
+
+		//Bình luận, đánh giá
+		$router->any('/feedback',
+			[
+				'module'	=> 'default',
+				'controller'=> 'feedback',
+				'action'	=> 'index'
+			]
+		);
+
+
+		//Trang chủ
 		$router->any('/',
 			[
 				'module'	=> 'default',
@@ -132,6 +232,56 @@ class Loader{
 			]
 		);
 
+
+		$router->get('/admin',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'home',
+				'action'	=> 'index'
+			]
+		);
+		$router->get('/admin/user',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'user',
+				'action'	=> 'index'
+			]
+		);
+		$router->get('/admin/feedback',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'feedback',
+				'action'	=> 'index'
+			]
+		);
+		$router->get('/admin/products',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'products',
+				'action'	=> 'index'
+			]
+		);
+		$router->get('/admin/posts',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'posts',
+				'action'	=> 'index'
+			]
+		);
+		$router->get('/admin/resource',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'resource',
+				'action'	=> 'index'
+			]
+		);
+		$router->get('/admin/orders',
+			[
+				'module'	=> 'admin',
+				'controller'=> 'orders',
+				'action'	=> 'index'
+			]
+		);
 		$this->routers = $router->routers;
 	}
 }

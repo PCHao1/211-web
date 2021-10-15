@@ -7,6 +7,12 @@ class Controller{
 		require_once APP_PATH . '/app/config/view.php';
 		$this->view = new View();
 	}
+	public function verify(){
+		if (isset($_SESSION["user"]["email"])) {
+				return $_SESSION["user"];
+			}
+		return NULL;
+	}
 
 	public function loadModel($moduleName, $fileName){
 		$filePath = APP_PATH . '/app/' . $moduleName . '/models/' . $fileName . '.php';
