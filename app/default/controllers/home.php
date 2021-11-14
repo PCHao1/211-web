@@ -10,9 +10,9 @@ class Home extends Controller{
 			die();
 		}	
 		$this->view->render("component/header", false);
-		$info= $this->verify();
-		foreach ($info as $info => $value) {
-			echo $info.": ".$value."<br>";
-		}
+		// $info= $this->verify();
+		// foreach ($info as $info => $value) {
+		// 	echo $info.": ".$value."<br>";
+		// }
 	}
 }

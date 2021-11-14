@@ -1,0 +1,68 @@
+[0m2021.10.16 19:48:42 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.1.[0m
+[0m2021.10.16 19:48:44 INFO  time: initialize in 1.81s[0m
+[0m2021.10.16 19:48:45 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.16 19:48:45 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 16, 2021 7:49:35 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Oct 16, 2021 7:49:51 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.10.16 23:55:32 INFO  shutting down Metals[0m
+[0m2021.10.17 09:03:33 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.1.[0m
+[0m2021.10.17 09:03:34 INFO  time: initialize in 1.58s[0m
+[0m2021.10.17 09:03:35 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.17 09:03:35 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.17 11:15:52 INFO  shutting down Metals[0m
+[0m2021.10.25 20:13:35 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.25 20:13:37 INFO  time: initialize in 2.17s[0m
+[0m2021.10.25 20:13:39 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.25 20:13:39 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.25 23:28:03 INFO  shutting down Metals[0m
+[0m2021.10.27 09:59:55 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.27 09:59:57 INFO  time: initialize in 2.38s[0m
+[0m2021.10.27 10:00:04 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.27 10:00:04 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 27, 2021 11:41:00 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.10.27 15:01:53 INFO  shutting down Metals[0m
+[0m2021.10.27 21:47:58 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.27 21:48:00 INFO  time: initialize in 2.22s[0m
+[0m2021.10.27 21:48:01 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.27 21:48:01 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.27 23:26:42 INFO  shutting down Metals[0m
+[0m2021.10.28 08:05:25 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.28 08:05:29 INFO  time: initialize in 3.34s[0m
+[0m2021.10.28 08:05:34 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.28 08:05:34 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.28 11:46:01 INFO  shutting down Metals[0m
+[0m2021.10.28 22:37:44 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.28 22:37:50 INFO  time: initialize in 6.06s[0m
+[0m2021.10.28 22:38:12 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.28 22:38:12 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 28, 2021 10:39:44 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.10.28 22:56:57 INFO  shutting down Metals[0m
+[0m2021.11.01 18:58:00 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.61.2.[0m
+[0m2021.11.01 18:58:04 INFO  time: initialize in 3.42s[0m
+[0m2021.11.01 18:58:25 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.01 18:58:25 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.01 23:31:24 INFO  shutting down Metals[0m
+[0m2021.11.09 21:08:04 INFO  Started: Metals version 0.10.9 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.62.0.[0m
+[0m2021.11.09 21:08:06 INFO  time: initialize in 2.34s[0m
+[0m2021.11.09 21:08:12 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.09 21:08:12 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.09 23:16:06 INFO  shutting down Metals[0m
+[0m2021.11.10 07:43:08 INFO  Started: Metals version 0.10.9 in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web' for client Visual Studio Code 1.62.0.[0m
+[0m2021.11.10 07:43:10 INFO  time: initialize in 2.52s[0m
+[0m2021.11.10 07:43:12 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.10 07:43:12 WARN  no build tool detected in workspace 'C:\Users\ADMIN\Desktop\BTL web\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.10 11:03:28 INFO  shutting down Metals[0m
+[0m2021.11.10 15:56:10 INFO  Started: Metals version 0.10.9 in workspace 'D:\XAMPP\htdocs\211-web' for client Visual Studio Code 1.62.1.[0m
+[0m2021.11.10 15:56:13 INFO  time: initialize in 3.01s[0m
+[0m2021.11.10 15:56:17 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.10 15:56:17 WARN  no build tool detected in workspace 'D:\XAMPP\htdocs\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.10 21:57:01 INFO  shutting down Metals[0m
+[0m2021.11.12 19:16:47 INFO  Started: Metals version 0.10.9 in workspace 'D:\XAMPP\htdocs\211-web' for client Visual Studio Code 1.62.1.[0m
+[0m2021.11.12 19:16:49 INFO  time: initialize in 2.45s[0m
+[0m2021.11.12 19:17:40 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.12 19:17:40 WARN  no build tool detected in workspace 'D:\XAMPP\htdocs\211-web'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.12 23:26:12 INFO  shutting down Metals[0m
