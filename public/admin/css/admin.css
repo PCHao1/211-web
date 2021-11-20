@@ -1,6 +1,6 @@
 @charset "utf-8";
 body{
-	font-size: 14px;
+	font-size: 16px;
 	--color1:#000044;
 	--color2:#eeeeee;
 	--light:#ffffff;
@@ -77,4 +77,20 @@ p{
 }
 .light-text{
 	color: var(--light);
+}
+table{
+	width: 96%;
+	margin: 2%;
+	border: 0px;
+	border-collapse: collapse;
+}
+tr{
+}
+th{
+	padding: 10px;
+	background-color: var(--color2);
+}
+td{
+	padding: 10px;
+	text-align: center;
 }
