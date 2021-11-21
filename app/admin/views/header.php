@@ -7,47 +7,88 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/public/admin/css/admin.css">
+	<script src="/public/admin/js/const.js"></script>
 </head>
-<body>
-<!-- <div class="x-left full-screen">
-	<div id="left-page" class="y-top">
-		<div style="height: 10%;background-color: blue">
-			LOGO
-		</div>
-		<div class="y-top big-text light-text">
-			<div>
-				<a href="../admin"><p>DASHBOARD</p></a>
-			</div>
-			<div>
-				<a href="../admin/orders"><p>Quản lý đơn hàng</p></a>
-			</div>
-			<div>
-				<a href="../admin/products"><p>Quản lý sản phẩm</p></a>
-			</div>
-			<div>
-				<a href="../admin/user"><p>Quản lý thành viên</p></a>
-			</div>
-			<div>
-				<a href="/"><p>Quản lý feedback</p></a>
-			</div>
-			<div>
-				<a href="/"><p>Quản lý bài viết</p></a>
-			</div>
-			<div>
-				<a href="/"><p>Quản lý tài nguyên</p></a>
-			</div>
-		</div>
+<body>	
+<?php 
+	echo "<script>menuNum=".$this->menuNum."</script>"
+ ?>
+<div class="container-fluid" style="height: 100vh;">
+ 	<div class="row">
+ 		<div class="col-sm-3"style="height: 70px; ">
+ 			<div class="d-inline-block"><img src="/public/images/logo.png" width="70px" alt=""></div> 
+ 			<p class="d-inline-block">
+ 				<b><span class="h3 text-danger">W</span>EB <span class="h3 text-danger">A</span>SSIGNMENT</b>
+ 			</p>
+ 		</div>
+ 		<div class="col-sm-9 bg-success"style="min-height: 70px;">
+ 			<div class="row h-100">
+ 				<div class="col-sm-11 my-auto text-center display-6 text-white"><?php  echo $this->title; ?></div>
+	 			<div class="col-sm-1 my-auto">
+	 				<div class="row">
+	 					<!-- <div class="col-6 text-white">Chào,<br><b>Hào</b></div> -->
+	 					<div class="col-12">
+	 						<div class="dropdown">
+							  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+	 								<img src="/public/admin/user-icon.png" width="50px"  alt="account">
+							  </button>
+							  <ul class="dropdown-menu">
+							    <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+							  </ul>
+							</div>
+	 					</div>
+	 				</div>
+	 			</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<div class="row h-100">
+ 		<div class="col-sm-3 bg-white border-end p-0 pt-3">
+ 			<ul id="menu" class="nav nav-pills flex-column">
+			  <li class="nav-item ">
+			    <a class="nav-link" href="../admin"><p>DASHBOARD</p></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../admin/orders"><p>Quản lý đơn hàng</p></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../admin/products"><p>Quản lý sản phẩm</p></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../admin/user"><p>Quản lý thành viên</p></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../admin/feedback"><p>Quản lý feedback</p></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../admin/posts"><p>Quản lý bài viết</p></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../admin/resource"><p>Quản lý tài nguyên</p></a>
+			  </li>
+			</ul>
+ 		</div>
+	<script src="/public/admin/js/hao.js"></script>
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 id="modal-head" class="modal-title">Heading</h4>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	      </div>
+
+	      <!-- Modal body -->
+	      <div id="modal-body" class="modal-body">
+	        Body..
+	      </div>
+
+	      <!-- Modal footer -->
+	      <div id="modal-foot" class="modal-footer">
+	        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+	      </div>
+
+	    </div>
+	  </div>
 	</div>
-	<div id="right-page" class="y-top">
-		<div style="height: 10%;background-color: var(--color2)" class="x-right x-y-center">
-			<div style="margin-right:30%; "><h1><?php  echo $this->title; ?></h1></div>
-			<div>
-				Xin chào,<br>
-				Hào
-			</div>
-			<img src="/public/admin/user-icon.png" alt="" width="50px">
-		</div>
-		<div>
- -->			
- <div class="container-fluid bg-warning">
- 	a
