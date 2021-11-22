@@ -3,7 +3,7 @@
 ?> 
 		<div class="col-sm-9 mt-3 overflow-scroll" id='content'>
 		<!-- CONTENT -->
-			<button class="btn btn-success"data-bs-toggle="modal" data-bs-target="#myModal">
+			<button id='addProduct' class="btn btn-success"data-bs-toggle="modal" data-bs-target="#myModal">
 				<b>+</b> Thêm sản phẩm
 			</button>
 			<br>
@@ -15,9 +15,9 @@
 					<th style="width: 10%">Trạng thái</th>
 					<th style="width: 12%">Khuyến mãi</th>
 					<th style="width: 10%">Số lượng</th>
-					<th><Act></Act>ion</th>
+					<th><Act>Action</th>
 				</tr>
-				<tr>
+				<tr id="1">
 					<td>1</td>
 					<td>Kem dưỡng da</td>
 					<td>200.000 đ</td>
@@ -25,7 +25,7 @@
 					<td>0</td>
 					<td>50</td>
 					<td><div>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal"> Chi tiết>></button>
+						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="productDetail(1)"> Chi tiết>></button>
 					</div></td>
 				</tr>
 				<tr>
@@ -45,6 +45,5 @@
 	</div>
 </div>
 </body>
-<script>
-</script>
+<script src="/public/admin/js/onload.js"></script>
 </html>

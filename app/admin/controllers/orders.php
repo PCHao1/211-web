@@ -9,6 +9,10 @@ class Orders extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
+		if(isset($_GET['detail'])){
+			$this->view->render("orders/detail",false);
+			return;	
+		}
 		$this->view->title="Đơn hàng";
 		$this->view->menuNum=1;
 		$this->view->render("orders/index",false);

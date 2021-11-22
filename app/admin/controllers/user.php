@@ -53,6 +53,10 @@ class User extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
+		if(isset($_GET['detail'])){
+			$this->view->render("user/detail",false);
+			return;	
+		}
 		$this->view->title="Quản lý thành viên";
 		$this->view->menuNum=3;
 		$this->view->render("user/index",false);

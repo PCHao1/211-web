@@ -3,7 +3,7 @@
 ?> 
 		<div class="col-sm-9 mt-3 overflow-scroll" id='content'>
 		<!-- CONTENT -->
-			<button class="btn btn-success"data-bs-toggle="modal" data-bs-target="#myModal">
+			<button id="addPost" class="btn btn-success"data-bs-toggle="modal" data-bs-target="#myModal">
 				<b>+</b> Thêm bài viết
 			</button>
 			<table class="table table-hover">
@@ -25,7 +25,7 @@
 					<td>Hào</td>
 					<td><div>
 						<button class="btn btn-warning"> Phản hồi</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal"> Chi tiết>></button>
+						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="postDetail(1)"> Chi tiết>></button>
 					</div></td>
 				</tr>
 				<tr>
@@ -46,6 +46,5 @@
 	</div>
 </div>
 </body>
-<script>
-</script>
+<script src="/public/admin/js/onload.js"></script>
 </html>
