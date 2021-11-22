@@ -1,7 +1,7 @@
 <?php
 require_once APP_PATH . '/app/config/controller.php';
 
-class Home extends Controller{
+class Resource extends Controller{
 	public function index(){
 		$info= $this->verify();
 		if(!$info){
@@ -9,8 +9,8 @@ class Home extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
-		$this->view->title="DASHBOARD";
-		$this->view->menuNum=0;
-		$this->view->render("home/index",false);
+		$this->view->title="Tài nguyên";
+		$this->view->menuNum=6;
+		$this->view->render("resource/index",false);
 	}
 }

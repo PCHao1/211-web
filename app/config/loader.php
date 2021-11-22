@@ -240,7 +240,7 @@ class Loader{
 				'action'	=> 'index'
 			]
 		);
-		$router->get('/admin/user',
+		$router->any('/admin/user',
 			[
 				'module'	=> 'admin',
 				'controller'=> 'user',
