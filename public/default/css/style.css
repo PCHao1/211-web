@@ -1,0 +1,9 @@
+.product-detail__small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-detail__small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
