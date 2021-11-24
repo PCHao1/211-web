@@ -40,11 +40,11 @@
 				<?php 
 					if ($this->user['status']==0){
 						echo '<span name="sts-'.$this->user['username'].'">Hoạt động</span>  ';
-						echo'<button name="ban-'.$user['username'].'" onclick="userBan(this,\''.$this->user['username'].'\')" class="btn btn-danger">Cấm</button>';
+						echo'<button name="ban-'.$this->user['username'].'" onclick="userBan(this,\''.$this->user['username'].'\')" class="btn btn-danger">Cấm</button>';
 					}
 					else {
 						echo '<span name="sts-'.$this->user['username'].'" class="text-danger">Bị khóa</span>';
-						echo '<button name="ban-'.$user['username'].'" onclick="userBan(this,\''.$this->user['username'].'\')" class="btn btn-success"> Mở khóa</button>';
+						echo '<button name="ban-'.$this->user['username'].'" onclick="userBan(this,\''.$this->user['username'].'\')" class="btn btn-success"> Mở khóa</button>';
 					}
 					?>
 		</div>

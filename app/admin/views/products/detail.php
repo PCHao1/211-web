@@ -1,51 +1,56 @@
 <div class="mx-5">
-	<button class="btn btn-danger">Xóa</button>
+	<div id="message" class="text-danger"></div>
 	<div class="row product-list">
 		<div class="col-5">
 			<b>Tên sản phẩm </b>
 		</div>
 		<div class="col-7">
-			<span>Kem chống nắng hiệu ba con sâu </span>
+			<input type='text' class='form-control border-0 p-0 m-0' id='title' value='<?php echo $this->product['title']; ?>' name='title'>
 		</div>
 		<div class="col-5">
 			<b>Giá: </b>
 		</div>
 		<div class="col-7">
-			<span>200.000 </span>
+			<input type='number' class='form-control border-0 p-0 m-0' id='price' value='<?php echo $this->product['price']; ?>' name='price'>
 		</div>
 		<div class="col-5">
 			<b>Số lượng tồn kho: </b>
 		</div>
 		<div class="col-7">
-			<input type="number" value="50" style="border:none;">
+			<input type="number" value="<?php echo $this->product['quantity']; ?>" style="border:none;" name="quantity">
 		</div>
-		<div class="col-5">
+		<!-- <div class="col-5">
 			<b>Tổng đã bán: </b>
 		</div>
 		<div class="col-7">
 			<span>200</span>
-		</div>
+		</div> -->
 		<div class="col-5">
-			<b>Giảm giá: </b>
+			<b>Giảm giá %: </b>
 		</div>
 		<div class="col-7">
-			<span>10%</span>
+			<input type="number" value="<?php echo $this->product['promotion']; ?>" style="border:none;" name="promotion">
 		</div>
 		<div class="col-5">
 			<b>Loại sản phẩm: </b>
 		</div>
 		<div class="col-7">
-			<span>Kem chống nắng</span>
+			<span><?php echo $this->product['catalog']; ?></span>
 		</div>
 		<div class="col-5">
-			<b>Mô tả </b>
+			<b>Mô tả: </b>
 		</div>
 		<div class="col-7">
-			<span>
-			Ngon bổ<br> 
-			Rẻ <br>
-			Dễ sài <br>
-			</span>
+			<textarea name='descri' class='form-control border-0 p-0 m-0' rows='6'><?php echo $this->product['descri'];?></textarea>
 		</div>
+		<button class="btn btn-danger" onclick="productDelete(<?php echo $this->product['productid']; ?>)">Xóa sản phẩm</button>
+		<b>Hình ảnh</b>
+		<!-- Display picture -->
+		<?php foreach($this->product['picture'] as $key=>$pic){
+			echo '<div>Ảnh số '.($key+1).'</div>';
+		 ?>
+		<img src="../public/images/products/<?php echo $pic;?>" class="img-fluid">
+		<?php } ?>
+		<!-- end display picture -->
 	</div>
 </div>

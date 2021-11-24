@@ -9,7 +9,10 @@ class Products extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
+		//AJAX Get product detail
 		if(isset($_GET['detail'])){
+			$product=$_GET['id'];
+			$this->view->product=$this->model->getDetailProduct($product);
 			$this->view->render("products/detail",false);
 			return;	
 		}
@@ -42,30 +45,39 @@ class Products extends Controller{
 			echo 2;
 			return;
 		}
+		//Change Product AJAX
+		if(isset($_POST['change'])){
+			$id=$_POST['id'];
+			$title=$_POST['title']; 
+			$price=$_POST['price']; 
+			$quantity=$_POST['quantity'];  
+			$promotion=$_POST['promotion'];
+			$descri=$_POST['descri'];
+			//Return 0 if any field is null
+			if($id==''||$title==''||$price==''||$quantity==''||$promotion==''||$descri==''){
+				echo 0;
+				return;
+			}
+			//Return 2 success
+			else if($this->model->updateProduct($id,$title,$price,$quantity,$promotion,$descri)){
+				echo 2;
+				return;
+			}
+			else{
+				echo 1;
+				return;
+			}
+		}
+		if(isset($_POST['delete'])){
+			$id=$_POST['id'];
+			if($this->model->deleteProduct($id)) echo 2;
+			else echo 1;
+			return;
+		}
+		$this->view->lstCatalogs=$this->model->getcatalogs();
 		$this->view->lstProducts=$this->model->getAllProducts();
 		$this->view->title="Sản phẩm";
 		$this->view->menuNum=2;
 		$this->view->render("products/index",false);
 	}
 }
-
-    // if (!isset($_FILES['anh']))
-    //   {
-    //      $errors[0]='Thiếu ảnh hoặc ảnh lỗi';
-    // 		include '../../error/errors.php'; 
-    // 		goto next;
-    //   }
-    // elseif( $_FILES['anh']['type']!="image/png"&&$_FILES['anh']['type']!="image/jpeg"){
-    // 		$errors[0]='Thiếu ảnh hoặc sai định dạng ảnh';
-    // 		include '../../error/errors.php'; 
-    // 		goto next;
-    // } 
-    // elseif ($_FILES["anh"]["size"] > 2000000)
-    //   {
-    //      $errors[0]='Ảnh quá lớn';
-    // 		include '../../error/errors.php'; 
-    // 		goto next;
-    //   }
- // $target_file="../../images/product/".$_POST['ISBN'].".png";
- //    $linkanh=$_POST['ISBN'].".png";
- //    move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file);

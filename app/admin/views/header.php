@@ -72,7 +72,7 @@
 	<script src="/public/admin/js/hao.js"></script>
 	<!-- The Modal -->
 	<div class="modal fade" id="myModal">
-	  <div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 	    <div class="modal-content">
 	      <!-- Modal Header -->
 	      <div class="modal-header">
