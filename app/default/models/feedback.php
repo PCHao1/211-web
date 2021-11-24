@@ -1,21 +1,23 @@
 <?php
 require_once APP_PATH . '/app/config/model.php';
 
-class UserModel extends Model{
+class FeedbackModel extends Model{
 	public function __construct(){
 		parent::__construct();
-		$this->setTable("user");
+		$this->setTable("feedback");
 	}
 
-	public function checkLogin($username, $password){
-		$result = $this->selectOne([
-			"column"	=> "username, phone_number, name, email, accounttype, status",
-			"condition"	=> "username = ? AND password = ?",
+
+
+	public function insertFeedback($rate,$comment){
+		$result =$this->insert([
+			"data"		=> "star,comment",
 			"bind"		=> [
-				"ss",
-				$username,
-				$password
-				// hash('sha256',$password)
+				"sssss",
+
+				$rate,
+                $comment,
+                
 			]
 		]);
 		return $result;
