@@ -136,7 +136,7 @@ class Loader{
 			[
 				'module'	=> 'default',
 				'controller'=> 'product',
-				'action'	=> 'product_info'
+				'action'	=> 'product_detail'
 			]
 		);
 		//Giới thiệu

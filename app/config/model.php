@@ -9,7 +9,8 @@ class Model{
 			"username"	=> "root",
 			"password"	=> "",
 			"dbname"	=> "211_web",
-			"port"		=> 3306
+		    // "port"		=> 3306
+            "port"		=> 8111
 		];
 
 		$this->connection = new mysqli(
