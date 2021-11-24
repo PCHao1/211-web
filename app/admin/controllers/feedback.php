@@ -9,6 +9,10 @@ class Feedback extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
+		if(isset($_GET['detail'])){
+			$this->view->render("feedback/detail",false);
+			return;	
+		}
 		$this->view->title="Feedback";
 		$this->view->menuNum=4;
 		$this->view->render("feedback/index",false);

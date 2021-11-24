@@ -9,6 +9,10 @@ class Posts extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
+		if(isset($_GET['detail'])){
+			$this->view->render("posts/detail",false);
+			return;	
+		}
 		$this->view->title="Bài viết";
 		$this->view->menuNum=5;
 		$this->view->render("posts/index",false);

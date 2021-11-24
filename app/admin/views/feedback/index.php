@@ -20,7 +20,7 @@
 					<td>Sản phẩm như cái củ chuối</td>
 					<td><div>
 						<button class="btn btn-warning"> Phản hồi</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal"> Chi tiết>></button>
+						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="feedbackDetail(1)"> Chi tiết>></button>
 					</div></td>
 				</tr>
 				<tr>
@@ -40,6 +40,5 @@
 	</div>
 </div>
 </body>
-<script>
-</script>
+<script src="/public/admin/js/onload.js"></script>
 </html>

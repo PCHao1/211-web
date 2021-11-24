@@ -21,35 +21,69 @@
 
                 <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng kí</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" method="post">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg fa-fw mb-4 pb-2"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" onchange="(e)=>console.log(e.target.value)" />
-                      <label class="form-label" for="form3Example1c">Họ và tên</label>
+                      <input type="text" id="name" class="form-control"  name="reg[name]" placeHolder="Nhập họ và tên" required />
+                      <label class="form-label" for="name" >Họ và tên</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center " style="color:red;">
+                    <div class="col-md-auto ms-4 ps-1">
+                      <?php echo($this->nameError) ?>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center">
                     <i class="fas fa-envelope fa-lg fa-fw fa-fw mb-4 pb-2"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Email</label>
+                      <input type="email" id="email" class="form-control" name="reg[email]" placeHolder="Nhập email" required />
+                      <label class="form-label" for="email">Email</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4" style="color:red;">
                     <div class="col-md-auto ms-4 ps-1">
-                      <?php echo($this->pswError) ?>
+                      <?php echo($this->emailError) ?>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center">
+                    <i class="fas fa-user fa-lg fa-fw fa-fw mb-4 pb-2"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="username" class="form-control" name="reg[username]" placeHolder="Nhập tên đăng nhập" required />
+                      <label class="form-label" for="username">Tên đăng nhập</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4" style="color:red;">
+                    <div class="col-md-auto ms-4 ps-1">
+                      <?php echo($this->userNameError) ?>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center">
+                    <i class="fas fa-phone fa-lg fa-fw fa-fw mb-4 pb-2"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="phone" class="form-control" name="reg[phone]" placeHolder="Nhập số điện thoại" required  />
+                      <label class="form-label" for="phone">Số điện thoại</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4" style="color:red;">
+                    <div class="col-md-auto ms-4 ps-1">
+                      <?php echo($this->phoneError) ?>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center">
                     <i class="fas fa-lock fa-lg  fa-fw fa-fw mb-4 pb-2"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Mật khẩu</label>
+                      <input type="password" id="psw" class="form-control" name="reg[psw]" placeHolder="Nhập mật khẩu" required  />
+                      <label class="form-label" for="psw">Mật khẩu</label>
                     </div>
                   </div>
 
@@ -62,19 +96,19 @@
                   <div class="d-flex flex-row align-items-center">
                     <i class="fas fa-key fa-lg  fa-fw fa-fw mb-4 pb-2"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" for="form3Example4cd">Nhập lại mật khẩu</label>
+                      <input type="password" id="repeatPsw" class="form-control" name="reg[repeatPsw]" placeHolder="Nhập lại mật khẩu" required  />
+                      <label class="form-label" for="repeatPsw">Nhập lại mật khẩu</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4" style="color:red;">
                     <div class="col-md-auto ms-4 ps-1">
-                      <?php echo($this->pswError) ?>
+                      <?php echo($this->repeatPswError) ?>
                     </div> 
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">Đăng kí</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Đăng kí</button>
                   </div>
 
                 </form>
