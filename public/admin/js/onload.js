@@ -6,6 +6,7 @@ try{
 				changeModalHead('Thêm sản phẩm');
 				document.getElementById('addPicture')
 				.addEventListener('click',function(){addPicture(1);});
+				changeModalSubmit('addProduct');
 			});
 	}
 catch{}

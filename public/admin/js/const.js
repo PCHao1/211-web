@@ -1,5 +1,7 @@
 var menuNum=0;
-const addProductHTML=`<form class='mx-5'>
+const addProductHTML=`
+				<div class='text-danger' id='message'></div>
+				<form class='mx-5' enctype="multipart/form-data">
 			    <div class='mb-3 mt-3'>
 			      <label for='title'>Tên sản phẩm:</label>
 			      <input type='text' class='form-control' id='title' placeholder='Nhập tên' name='title'>
@@ -23,10 +25,13 @@ const addProductHTML=`<form class='mx-5'>
 				  <option value='2' selected>2</option>
 				</select>
 			    </div>
+			    <div class='mb-3 mt-3'>
+			      <label for='descr'>Mô tả:</label>
+			      <textarea class='form-control' rows="6" id='descr' name='descr'> </textarea>
+			    </div>
 			    <div id='file' class='mb-3 mt-3'>
 			      <label for='file'>Thêm hình ảnh</label>
-			      <input type='file' class='form-control' id='file-1' name='file-1' accept="image/png, image/jpeg">
-			      <input type='file' class='form-control' id='file-2' name='file-2' accept="image/png, image/jpeg">
+			      <input type='file' class='form-control' accept="image/png, image/jpeg">
 			      <div id="addPicture" class='btn btn-basic text-secondary'><b>+</b>Thêm ảnh</div>
 			    </div>
 			    <input type='reset' value='Nhập lại' class='btn btn-info float-end'>

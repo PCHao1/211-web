@@ -254,7 +254,7 @@ class Loader{
 				'action'	=> 'index'
 			]
 		);
-		$router->get('/admin/products',
+		$router->any('/admin/products',
 			[
 				'module'	=> 'admin',
 				'controller'=> 'products',

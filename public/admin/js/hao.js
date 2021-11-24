@@ -156,3 +156,49 @@ function userChange($username){
 	});
 	changeModalSubmit('');
 }
+function addProduct(){
+	var title, price, quantity,promotion, catalog,descr,files;
+	title=$('input[name="title"]').val();
+	price=$('input[name="price"]').val();
+	quantity=$('input[name="quan"]').val();
+	promotion=$('input[name="prom"]').val();
+	catalog=$('*[name="catalog"]').val();
+	descr=$('*[name="descr"]').val();
+	files= $('input[type="file"]');
+	var form_data = new FormData();
+	form_data.append("add", true);
+	form_data.append("title", title);
+	form_data.append("price", price);
+	form_data.append("quantity", quantity);
+	form_data.append("promotion", promotion);
+	form_data.append("catalog", catalog);
+	form_data.append("descr", descr);
+	var num=0;		
+	files.each(function(){
+		form_data.append("pic"+num, this.files[0]);
+		num++;
+		}
+		);
+	$.ajax({
+      type: "POST",
+      data: form_data,
+      url: "/admin/products",
+      contentType: false,
+      processData: false,
+      headers: { "X-CSRF-Token": $("meta[name='csrf-token']").attr("content") },
+      success: function (data) {
+        if(data==0){
+			$('#message').text('Có trường nhập rỗng');
+		}
+		else if(data==2){
+			$('#message').text('Thành công, reload sau 2 giây');
+			setTimeout(function(){
+					location.reload();
+				},2000);
+		}
+      },
+      error: function (data) {
+        console.log(data);
+      }
+    });
+}

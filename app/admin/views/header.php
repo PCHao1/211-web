@@ -76,7 +76,7 @@
 	    <div class="modal-content">
 	      <!-- Modal Header -->
 	      <div class="modal-header">
-	        <h4 id="modal-head" class="modal-title">Thêm sản phẩm</h4>
+	        <h4 id="modal-head" class="modal-title">Đợi một tí...</h4>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 	      </div>
 	      <!-- Modal body -->
@@ -86,7 +86,7 @@
 
 	      <!-- Modal footer -->
 	      <div id="modal-foot" class="modal-footer">
-	        <button id='submit' type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+	        <button id='submit' type="button" class="btn btn-success" >OK</button>
 	      </div>
 
 	    </div>
