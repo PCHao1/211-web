@@ -15,6 +15,7 @@ try{
 			function(){
 				changeModalBody(addUserHTML);
 				changeModalHead('Thêm Thành viên');
+				changeModalSubmit('userAdd');
 			});
 	}
 catch{}

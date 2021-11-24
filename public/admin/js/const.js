@@ -53,10 +53,10 @@ const addUserHTML=`<form class='mx-5'>
 			      <label for='pass'>Mật khẩu:</label>
 			      <input type='text'  class='form-control' id='pass' placeholder='Nhập mật khẩu' name='pass'>
 			    </div>
-			      	<input type="radio" class="form-check-input" id="radio1" name="type" value="0" checked>
-				      <label class="form-check-label" for="radio1">Người dùng</label>
-				      <input type="radio" class="form-check-input" id="radio2" name="type" value="1">
-				      <label class="form-check-label" for="radio2">Admin</label>
+			      	<input type="radio" class="form-check-input" id="radio1" name="type" value="0">
+				   	<label class="form-check-label" for="radio1">Người dùng</label>
+				    <input type="radio" class="form-check-input" id="radio2" name="type" value="1">
+				    <label class="form-check-label" for="radio2">Admin</label>
 			    </div>
 			  </form>`;
 

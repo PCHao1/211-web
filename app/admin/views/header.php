@@ -86,7 +86,7 @@
 
 	      <!-- Modal footer -->
 	      <div id="modal-foot" class="modal-footer">
-	        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+	        <button id='submit' type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
 	      </div>
 
 	    </div>
