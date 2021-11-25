@@ -47,7 +47,7 @@ class FeedbackModel extends Model{
 
 	public function getDetailFeedback($id){
 		$result = $this->selectOne([
-			"column"	=> "feedbackid,orderid ,productid ,star,comment,imgcode",
+			"column"	=> "feedbackid,orderid ,productid ,star,comment",
 			"condition"	=> "feedbackid=?",
 			"bind"		=> [
 				"i",

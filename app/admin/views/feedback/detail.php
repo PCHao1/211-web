@@ -34,7 +34,7 @@
 			<b>Hình ảnh: </b>
 		</div>
 		<div class="col-12">
-			<img class="img-fluid" src="../public/images/feedback/<?php echo $this->fb['imgcode'].'.png';?>" alt="">
+			<img class="img-fluid" src="../public/images/feedback/<?php echo $this->fb['feedbackid'].'.png';?>" alt="">
 		</div>
 	</div>
 </div>
