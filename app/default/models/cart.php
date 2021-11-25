@@ -1,23 +1,33 @@
 <?php
 require_once APP_PATH . '/app/config/model.php';
 
-class UserModel extends Model{
+class CartModel extends Model{
 	public function __construct(){
 		parent::__construct();
-		$this->setTable("user");
+		$this->setTable("product");
 	}
 
-	public function checkLogin($username, $password){
-		$result = $this->selectOne([
-			"column"	=> "username, phone_number, name, email, accounttype, status",
-			"condition"	=> "username = ? AND password = ?",
-			"bind"		=> [
-				"ss",
-				$username,
-				$password
-				// hash('sha256',$password)
-			]
-		]);
-		return $result;
+	public function setItem($data){
+		$this->view->items = $data;
+	}
+
+	function addItem($item){
+		array_push($this->view->items, $item);
+	}
+
+	
+
+	function removeItem($id){
+		$this->view->items = array_filter($this->view->items, function($item){
+			return $item->id !== $id;
+		});
+	}
+	public function totalPrice($items){
+		$total = 0;
+		foreach($items as &$item){
+			$total = $total + $item['price']*$item['quantity'];
+
+		}
+		return $total;
 	}
 }

@@ -20,10 +20,10 @@ class User extends Controller{
 			$phone = $_POST["reg"]["phone"];
 			$submitable = true;
 			//validate
-			if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-				$this->view->nameError = "Tên chỉ bao gồm kí tự và khoảng trắng";
-				$submitable = false;
-			}
+			// if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+			// 	$this->view->nameError = "Tên chỉ bao gồm kí tự và khoảng trắng";
+			// 	$submitable = false;
+			// }
 
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				$this->view->emailError = "Email không đúng định dạng";
