@@ -233,7 +233,7 @@ class Loader{
 		);
 
 
-		$router->get('/admin',
+		$router->any('/admin',
 			[
 				'module'	=> 'admin',
 				'controller'=> 'home',
@@ -261,7 +261,7 @@ class Loader{
 				'action'	=> 'index'
 			]
 		);
-		$router->get('/admin/posts',
+		$router->any('/admin/posts',
 			[
 				'module'	=> 'admin',
 				'controller'=> 'posts',
@@ -275,7 +275,7 @@ class Loader{
 				'action'	=> 'index'
 			]
 		);
-		$router->get('/admin/orders',
+		$router->any('/admin/orders',
 			[
 				'module'	=> 'admin',
 				'controller'=> 'orders',

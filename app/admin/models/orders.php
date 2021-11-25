@@ -4,7 +4,7 @@ require_once APP_PATH . '/app/config/model.php';
 class OrdersModel extends Model{
 	public function __construct(){
 		parent::__construct();
-		$this->setTable("order");
+		$this->setTable("`order`");
 	}
 	public function getAllOrders(){
 		$result = $this->selectMulti([
@@ -28,7 +28,7 @@ class OrdersModel extends Model{
 			}
 			$result[$key]['shipfee']+=$sum;
 		}
-		$this->setTable("order");
+		$this->setTable("`order`");
 		return $result;
 	}
 	public function updateOrderSts($id,$sts,$reason){
@@ -87,7 +87,7 @@ class OrdersModel extends Model{
 			$result[$key]['total']=$sum;
 			$result[$key]['products']=$raw_details;
 		}
-		$this->setTable("order");
+		$this->setTable("`order`");
 		return $result;
 	}
 }

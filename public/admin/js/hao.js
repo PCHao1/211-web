@@ -251,3 +251,21 @@ function productDelete($id){
 			}
 	});
 }
+function orderDeny($id){
+	$.post('/admin/orders',
+		{
+			deny:true,
+			id:$id
+		},function(data, status){
+			console.log(data);
+			if(data==1){
+				$('#message').text('Có lỗi xảy ra');
+			}
+			else if(data==2){
+				$('#message').text('Thành công, reload sau 2 giây');
+				setTimeout(function(){
+						location.reload();
+					},2000);
+			}
+	});
+}
