@@ -46,6 +46,7 @@ function orderDetail($number) {
 	});
 }
 function productDetail($number){
+	changeModalSubmit('productChange', $number);
 	$.get('/admin/products?detail=true&id='+$number,function(data, status){
 		changeModalHead('Sản phẩm mã '+$number);
 		changeModalBody(data);
@@ -154,7 +155,6 @@ function userChange($username){
 					},2000);
 			}
 	});
-	changeModalSubmit('');
 }
 function addProduct(){
 	var title, price, quantity,promotion, catalog,descr,files;
@@ -201,4 +201,54 @@ function addProduct(){
         console.log(data);
       }
     });
+}
+function productChange($id){
+	var title, price, quantity, promotion, descri;
+	title=$('input[name="title"]').val();
+	price=$('input[name="price"]').val();
+	quantity=$('input[name="quantity"]').val();
+	promotion=$('input[name="promotion"]').val();
+	descri=$('*[name="descri"]').val();
+	$.post('/admin/products',
+		{
+			change:true,
+			id:$id,
+			title:title, 
+			price:price, 
+			quantity:quantity, 
+			promotion:promotion,
+			descri:descri
+		},function(data, status){
+			console.log(data);
+			if(data==0){
+				$('#message').text('Có trường nhập rỗng');
+			}
+			else if(data==1){
+				$('#message').text('Có lỗi xảy ra');
+			}
+			else if(data==2){
+				$('#message').text('Thành công, reload sau 2 giây');
+				setTimeout(function(){
+						location.reload();
+					},2000);
+			}
+	});
+}
+function productDelete($id){
+	$.post('/admin/products',
+		{
+			delete:true,
+			id:$id
+		},function(data, status){
+			console.log(data);
+			if(data==1){
+				$('#message').text('Có lỗi xảy ra');
+			}
+			else if(data==2){
+				$('#message').text('Thành công, reload sau 2 giây');
+				setTimeout(function(){
+						location.reload();
+					},2000);
+			}
+	});
 }

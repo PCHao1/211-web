@@ -1,5 +1,6 @@
 var menuNum=0;
-const addProductHTML=`
+var addProductHTML;
+const addProductHTML1=`
 				<div class='text-danger' id='message'></div>
 				<form class='mx-5' enctype="multipart/form-data">
 			    <div class='mb-3 mt-3'>
@@ -17,17 +18,17 @@ const addProductHTML=`
 			    <div class='mb-3 mt-3'>
 			      <label for='prom'>Giảm giá(%):</label>
 			      <input type='number' min='0' max='100' class='form-control' id='prom' placeholder='Nhập %' name='prom'>
-			    </div>
+			    </div>`;
+
+var addProductHTML2=`
 			    <div class='mb-3 mt-3'>
 			      <label for='catalog'>Loại sản phẩm:</label>
 			      <select id='catalog'  name='catalog' class='form-select'>
-				  <option value='1'>1</option>
-				  <option value='2' selected>2</option>
-				</select>
-			    </div>
+			    `;
+const addProductHTML3=`
 			    <div class='mb-3 mt-3'>
 			      <label for='descr'>Mô tả:</label>
-			      <textarea class='form-control' rows="6" id='descr' name='descr'> </textarea>
+			      <textarea class='form-control' rows="6" id='descr' name='descr'></textarea>
 			    </div>
 			    <div id='file' class='mb-3 mt-3'>
 			      <label for='file'>Thêm hình ảnh</label>
@@ -36,7 +37,6 @@ const addProductHTML=`
 			    </div>
 			    <input type='reset' value='Nhập lại' class='btn btn-info float-end'>
 			  </form>`;
-
 const addUserHTML=`<form class='mx-5'>
 			    <div class='mb-3 mt-3'>
 			      <label for='username'>Username:</label>

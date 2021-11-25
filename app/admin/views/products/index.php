@@ -35,7 +35,7 @@
 						<td><?php echo $product['promotion']; ?></td>
 						<td><?php echo $product['quantity']; ?></td>
 						<td><div>
-							<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="productDetail(1)"> Chi tiết>></button>
+							<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="productDetail(<?php echo $product['productid']; ?>)"> Chi tiết>></button>
 						</div></td>
 					</tr>
 					<?php } ?>
@@ -46,5 +46,15 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	<?php
+		foreach ($this->lstCatalogs as $row) {
+		$catalog=$row["catalogname"];
+		echo "addProductHTML2+=`<option value='".$catalog."'>".$catalog."</option>`;\n";
+		}
+		echo "addProductHTML2+=`</select></div>`;";
+	 ?>
+	 addProductHTML=addProductHTML1+addProductHTML2+addProductHTML3;
+</script>
 <script src="/public/admin/js/onload.js"></script>
 </html>
