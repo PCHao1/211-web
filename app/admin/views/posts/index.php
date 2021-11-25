@@ -6,6 +6,9 @@
 			<button id="addPost" class="btn btn-success"data-bs-toggle="modal" data-bs-target="#myModal">
 				<b>+</b> Thêm bài viết
 			</button>
+			<div class="row">
+				
+			</div>
 			<table class="table table-hover">
 				<tr>
 					<th style="width: 5%">ID</th>

@@ -37,7 +37,9 @@ const addProductHTML3=`
 			    </div>
 			    <input type='reset' value='Nhập lại' class='btn btn-info float-end'>
 			  </form>`;
-const addUserHTML=`<form class='mx-5'>
+const addUserHTML=`
+				<div class='text-danger' id='message'></div>
+				<form class='mx-5'>
 			    <div class='mb-3 mt-3'>
 			      <label for='username'>Username:</label>
 			      <input type='text' class='form-control' id='username' placeholder='Nhập tên tài khoản' required name='username'>

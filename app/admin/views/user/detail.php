@@ -1,5 +1,6 @@
 <div class="mx-5">
 	<div class="row product-list">
+		<b id='message' class="text-danger"></b>
 		<div class="col-5">
 			<b>Username: </b>
 		</div>

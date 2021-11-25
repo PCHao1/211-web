@@ -102,7 +102,6 @@ function userAdd(){
 					},2000);
 			}
 	});
-	changeModalSubmit('');
 }
 function userBan($ele,$username){
 	userStatusEle=$('*[name="sts-'+$username+'"]');
