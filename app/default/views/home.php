@@ -1,7 +1,11 @@
 <?php
-    include "./component/header.php";
+    include "app/default/views/component/header.php";
 ?>
-Hompage
+Homepage
 <?php
-    include "./component/footer.php";
+    include "app/default/views/component/slider.php";
+?>
+
+<?php
+    include "app/default/views/component/footer.php";
 ?>

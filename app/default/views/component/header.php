@@ -5,49 +5,33 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    
-    <title>Title1</title>
+    <title><?php  echo $this->title; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./public/default/css/style.css">
 </head>
 <body>
-    <!-- <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">LOGO + TÊN TRANG</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-bar">
-                    <span class="glyphicon glyphicon-list">List</span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navigation-bar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Trang chủ</a></li>
-                    <li ><a href="#">Giới thiệu</a></li>
-                    <li ><a href="#">Sản phẩm</a></li>
-                    <li ><a href="#">Tin tức</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">LOGO + TÊN TRANG</a>
+                <a class="navbar-brand" href="#">
+                    <img src="./public/images/logo.png"style="width:40px;" alt="LOGO">
+                </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="navbar-item active"><a class="nav-link" href="#">Trang chủ</a></li>
-                    <li class="nav-item" ><a class="nav-link" href="#">Giới thiệu</a></li>
-                    <li class="nav-item" ><a class="nav-link" href="#">Sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Tin tức</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/intro">Giới thiệu</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/products">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news">Tin tức</a></li>
                 </ul>
             </div>
         </div>
