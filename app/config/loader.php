@@ -218,7 +218,7 @@ class Loader{
 			[
 				'module'	=> 'default',
 				'controller'=> 'feedback',
-				'action'	=> 'index'
+				'action'	=> 'feedback'
 			]
 		);
 
