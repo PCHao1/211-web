@@ -11,6 +11,7 @@
         body {background-color: white;}
 
     </style>
+    <script src="./public/default/js/jquery-3.6.0.js"></script>
 </head>
 <body style="backgroundcolor:white;">
 <div class="card">
@@ -67,7 +68,14 @@
     </div>
 </div>
 <script>
-    
+    function removeItem($id){
+        $.post('/default/cart',
+        {
+            id: $id,
+        },function(data){
+            console.log(data)
+        })
+    }
 </script>
 </body>
 </html>
