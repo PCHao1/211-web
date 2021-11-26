@@ -32,7 +32,7 @@ class Products extends Controller{
 			$num=0;
 			while(isset($_FILES['pic'.$num])){
 				$_FILES['pic'.$num];
-				if ($_FILES["anh"]["size"] > 2000000)
+				if ($_FILES["anh"]["size"] > 20000000)
 			      {
 			        $num++;
 			        continue;

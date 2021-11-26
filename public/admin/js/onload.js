@@ -7,6 +7,7 @@ try{
 				document.getElementById('addPicture')
 				.addEventListener('click',function(){addPicture(1);});
 				changeModalSubmit('addProduct');
+				editorChange('descr');
 			});
 	}
 catch{}
@@ -26,6 +27,8 @@ try{
 			function(){
 				changeModalBody(addPostHTML);
 				changeModalHead('Thêm bài viết');
+				changeModalSubmit('postAdd');
+				editorChange('postContent');
 			});
 	}
 catch{}

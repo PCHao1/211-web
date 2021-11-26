@@ -60,7 +60,7 @@ class OrdersModel extends Model{
 		return $result;
 	}
 	public function getDetailOrder($id){
-		$result = $this->selectMulti([
+		$result = $this->selectOne([
 			"column"	=> "orderid ,username ,status,address,shipfee,reason",
 			"condition"	=> "orderid=?",
 			"bind"		=> [
@@ -70,23 +70,31 @@ class OrdersModel extends Model{
 		]);
 		//Get price
 		$this->setTable("orderdetail");
-		foreach ($result as $key=>$row) {
-			$order=$row['orderid'];
-	    	$raw_details = $this->selectMulti([
-				"column"	=> "price, quantity",
-				"condition"	=> "orderid = ?",
+		$order=$result['orderid'];
+    	$raw_details = $this->selectMulti([
+			"column"	=> "productid,price, quantity",
+			"condition"	=> "orderid = ?",
+			"bind"		=> [
+				"i",
+				$order,
+			]
+		]);
+		$sum=0;
+		$this->setTable("product");
+		foreach($raw_details as $key => $row){
+	    	$productname = $this->selectOne([
+				"column"	=> "title",
+				"condition"	=> "productid = ?",
 				"bind"		=> [
 					"i",
-					$order,
+					$row['productid'],
 				]
 			]);
-			$sum=0;
-			foreach($raw_details as $row){
-				$sum+=$row["price"]*$row["quantity"];
-			}
-			$result[$key]['total']=$sum;
-			$result[$key]['products']=$raw_details;
+			$raw_details[$key]['title']=$productname["title"];
+			$sum+=$row["price"]*$row["quantity"];
 		}
+		$result['total']=$sum;
+		$result['products']=$raw_details;
 		$this->setTable("`order`");
 		return $result;
 	}

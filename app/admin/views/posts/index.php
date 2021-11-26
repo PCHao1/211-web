@@ -13,41 +13,48 @@
 				<tr>
 					<th style="width: 5%">ID</th>
 					<th style="width: 25%">Tiêu đề</th>
-					<th style="width: 10%">Ngày đăng</th>
+					<th style="width: 20%">Ngày đăng</th>
 					<th style="width: 8%">Độ ưu tiên</th>
 					<th style="width: 12%">Trạng thái</th>
-					<th style="width: 10%">Người tạo bài</th>
 					<th>Action</th>
 				</tr>
+				<!-- Show list posts -->
+				<?php foreach ($this->lstPosts as $key => $post){?>
 				<tr>
-					<td>1</td>
-					<td>Nên sài kem chống nắng thế nào cho hiệu quả?</td>
-					<td>31/11/2021</td>
-					<td>1</td>
-					<td>Đang hiển thị</td>
-					<td>Hào</td>
+					<td><?php echo $post['postid']; ?></td>
+					<td><?php echo $post['title']; ?></td>
+					<td><?php echo $post['datecreated']; ?></td>
+					<td><?php echo $post['priority']; ?></td>
+					<td id="sts-<?php echo $post['postid']; ?>">
+						<?php 
+						if($post['status']==0){
+							echo "Đang hiển thị";
+						}
+						else{
+							echo '<span class="text-danger">Dừng hiển thị</span>';
+						}
+						 ?>
+					</td>
 					<td><div>
-						<button class="btn btn-warning"> Phản hồi</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="postDetail(1)"> Chi tiết>></button>
+						<?php 
+						if($post['status']==0){
+							echo "<button class='btn btn-danger' onclick=\"postChangeSts(this,".$post['postid'].")\">Dừng</button>";
+						}
+						else{
+							echo "<button class='btn btn-success' onclick=\"postChangeSts(this,".$post['postid'].")\">Hiển thị</button>";
+						}
+						 ?>
+						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="postDetail(<?php echo $post['postid']; ?>)"> Chi tiết>></button>
 					</div></td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>Kem Chống nắng hiệu ba con sâu</td>
-					<td>31/11/2021</td>
-					<td>100</td>
-					<td class="text-danger">Dừng hiển thị</td>
-					<td>Hào</td>
-					<td><div>
-						<button class="btn btn-warning"> Phản hồi</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal"> Chi tiết>></button>
-					</div></td>
-				</tr>
+				<?php } ?>
+				<!-- End list posts -->
 			</table>
 		<!-- End content -->
 		</div>
 	</div>
 </div>
 </body>
+<script src="/public/admin/js/ckeditor5-build-classic/ckeditor.js"></script>
 <script src="/public/admin/js/onload.js"></script>
 </html>

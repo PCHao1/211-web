@@ -44,13 +44,13 @@
 							else if($order["status"]==2)
 								$sts=  'Xác nhận đến kho';
 							else if($order["status"]==3)
-								$sts=  'Đã giao hàng';
+								$sts=  'Đã giao';
 							else if($order["status"]==4)
 								$sts= 0;
 							else $sts= 0;
 							if($sts!=0){
-								echo '<button class="btn btn-warning mx-2">'.$sts.'</button>';
-								echo '<button class="btn btn-danger" onclick="orderDeny('.$order["orderid"].')"> Hủy</button>';
+								echo '<button id="change'.$order["orderid"].'"" class="btn btn-warning mx-2" onclick="orderChangeSts(this,'.$order["orderid"].','.($order["status"]+1).')">'.$sts.'</button>';
+								echo '<button class="btn btn-danger" onclick="orderDeny(this,'.$order["orderid"].')"> Hủy</button>';
 							}
 						?>
 						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="orderDetail(<?php echo $order["orderid"]; ?>)"> Chi tiết>></button>

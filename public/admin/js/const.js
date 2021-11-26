@@ -32,7 +32,7 @@ const addProductHTML3=`
 			    </div>
 			    <div id='file' class='mb-3 mt-3'>
 			      <label for='file'>Thêm hình ảnh</label>
-			      <input type='file' class='form-control' accept="image/png, image/jpeg">
+			      <input name="picture" type='file' class='form-control' accept="image/png, image/jpeg">
 			      <div id="addPicture" class='btn btn-basic text-secondary'><b>+</b>Thêm ảnh</div>
 			    </div>
 			    <input type='reset' value='Nhập lại' class='btn btn-info float-end'>
@@ -68,6 +68,7 @@ const addUserHTML=`
 			  </form>`;
 
 const addPostHTML=`<form class='mx-5'>
+				<div class='text-danger' id='message'></div>
 			    <div class='mb-3 mt-3'>
 			      <label for='title'>Tiêu đề:</label>
 			      <input type='text' class='form-control' id='title' placeholder='Tiêu đề' required name='title'>
@@ -78,6 +79,6 @@ const addPostHTML=`<form class='mx-5'>
 			    </div>
 			    <div class='mb-3 mt-3'>
 			      <label for='content'>Nội dung:</label>
-			      <textarea class='form-control' rows="10" id='content' name='content'> </textarea>
+			      <textarea id='postContent' class='form-control' rows="10" id='content' name='content'> </textarea>
 			    </div>
 			  </form>`;
