@@ -9,16 +9,30 @@ class FeedbackModel extends Model{
 
 
 
+	public function checkorderid(){
+		$this->setTable("order");
+		$result = $this->selectOne([
+			"column"	=> "username, phone_number, name, email, accounttype, status",
+			"condition"	=> "username = ?",
+			"bind"		=> [
+				"s",
+				$username,
+			
+				// hash('sha256',$password)
+			]
+		]);
+		return $result;
+	}
+
 	public function insertFeedback($rate, $comment){
 		$rs = $this->insert([
-			"data"	=> "orderid,productid,star, comment,imgcode",
+			"data"	=> "orderid,productid,star, comment",
 			"bind"		=> [
-				"iiisi",
+				"iiis",
 				1,
 				33,
-				4,
-				"hh",
-				28256
+				$rate,
+				$comment
 			]
 		]);
 		
