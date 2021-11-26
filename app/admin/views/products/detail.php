@@ -40,8 +40,8 @@
 		<div class="col-5">
 			<b>Mô tả: </b>
 		</div>
-		<div class="col-7">
-			<textarea name='descri' class='form-control border-0 p-0 m-0' rows='6'><?php echo $this->product['descri'];?></textarea>
+		<div class="col-12">
+			<textarea id="descri" name='descri' class='form-control border-0 p-0 m-0' rows='6'><?php echo $this->product['descri'];?></textarea>
 		</div>
 		<button class="btn btn-danger" onclick="productDelete(<?php echo $this->product['productid']; ?>)">Xóa sản phẩm</button>
 		<b>Hình ảnh</b>

@@ -33,6 +33,7 @@ function addPicture($number){
 	const node = document.createElement('input');
 	node.setAttribute('type','file');
 	node.setAttribute('class','form-control');
+	node.setAttribute('name','picture');
 	node.setAttribute('accept','image/png, image/jpeg');
 	var elem= document.getElementById('file');
 	var chil= document.getElementById('addPicture');
@@ -50,6 +51,7 @@ function productDetail($number){
 	$.get('/admin/products?detail=true&id='+$number,function(data, status){
 		changeModalHead('Sản phẩm mã '+$number);
 		changeModalBody(data);
+		editorChange('descri');
 	});
 }
 function userDetail($username){
@@ -66,9 +68,11 @@ function feedbackDetail($number){
 	});
 }
 function postDetail($number){
+	changeModalSubmit('postChange', $number);
 	$.get('/admin/posts?detail=true&id='+$number,function(data, status){
 		changeModalHead('Bài viết '+$number);
 		changeModalBody(data);
+		editorChange('postContent');
 	});
 }
 function userAdd(){
@@ -102,7 +106,6 @@ function userAdd(){
 					},2000);
 			}
 	});
-	changeModalSubmit('');
 }
 function userBan($ele,$username){
 	userStatusEle=$('*[name="sts-'+$username+'"]');
@@ -163,8 +166,8 @@ function addProduct(){
 	quantity=$('input[name="quan"]').val();
 	promotion=$('input[name="prom"]').val();
 	catalog=$('*[name="catalog"]').val();
-	descr=$('*[name="descr"]').val();
-	files= $('input[type="file"]');
+	descr=$('.ck-content').html();;
+	files= $('input[name="picture"]');
 	var form_data = new FormData();
 	form_data.append("add", true);
 	form_data.append("title", title);
@@ -208,7 +211,7 @@ function productChange($id){
 	price=$('input[name="price"]').val();
 	quantity=$('input[name="quantity"]').val();
 	promotion=$('input[name="promotion"]').val();
-	descri=$('*[name="descri"]').val();
+	descri=$('.ck-content').html();;
 	$.post('/admin/products',
 		{
 			change:true,
@@ -249,6 +252,158 @@ function productDelete($id){
 				setTimeout(function(){
 						location.reload();
 					},2000);
+			}
+	});
+}
+function orderDeny($button,$id){
+	status=$('#sts-'+$id).text();
+	$.post('/admin/orders',
+		{
+			deny:true,
+			id:$id,
+			status:status
+		},function(data, status){
+			console.log(data);
+			if(data==1){
+				$('#message').text('Có lỗi xảy ra');
+			}
+			else if(data==2){
+				$button.remove();
+				document.getElementById('change'+$id).remove();
+				status=$('#sts-'+$id).html('<span class="text-danger">Đã hủy</span>');
+				$('#message').text('Thành công, reload sau 2 giây');
+				setTimeout(function(){
+						location.reload();
+					},2000);
+			}
+	});
+}
+function orderChangeSts($button,$id,$sts){
+	status=$('#sts-'+$id).text();
+	$.post('/admin/orders',
+		{
+			changeSts:true,
+			id:$id,
+			status:$sts
+		},function(data, status){
+			console.log(data);
+			if(data==1){
+				$('#message').text('Có lỗi xảy ra');
+			}
+			else if(data==2){
+				if($sts==1){
+					$button.innerHTML='Vận chuyển';
+					$button.setAttribute('onclick','orderChangeSts(this,'+$id+','+($sts+1)+')');
+					status=$('#sts-'+$id).text('Đang đóng gói');
+				}	
+				else if($sts==2){
+					$button.innerHTML='Xác nhận đến kho';
+					$button.setAttribute('onclick','orderChangeSts(this,'+$id+','+($sts+1)+')');
+					status=$('#sts-'+$id).text('Đang vận chuyển');
+				}	
+				else if($sts==3){
+					$button.innerHTML='Đã giao';
+					$button.setAttribute('onclick','orderChangeSts(this,'+$id+','+($sts+1)+')');
+					status=$('#sts-'+$id).text('Đang giao hàng');
+				}	
+				else if($sts==4){
+					$button.remove();
+					status=$('#sts-'+$id).html('<span class="text-success">Đã giao hàng</span>');
+				}	
+			}
+	});
+}
+function editorChange($id){
+	ClassicEditor
+		.create( document.querySelector( '#'+$id+'' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+}
+function postAdd(){
+	var title, priority, content;
+	title=$('#title').val();
+	priority=$('#priority').val();
+	content=$('.ck-content').html();
+	$.post('/admin/posts',
+		{
+			add:true,
+			title:title,
+			priority:priority, 
+			content:content
+		},function(data, status){
+			if(data==0){
+				$('#message').text('Có trường nhập rỗng');
+			}
+			else if(data==1){
+				$('#message').text('Username đã có');
+			}
+			else if(data==2){
+				$('#message').text('Thành công, reload sau 2 giây');
+				setTimeout(function(){
+						location.reload();
+					},2000);
+			}
+	});
+}
+function postChange($id){
+	var title, priority, content;
+	title=$('#title').val();
+	priority=$('#priority').val();
+	content=$('.ck-content').html();
+	$.post('/admin/posts',
+		{
+			change:true,
+			id:$id,
+			title:title,
+			priority:priority, 
+			content:content
+		},function(data, status){
+			if(data==0){
+				$('#message').text('Có trường nhập rỗng');
+			}
+			else if(data==1){
+				$('#message').text('Username đã có');
+			}
+			else if(data==2){
+				$('#message').text('Thành công, reload sau 2 giây');
+				setTimeout(function(){
+						location.reload();
+					},2000);
+			}
+	});
+}
+function postChangeSts($button,$id){
+	var sts, status;
+	sts=$('#sts-'+$id).text();
+	if(sts.match("Đang hiển thị")) status=1;
+	else status=0;
+	$.post('/admin/posts',
+		{
+			changeSts:true,
+			id:$id,
+			status:status
+		},function(data, stat){
+			if(data==1){
+				$('#message').text('Có lỗi xảy ra');
+			}
+			else if(data==2){
+				$button.classList.toggle('btn-danger');
+				$button.classList.toggle('btn-success');
+				if(status==0){
+					console.log('hao');
+					$button.innerHTML='Dừng';
+					status=$('#sts-'+$id).html('Đang hiển thị');
+				}	
+				else if(status==1){
+					$button.innerHTML='Hiển thị';
+					status=$('#sts-'+$id).html('<span class="text-danger">Dừng hiển thị</span>');
+				}		
 			}
 	});
 }

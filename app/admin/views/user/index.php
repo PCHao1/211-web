@@ -7,7 +7,6 @@
 				<b>+</b> Thêm thành viên
 			</button>
 			<br>
-			<b id='message' class="text-danger"></b>
 			<table class="table table-hover mb-5">
 				<tr>
 					<th style="width: 5%">STT</th>

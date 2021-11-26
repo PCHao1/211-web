@@ -7,7 +7,7 @@
 				<b>+</b> Thêm sản phẩm
 			</button>
 			<br>
-				<table class="table table-hover">
+				<table class="table table-hover mb-5">
 					<tr>
 						<th style="width: 5%">ID</th>
 						<th style="width: 30%">Tên sản phẩm</th>
@@ -41,6 +41,7 @@
 					<?php } ?>
 					<!-- End show list user -->
 				</table>
+				<br>
 			<!-- End content -->
 		</div>
 	</div>
@@ -56,5 +57,6 @@
 	 ?>
 	 addProductHTML=addProductHTML1+addProductHTML2+addProductHTML3;
 </script>
+<script src="/public/admin/js/ckeditor5-build-classic/ckeditor.js"></script>
 <script src="/public/admin/js/onload.js"></script>
 </html>

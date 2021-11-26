@@ -10,7 +10,7 @@ class Model{
 			"password"	=> "",
 			"dbname"	=> "211_web",
 		    "port"		=> 3306
-            // "port"		=> 8111
+            
 		];
 
 		$this->connection = new mysqli(
@@ -57,9 +57,11 @@ class Model{
 			foreach ($input['bind'] as $key => $value) {
 				$refValues[] = &$input['bind'][$key];				
 			}
-			
+
 			$stmt = $this->connection->prepare($sql);
+
 			call_user_func_array([$stmt, 'bind_param'], $refValues);
+		
 			$result = $stmt->execute();
 		}else{
 			$result = $this->connection->query($sql);
@@ -256,16 +258,34 @@ class Model{
 			value3
 		]
 	*/
+	// public function queryPrepare($sql, $bind){
+	// 	$refValues = [];
+	// 	foreach ($bind as $key => $value) {
+	// 		$refValues[] = &$bind[$key];				
+	// 	}
+		
+	// 	$stmt = $this->connection->prepare($sql);
+	// 	call_user_func_array([$stmt, 'bind_param'], $refValues);
+	// 	$stmt->execute();
+	// 	$result = $stmt->get_result();
+	// 	return $result;
+	// }
+
 	public function queryPrepare($sql, $bind){
 		$refValues = [];
 		foreach ($bind as $key => $value) {
 			$refValues[] = &$bind[$key];				
 		}
-		
 		$stmt = $this->connection->prepare($sql);
 		call_user_func_array([$stmt, 'bind_param'], $refValues);
 		$stmt->execute();
 		$result = $stmt->get_result();
-		return $result;
+		$lstData = [];
+		if($result->num_rows > 0){
+			while ($row = $result->fetch_assoc()) {
+				$lstData[] = $row;
+			}
+		}
+		return $lstData;
 	}
 }

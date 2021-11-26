@@ -1,7 +1,7 @@
 <?php
 require_once APP_PATH . '/app/config/model.php';
 
-class UserModel extends Model{
+class IntroModel extends Model{
 	public function __construct(){
 		parent::__construct();
 		$this->setTable("user");

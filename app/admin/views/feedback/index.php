@@ -10,30 +10,25 @@
 					<th style="width: 10%">ID sản phẩm</th>
 					<th style="width: 10%">Username</th>
 					<th style="width: 30%">Nội dung</th>
+					<th style="width: 7%">Star</th>
 					<th>Action</th>
 				</tr>
+				<!-- List feedback -->
+				<?php foreach ($this->lstfb as $feedback){ ?>
+					
 				<tr>
-					<td>1</td>
-					<td>Kem Chống nắng hiệu ba con sâu</td>
-					<td>2</td>
-					<td>hao</td>
-					<td>Sản phẩm như cái củ chuối</td>
+					<td><?php echo $feedback['feedbackid']; ?></td>
+					<td><?php echo $feedback['productname']; ?></td>
+					<td><?php echo $feedback['productid']; ?></td>
+					<td><?php echo $feedback['username']; ?></td>
+					<td><?php echo $feedback['comment']; ?></td>
+					<td><?php echo $feedback['star']; ?></td>
 					<td><div>
-						<button class="btn btn-warning"> Phản hồi</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="feedbackDetail(1)"> Chi tiết>></button>
+						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="feedbackDetail(<?php echo $feedback['feedbackid']; ?>)"> Chi tiết>></button>
 					</div></td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>Kem Chống nắng hiệu ba con sâu</td>
-					<td>2</td>
-					<td>hao</td>
-					<td>Sài rất ngon, chủ shop nên tăng giá lên</td>
-					<td><div>
-						<button class="btn btn-warning"> Phản hồi</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal"> Chi tiết>></button>
-					</div></td>
-				</tr>
+				<?php } ?>
+				<!-- End List feedback -->
 			</table>
 		<!-- End content -->
 		</div>
