@@ -14,13 +14,13 @@
 			<?php 
 				if($this->order["status"]==0)
 					echo 'Chưa xác nhận';
-				else if($order["status"]==1)
+				else if($this->order["status"]==1)
 					echo 'Đang đóng gói';
-				else if($order["status"]==2)
+				else if($this->order["status"]==2)
 					echo 'Đang vận chuyển';
-				else if($order["status"]==3)
+				else if($this->order["status"]==3)
 					echo 'Đang giao hàng';
-				else if($order["status"]==4)
+				else if($this->order["status"]==4)
 					echo '<span class="text-success">Đã giao hàng</span>';
 				else echo '<span class="text-danger">Đã hủy</span>'
 			?>
