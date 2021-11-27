@@ -1,42 +1,38 @@
-<?php
-    include "app/default/views/component/header.php";
-?>
-
 <section class="container my-5 pt-5">
     <div class="row mt-5">
         <div class="col-lg-5 col-md-12 col-12">
-            <img class="img-fluid w-100 pb-1" src="https://cocoshop.vn/uploads/news/2020_05/nen-dung-my-pham-han-quoc-hang-nao_1.jpg">
-
-            <div class="product-detail__small-img-group">
-                <div class="product-detail__small-img-col">
-                    <img src="https://vcdn-giaitri.vnecdn.net/2020/03/30/125-1585368250-1585394293-2645-1585541075.png" width="100%" alt="">
-                </div>
-                <div class="product-detail__small-img-col">
-                    <img src="https://vcdn-giaitri.vnecdn.net/2020/03/30/125-1585368250-1585394293-2645-1585541075.png" width="100%" alt="">
-                </div>
-                <div class="product-detail__small-img-col">
-                    <img src="https://vcdn-giaitri.vnecdn.net/2020/03/30/125-1585368250-1585394293-2645-1585541075.png" width="100%" alt="">
-                </div>
-                <div class="product-detail__small-img-col">
-                    <img src="https://vcdn-giaitri.vnecdn.net/2020/03/30/125-1585368250-1585394293-2645-1585541075.png" width="100%" alt="">
-                </div>
+            <img class="img-fluid w-100 pb-1" id="main-img" src="./public/images/products/<?php echo $this->product['picture'][0] ?>">
+            
+            
+            <div class="d-flex flex-row">
+                <?php
+                    foreach ($this->product['picture'] as $pic) {
+                ?>
+                    <div class="mr-1 pe-auto">
+                        <img class="small-img" src="./public/images/products/<?php echo $pic ?>" width="100%" height="100px" alt="">
+                    </div>
+                <?php } ?>
             </div>
         </div>
 
         <div class="col-lg-6 col-md-12 col-12">
-            <h3>Tên sản phẩm</h3>
-            <h4>10.000.000</h4>
+            <h5><?php echo $this->product['title'] ;?></h5>
+            <?php if($this->product['promotion'] == 0){
+                echo '<h4 class="text-danger">'.$this->product['price']." đ" ."</h4>";
+            }else{
+                $price_of_promotion = $this->product['price'] - round($this->product['promotion'] / 100 * $this->product['price'], -3) ;
+                echo '<h4 class="text-danger">'.
+                '<s class="text-secondary pr-3">'.'<small>'.$this->product['price']." đ".'</small>'.'</s>'
+                .$price_of_promotion." đ" ."</h4>";
+            } 
+            ?>
             <form class="form-inline" action="" method="POST">
                 <div class="form-group">
                     <input class="form-control w-25 mr-5" type="number" value="1">
                     <button class="btn btn-primary ">Thêm vào giỏ hàng</button>
                 </div>
             </form>
-
-            <!-- <button type="button" class="btn btn-primary">Thêm vào giỏ hàng</button> -->
-
-
-            <p class="mt-5">Mô tả</p>
+            <p class="mt-5"><?php echo $this->product['descri'] ;?></p>
         </div>
     </div>
     <h4>Đánh giá</h4>
@@ -55,8 +51,5 @@
             $("#main-img").attr("src",$(this).attr('src'));
         });
     });
-</script>
 
-<?php
-    include "app/default/views/component/footer.php";
-?>
+</script>

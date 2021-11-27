@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="./public/default/css/style.css">
 </head>
 <body>
-
+    <!-- header -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -28,9 +28,9 @@
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>
-                    <li class="nav-item" ><a class="nav-link" href="/intro">Giới thiệu</a></li>
-                    <li class="nav-item" ><a class="nav-link" href="/products">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/intro">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/products">Sản phẩm</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">Tin tức</a></li>
                 </ul>
             </div>
