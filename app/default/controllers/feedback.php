@@ -12,6 +12,24 @@ class Feedback extends Controller{
 			$rate4 = $_POST["rate"]["s4"]?? 9;
 			$rate5 = $_POST["rate"]["s5"]?? 9;
 			$comment = $_POST["feedcmt"];
+			// foreach ($_FILES["proImg"]["tmp_name"] as $file) {
+			// 	$saveFilePath = APP_PATH . "/public/images/feedback/" . "idfeedback" . "_" . ".jpg";
+
+			// 	move_uploaded_file($file, $saveFilePath);
+			// }
+
+			$file = $_FILES['myFile']['tmp_name'];
+			echo $file;
+            $path = APP_PATH . "/public/images/feedback/"."idfeedback" . "_" . ".jpg";
+			
+			echo $path;
+            if(move_uploaded_file($file, $path)){
+                echo "Tải tập tin thành công";
+				
+            }else{
+                echo "Tải tập tin thất bại";
+				
+            }
 			if($rate1!=9)
 			{
 				$rate = $rate1;
@@ -47,6 +65,10 @@ class Feedback extends Controller{
 					header("Location:" . "/");
 	
 				}
+			}
+			if(isset($hinhanh))
+			{
+
 			}
 		}
 		$this->view->render("feedback/feedback", false);
