@@ -21,22 +21,37 @@ class ProductModel extends Model{
 	// 	return $result;
 	// }
 
-    public function getAllProducts($sortBy){
-        if($sortBy == 0){
-            $result = $this->selectMulti([
-                "column"	=> "productid,title,price,quantity,promotion"
-            ]);
-            return $result;
-        }elseif($sortBy == 1){
+    public function getAllProducts($sortSelector,$catalog){
+        if($sortSelector == 0){
             $result = $this->selectMulti([
                 "column"	=> "productid,title,price,quantity,promotion",
+                "condition"	=> "catalog=?",
+                "bind"		=> [
+                    "s",
+                    $catalog
+                ]
+            ]);
+            return $result;
+        }elseif($sortSelector == 1){
+            $result = $this->selectMulti([
+                "column"	=> "productid,title,price,quantity,promotion",
+                "condition"	=> "catalog=?",
                 "order"		=> "price",
+                "bind"		=> [
+                    "s",
+                    $catalog
+                ]
             ]);
             return $result;
-        }elseif($sortBy == 2){
+        }elseif($sortSelector == 2){
             $result = $this->selectMulti([
                 "column"	=> "productid,title,price,quantity,promotion",
+                "condition"	=> "catalog=?",
                 "order"		=> "price desc",
+                "bind"		=> [
+                    "s",
+                    $catalog
+                ]
             ]);
             return $result;
         }
