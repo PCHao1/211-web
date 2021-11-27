@@ -4,7 +4,7 @@ require_once APP_PATH . '/app/config/model.php';
 class UserModel extends Model{
 	public function __construct(){
 		parent::__construct();
-		$this->setTable("user");
+		$this->setTable("`user`");
 	}
 
 	public function checkRegisterUserName($username){
@@ -15,7 +15,6 @@ class UserModel extends Model{
 				"s",
 				$username,
 			
-				// hash('sha256',$password)
 			]
 		]);
 		return $result;
@@ -28,21 +27,21 @@ class UserModel extends Model{
 				"s",
 				$email,
 			
-				// hash('sha256',$password)
 			]
 		]);
 		return $result;
 	}
     public function insertUser($username,$psw,$email,$name,$phone){
 		$result =$this->insert([
-			"data"		=> "username,name,phone_number,email,password",
+			"data"		=> "username,name,phone_number,email,password,accounttype",
 			"bind"		=> [
-				"sssss",
+				"sssssi",
 				$username,
                 $name,
                 $phone,
                 $email,
-                $psw,
+                hash('sha256',$psw),
+                0
 
 			]
 		]);

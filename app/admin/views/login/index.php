@@ -1,54 +1,56 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!DOCTYPE html>
+<!DOCTYPE html>    
+</body>
+</html>
 <html>
 <head>
 	<title>Đăng nhập</title>
-   <!--Made with love by Mutiullah Samim -->
-   
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="/public/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/public/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/default/js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/admin/css/admin.css">
+    <script src="/public/admin/js/const.js"></script>
+    <script src="/public/admin/js/hao.js"></script>
     
     <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <section class="login" style="top: 50%;position: absolute;left: 0;right:0;transform: translateY(-50%);">
         <div class="container">
-            <form class="card p-5 m-5 mx-auto bg-light" id="form-register" style="width: 600px;" method="post">
+            <form class="card p-5 m-5 mx-auto bg-light" style="width: 600px;" >
+                <div class="text-center">
+                  <a href="/">
+                    <p class="d-inline-block text-success  my-3 text-center h-100" style="font-size:25px;">
+                        <b><span class="h1 text-danger">W</span>EB <span class="h1 text-danger">A</span>SSIGNMENT</b>
+                    </p>
+                    </a>
+                </div>
                 <div class="title text-center">
                     <h1>Đăng nhập</h1>
                 </div>
                 <div class="form-group">
-                    <label for="username" style="font-weight: bold;">Địa chỉ username</label>
+                    <label for="username" style="font-weight: bold;">Tên tài khoản</label>
                     <span class="form-alert text-danger float-right"></span>
-                    <input type="username" class="form-control" id="username" name="login[username]" placeholder="Tên đăng nhập" required>
+                    <input type="username" class="form-control" id="username" name="username" placeholder="Tên tài khoản" required>
                 </div>
                 <div class="form-group">
                     <label for="password" style="font-weight: bold;">Mật khẩu</label>
                     <span class="form-alert text-danger float-right"></span>
-                    <input type="password" class="form-control" id="password" name="login[password]" placeholder="Password" required>
+                    <input type="password" class="form-control" id="pass" name="pass" placeholder="Mật khẩu" required>
                 </div>
                 
 
                 <div class="form-check" style="margin-top: 10px;">
-                        <p class="text-danger"><b><?php echo $this->message;?></b></p>
+                        <p class="text-danger" id="message"></p>
                 </div>
-
-                <button type="submit" class="btn btn-warning mt-2" style="font-weight: bold;">Đăng nhập</button>
-                <div class="form-forgot text-center mt-3">
-                    <br>
-                    <br>
+                <div class="d-grid">
+                    <button type="button" id='submit' class="btn btn-success btn-block m-2" style="font-weight: bold;" onclick="login()">Đăng nhập</button>
+                </div>
+                <div class=" text-center mt-3 text-bold">
+                    Chưa có tài khoản?<a href="/register">Đăng ký</a><br>
                     <a href="/">Về trang chủ</a>
                 </div>
             </form>
         </div>
-    </section>
 </body>
 </html>

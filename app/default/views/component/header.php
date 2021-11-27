@@ -13,9 +13,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./public/default/css/style.css">
+
 </head>
 <body>
-
+    <!-- header -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -28,9 +29,9 @@
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>
-                    <li class="nav-item" ><a class="nav-link" href="/intro">Giới thiệu</a></li>
-                    <li class="nav-item" ><a class="nav-link" href="/products">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/intro">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/products">Sản phẩm</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">Tin tức</a></li>
                 </ul>
             </div>

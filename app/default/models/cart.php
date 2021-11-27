@@ -12,7 +12,6 @@ class CartModel extends Model{
 		$total = 0;
 		foreach($items as &$item){
 			$total = $total + $item['price']*$item['quantity'];
-
 		}
 		return $total;
 	}

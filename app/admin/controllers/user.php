@@ -10,37 +10,40 @@ class User extends Controller{
 			else 
 				header("Location:" . "/admin");
 		}
-		$method = $_SERVER['REQUEST_METHOD'];
-		$message = "";
-		if ($method == "POST") {
-			$username = $_POST["login"]["username"];
-			$password = $_POST["login"]["password"];
-			$_SESSION["user"]["username"] = $username;
-			if (strlen($username) == 0 || strlen($password) == 0) {
-				$message = "Hãy nhập đầy đủ thông tin.";
-			}else{
-				$user = $this->model->checkLogin($username, $password);
-				if ($user) {
-					$_SESSION["user"]["username"] = $user["username"];
-					$_SESSION["user"]["email"] = $user["email"];
-					$_SESSION["user"]["name"] = $user["name"];
-					$_SESSION["user"]["type"] = $user["accounttype"];
-					$_SESSION["user"]["status"] = $user["status"];
-					
-					if ($user["accounttype"] == 1) {
-						header("Location:" . "/admin");
-					}else{
-						header("Location:" . "/");
-					}
-				}else{
-					$message = "Thông tin đăng nhập không chính xác.";
-				}
-			}
+		//User already input user, pass
+		if(isset($_POST["login"])){
+			$username = $_POST["username"];
+			$password = $_POST["password"];
+			echo $this->inputlogin($username,$password);
+			return;
 		}
-		$this->view->message = $message;
 		$this->view->render("login/index", false);
 	}
-
+	public function inputlogin($username,$password){
+		$message = "";
+		if (strlen($username) == 0 || strlen($password) == 0) {
+			$message = "Hãy nhập đầy đủ thông tin.";
+		}else{
+			$user = $this->model->checkLogin($username, $password);
+			if ($user) {
+				$_SESSION["user"]["username"] = $user["username"];
+				$_SESSION["user"]["email"] = $user["email"];
+				$_SESSION["user"]["name"] = $user["name"];
+				$_SESSION["user"]["type"] = $user["accounttype"];
+				$_SESSION["user"]["status"] = $user["status"];
+				$_SESSION["user"]["true"] = true;
+				
+				if ($user["accounttype"] == 1) {
+					$message=0;
+				}else{
+					$message=1;
+				}
+			}else{
+				$message = "Thông tin đăng nhập không chính xác.";
+			}
+		}
+		return $message;
+	}
 	public function logout(){
 		session_unset();
 		header("Location:" . "/");

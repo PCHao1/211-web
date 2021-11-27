@@ -14,8 +14,7 @@ class UserModel extends Model{
 			"bind"		=> [
 				"ss",
 				$username,
-				$password
-				// hash('sha256',$password)
+                hash('sha256',$password)
 			]
 		]);
 		return $result;
@@ -64,7 +63,7 @@ class UserModel extends Model{
                 $name,
                 $phone,
                 $email,
-                $psw,
+                hash('sha256',$psw),
                 $type,
 
 			]

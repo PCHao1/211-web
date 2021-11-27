@@ -3,6 +3,7 @@ require_once APP_PATH . '/app/config/controller.php';
 
 class Cart extends Controller{
 	public function index(){
+		
 		$this->view->items = [
 			[
 				"name" => "Product 1",
@@ -29,9 +30,25 @@ class Cart extends Controller{
 				"quantity" => 1,
 			],
 		];
+
+
+		$this->view->priceOptions=["normal" => 10000, "fast"=>20000];
+		$this->view->currentOption = $this->view->priceOptions["normal"];
 		$this->view->totalPrice = $this->model->totalPrice($this->view->items);
 
+		if(isset($_POST['remove'])){	
+			
+			// array_filter($this->view->items, function($k) {
+			// 	return $k['id'] != (int)$_POST['id'];
+			// }, ARRAY_FILTER_USE_KEY);
+			$this->view->items=[];
+			echo "deleted";
+			
+		}
+		
 		$this->view->render("cart/cart", false);
+
+	
 	}
 	
 }

@@ -14,34 +14,43 @@
 		<!-- CONTENT -->
 			<table class="table table-hover">
 				<tr>
-					<th style="width: 5%">ID</th>
-					<th style="width: 10%">Username</th>
+					<th style="width: 5%">STT</th>
+					<th style="width: 10%">Địa chỉ</th>
+					<th style="width: 15%">Phí ship</th>
 					<th style="width: 15%">Giá trị</th>
 					<th style="width: 15%">Trạng thái</th>
 					<th>Action</th>
 				</tr>
+				<!-- Show list order -->
+				<?php foreach ($this->lstOrders as $order) {
+					 ?>
 				<tr>
-					<td>1</td>
-					<td>hao</td>
-					<td>1.200.000 đ</td>
-					<td>Chờ nhận đơn</td>
+					<td><?php echo 1; ?></td>
+					<td><?php echo $order["address"]; ?></td>
+					<td><?php echo $order["username"]; ?></td>
+					<td><?php echo $order["shipfee"]; ?> đ</td>
+					<td><?php echo $order["total"]; ?></td>
+					<td id='sts-<?php echo $order["orderid"]; ?>'>
+						<?php 
+							if($order["status"]==0)
+								echo 'Chưa xác nhận';
+							
+						?>
+					</td>
 					<td><div>
-						<button class="btn btn-warning"> Xác nhận</button>
-						<button class="btn btn-danger"> Hủy</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="orderDetail(1)"> Chi tiết>></button>
+						<?php 
+							if($order["status"]==0)
+								$sts= 'Xác nhận';
+							else $sts= 0;
+							if($sts!=0){
+								echo '<button class="btn btn-warning mx-2">'.$sts.'</button>';
+								echo '<button class="btn btn-danger" onclick="orderDeny('.$order["orderid"].')"> Hủy</button>';
+							}
+						?>
+						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="orderDetail(<?php echo $order["orderid"]; ?>)"> Đánh giá>></button>
 					</div></td>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>hao</td>
-					<td>1.200.000 đ</td>
-					<td class="text-success">Đang vận chuyển</td>
-					<td><div>
-						<button class="btn btn-warning"> Hoàn thành</button>
-						<button class="btn btn-danger"> Hủy</button>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal"> Chi tiết>></button>
-					</div></td>
-				</tr>
+				<?php } ?>
 			</table>
 		<!-- End content -->
 		</div>
