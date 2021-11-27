@@ -47,4 +47,15 @@ class UserModel extends Model{
 		]);
 		return $result;
 	}
+	public function updateUserAccess($username){
+		$result=$this->update([
+				"data"		=> "lastlogin=CURRENT_TIMESTAMP",
+				"condition"	=> "username=?",
+				"bind"		=> [
+					"s",
+					$username
+				]
+			]);
+		return $result;
+	}
 }

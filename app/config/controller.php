@@ -9,6 +9,8 @@ class Controller{
 	}
 	public function verify(){
 		if (isset($_SESSION["user"]["true"])) {
+				$model=$this->loadModelOther('user');
+				$model->updateUserAccess($_SESSION["user"]['username']);
 				return $_SESSION["user"];
 			}
 		return NULL;
