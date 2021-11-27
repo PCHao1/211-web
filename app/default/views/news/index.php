@@ -7,7 +7,6 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
-    <link rel="stylesheet" type="text/css" href="/public/admin/css/admin.css">
 </head>
 <body>
 <?php
@@ -18,30 +17,37 @@
         <div class="row">
             <div class="col-6 px-0" style="background-color:white">
                 <img  style="min-height:50vh;width:100%" src="public/images/image_news_1.jpg" alt="Description to news">
-                <h2 style="position: absolute;bottom: 8px;left: 16px;"><strong><?php echo($this->news_1["title"]) ?></strong></h2>
+                <h2 style="position: absolute;bottom: 8px;left: 16px;"><strong><?php echo($this->news_1[0]["title"]) ?></strong></h2>
             </div>
             <div class="col-6">
                 <?php
+                if($this->news_2 != null){
+                if(count($this->news_2) >0){
                     foreach($this->news_2 as &$news){
                         echo("
                             <div class='row'>
                                 <h3>".$news["title"]."</h3>
-                                <p>".$news["description"]."</p>
                             </div>
                         ");
                     }
+                }
+                }
                 ?>
             </div>
         </div>
         <?php
-            foreach($this->news_3 as &$news){
-                echo("
-                    <div class='row'>
-                        <h3>".$news["title"]."</h3>
-                        <p>".$news["description"]."</p>
+            if($this->news_3 !== null){
+            if(count($this->news_3) >0){
+                foreach($this->news_3 as &$news){
+                    echo("
+                        <div class='row'>
+                            <h3>".$news["title"]."</h3>
+                   
                         </div>
-                ");
+                    ");
+                }
             }
+        }
         ?>
     </div>
 </section>
