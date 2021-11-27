@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php  echo $this->title; ?></title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="/public/admin/boostrap5.css" rel="stylesheet">
+	<script src="/public/admin/boostrap5.js"></script>
 	<script src="/public/default/js/jquery-3.6.0.js"></script>
 	<link rel="stylesheet" type="text/css" href="/public/admin/css/admin.css">
 	<script src="/public/admin/js/const.js"></script>
@@ -86,7 +86,7 @@
 
 	      <!-- Modal footer -->
 	      <div id="modal-foot" class="modal-footer">
-	        <button id='submit' type="button" class="btn btn-success" >OK</button>
+	        <button id='submit' type="button" class="btn btn-success" >Lưu</button>
 	      </div>
 
 	    </div>
