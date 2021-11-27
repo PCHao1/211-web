@@ -8,7 +8,7 @@ function setMenu($number) {
 }
 setMenu(menuNum);
 function login(){
-	
+
 	var user, pass;
 	user=$("#username").val();
 	pass=$("#pass").val();
@@ -66,7 +66,7 @@ function changeModalSubmit($function,$data){
 		$('#submit').attr('onclick','');
 		return;
 	} 
-	$('#submit').attr('onclick',$function+'('+$data+')');
+	$('#submit').attr('onclick',$function+'("'+$data+'")');
 }
 function showModalSubmit(){
 	$('#submit').removeClass('d-none')
