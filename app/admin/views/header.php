@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php  echo $this->title; ?></title>
-	<link href="/public/admin/boostrap5.css" rel="stylesheet">
-	<script src="/public/admin/boostrap5.js"></script>
+    <link href="/public/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/public/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/public/default/js/jquery-3.6.0.js"></script>
 	<link rel="stylesheet" type="text/css" href="/public/admin/css/admin.css">
 	<script src="/public/admin/js/const.js"></script>
@@ -16,15 +16,15 @@
  ?>
 <div class="container-fluid overflow-hidden" style="height: 100vh;">
  	<div class="row">
- 		<div class="col-sm-3"style="height: 70px; ">
- 			<div class="d-inline-block"><img src="/public/images/logo.png" width="70px" alt=""></div> 
- 			<p class="d-inline-block">
+ 		<div class="col-sm-3 bg-dark"style="height: 70px; ">
+ 			<!-- <div class="d-inline-block"><img src="/public/images/logo.png" width="70px" alt=""></div>  -->
+ 			<p class="d-inline-block text-white  my-3 text-center h-100">
  				<b><span class="h3 text-danger">W</span>EB <span class="h3 text-danger">A</span>SSIGNMENT</b>
  			</p>
  		</div>
- 		<div class="col-sm-9 bg-success"style="min-height: 70px;">
+ 		<div class="col-sm-9  bg-white"style="min-height: 70px;">
  			<div class="row h-100">
- 				<div class="col-sm-11 my-auto text-center display-6 text-white"><?php  echo $this->title; ?></div>
+ 				<div class="col-sm-11 my-auto text-center display-6 text-success"><?php  echo $this->title; ?></div>
 	 			<div class="col-sm-1 my-auto">
 	 				<div class="row">
 	 					<!-- <div class="col-6 text-white">Chào,<br><b>Hào</b></div> -->
@@ -44,7 +44,7 @@
  		</div>
  	</div>
  	<div class="row h-100">
- 		<div class="col-sm-3 bg-white border-end p-0 pt-3">
+ 		<div class="col-sm-3 bg-dark border-end p-0 pt-3">
  			<ul id="menu" class="nav nav-pills flex-column">
 			  <li class="nav-item ">
 			    <a class="nav-link" href="../admin"><p>DASHBOARD</p></a>

@@ -1,11 +1,50 @@
 function setMenu($number) {
 	var menu, node;
-	menu=document.getElementById("menu").children;
-	node=menu[$number].children;
-	node[0].classList.add('active');
+	if(document.getElementById("menu")){
+		menu=document.getElementById("menu").children;
+		node=menu[$number].children;
+		node[0].classList.add('active');
+	}
 }
 setMenu(menuNum);
+function login(){
+	
+	var user, pass;
+	user=$("#username").val();
+	pass=$("#pass").val();
+	$('#submit').html(' <span class="spinner-grow spinner-grow-sm"></span>Loading..')
+	$('#submit').attr('disabled','');
+	setTimeout(function(){
+						
 
+	$.post('/login',
+		{
+			login:true,
+			username:user,
+			password:pass
+		},function(data, status){
+			if(data==0){
+				location.reload();
+			}
+			else if(data==1){
+				location.reload();
+			}
+			else{
+				$('#message').text(data);
+			}
+			$('#submit').html('Đăng nhập')
+			$('#submit').removeAttr('disabled','');
+	});
+
+
+
+
+
+
+
+
+					},500);
+}
 
 function changeModalHead($content){
 	document.getElementById("modal-head").innerHTML=$content;
