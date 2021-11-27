@@ -5,13 +5,22 @@ class Product extends Controller{
 	public function product_info(){
         $this->view->title="Tất cả sản phẩm";
         //$this->view->lstCatalogs=$this->model->getcatalogs();
-        if(isset($_GET['sortSelector'])){
-            $this->view->lstProducts=$this->model->getAllProducts($_GET['sortSelector']);
-            $this->view->render("product/products", false);
-            return;
+        if(isset($_GET['catalog'])){
+            $catalog = $_GET['catalog'];
+            $this->view->catalogProducts=$catalog;
+            if(isset($_GET['sortSelector'])){
+                $sortSelector = $_GET['sortSelector'];
+                $this->view->lstProducts=$this->model->getAllProducts($sortSelector,$catalog);
+                $this->view->render("product/products", false);
+                return;
+            }
+            $this->view->lstProducts=$this->model->getAllProducts(0,$catalog);
+            $this->view->render("product/product_page", false);
+        }else{
+            echo"khong co gi";
         }
-        $this->view->lstProducts=$this->model->getAllProducts(0);
-        $this->view->render("product/product_page", false);
+        
+        
 	}
 	public function product_detail(){
         if(isset($_GET['id_of_product'])){

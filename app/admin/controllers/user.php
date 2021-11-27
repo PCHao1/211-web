@@ -125,5 +125,4 @@ class User extends Controller{
 		$this->view->menuNum=3;
 		$this->view->render("user/index",false);
 	}
-
 }

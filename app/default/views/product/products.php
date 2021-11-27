@@ -7,7 +7,11 @@
         <option value="2">Giá cao nhất</option>
     </select>
 
-    <h2 class="type-product">Sản phẩm cho da</h2>
+    <div class="row">
+        <h2 class="mx-auto" id="catalogProducts"><?php echo $this->catalogProducts ?></h2>
+    </div>
+    <hr class="mt-1 mb-5" style="background-color:gray; height:5px" >
+
     <div class="row mt-1">
     <?php
         foreach ($this->lstProducts as $product) {

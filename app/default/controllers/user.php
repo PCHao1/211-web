@@ -3,6 +3,7 @@ require_once APP_PATH . '/app/config/controller.php';
 
 class User extends Controller{
 	public function register(){
+		if($this->verify()) header("Location:" . "/");
 		$this->view->nameError = "";
 		$this->view->pswError = "";
 		$this->view->emailError = "";

@@ -79,7 +79,7 @@ label.star:before {
                   </form>
                 </div> -->
 
-                <form class="mx-1 mx-md-4" method="post">
+                <form class="mx-1 mx-md-4" method="post" enctype="multipart/form-data">
                     
               
 
@@ -117,7 +117,15 @@ label.star:before {
                        
                         </div>
                   </div>
-
+                  <div>
+                    
+                  Select image to upload:
+                    <!-- <input type="file" name="proImg[]"> -->
+                    <input type="file" name="myFile">
+                    <!-- <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit"> -->
+                    
+                  </div>
 
                   
 
