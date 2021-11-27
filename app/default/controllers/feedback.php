@@ -19,8 +19,8 @@ class Feedback extends Controller{
 			// }
 
 			$file = $_FILES['myFile']['tmp_name'];
-			echo $file;
-            $path = APP_PATH . "/public/images/feedback/"."idfeedback" . "_" . ".jpg";
+			$idfeedback = $this->model->getFeedback();
+            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".jpg";
 			
 			echo $path;
             if(move_uploaded_file($file, $path)){
@@ -30,6 +30,7 @@ class Feedback extends Controller{
                 echo "Tải tập tin thất bại";
 				
             }
+
 			if($rate1!=9)
 			{
 				$rate = $rate1;
@@ -60,16 +61,17 @@ class Feedback extends Controller{
 
 				//handlesubmit
 				$result = $this->model->insertFeedback($rate,$comment);
-				
+
+				$this->model->getFeedback();
 				if($result){
 					header("Location:" . "/");
 	
 				}
 			}
-			if(isset($hinhanh))
-			{
+			// if(isset($hinhanh))
+			// {
 
-			}
+			// }
 		}
 		$this->view->render("feedback/feedback", false);
 	}

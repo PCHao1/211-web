@@ -42,4 +42,24 @@ class FeedbackModel extends Model{
 		
 		return $rs;
 	}
+
+	public function getFeedback(){
+
+		$re = $this->selectOne([
+			"column"	=> "max(feedbackid)"
+			
+		]);
+		
+		return $re['max(feedbackid)'];
+	}
+	// public function getFeedback(){
+
+	// 	$result = $this->selectMulti([
+	// 		"column"	=> "feedbackid"
+	// 	]);
+	// 	//Get product name
+		
+		
+	// 	return $result;
+	// }
 }
