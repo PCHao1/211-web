@@ -21,9 +21,36 @@ class ProductModel extends Model{
 	// 	return $result;
 	// }
 
-    public function getAllProducts(){
+    public function getAllProducts($sortBy){
+        if($sortBy == 0){
+            $result = $this->selectMulti([
+                "column"	=> "productid,title,price,quantity,promotion"
+            ]);
+            return $result;
+        }elseif($sortBy == 1){
+            $result = $this->selectMulti([
+                "column"	=> "productid,title,price,quantity,promotion",
+                "order"		=> "price",
+            ]);
+            return $result;
+        }elseif($sortBy == 2){
+            $result = $this->selectMulti([
+                "column"	=> "productid,title,price,quantity,promotion",
+                "order"		=> "price desc",
+            ]);
+            return $result;
+        }
+		
+	}
+
+    public function getProductsByCatalog($catalog){
 		$result = $this->selectMulti([
-			"column"	=> "productid,title,price,quantity,promotion"
+			"column"	=> "productid,title,price,quantity,promotion",
+            "condition"	=> "catalog = ?",
+            "bind"		=> [
+				"s",
+				$catalog,
+            ]
 		]);
 		return $result;
 	}
