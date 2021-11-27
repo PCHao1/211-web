@@ -8,7 +8,7 @@ class Controller{
 		$this->view = new View();
 	}
 	public function verify(){
-		if (isset($_SESSION["user"]["email"])) {
+		if (isset($_SESSION["user"]["true"])) {
 				return $_SESSION["user"];
 			}
 		return NULL;

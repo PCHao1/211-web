@@ -1,23 +1,27 @@
 <?php 
 	include(__DIR__ .'/../header.php');
 ?> 
-		<div class="col-sm-9 mt-3 h-100 overflow-scroll" id='content'>
+		<div class="col-sm-8 mx-auto my-2 p-3 h-100 border rounded-3" id='content'>
 		<!-- CONTENT -->
 			<button id='addProduct' class="btn btn-success"data-bs-toggle="modal" data-bs-target="#myModal">
 				<b>+</b> Thêm sản phẩm
 			</button>
 			<br>
-				<table class="table table-hover mb-5">
-					<tr>
-						<th style="width: 5%">ID</th>
-						<th style="width: 30%">Tên sản phẩm</th>
-						<th style="width: 10%">Giá</th>
-						<th style="width: 10%">Trạng thái</th>
-						<th style="width: 12%">Khuyến mãi</th>
-						<th style="width: 10%">Số lượng</th>
-						<th><Act>Action</th>
-					</tr>
+			<div class="container h-100 overflow-scroll">
+				<table class="table table-hover">
+					<thead style="position: sticky;top: 0;" class="bg-white">
+						<tr>
+							<th style="width: 5%">ID</th>
+							<th style="width: 30%">Tên sản phẩm</th>
+							<th style="width: 10%">Giá</th>
+							<th style="width: 10%">Trạng thái</th>
+							<th style="width: 12%">Khuyến mãi</th>
+							<th style="width: 10%">Số lượng</th>
+							<th><Act>Action</th>
+						</tr>
+					</thead>
 					<!-- Show list product -->
+					<tbody>
 					<?php
 						foreach ($this->lstProducts as $product) {
 					 ?>
@@ -35,15 +39,17 @@
 						<td><?php echo $product['promotion']; ?></td>
 						<td><?php echo $product['quantity']; ?></td>
 						<td><div>
-							<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="productDetail(<?php echo $product['productid']; ?>)"> Chi tiết>></button>
+							<button class="btn btn-basic text-primary"data-bs-toggle="modal" data-bs-target="#myModal" onclick="productDetail(<?php echo $product['productid']; ?>)"> Chi tiết>></button>
 						</div></td>
 					</tr>
 					<?php } ?>
 					<!-- End show list user -->
+				</tbody>
 				</table>
 				<br>
 			<!-- End content -->
 		</div>
+	</div>
 	</div>
 </div>
 </body>

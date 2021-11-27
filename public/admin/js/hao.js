@@ -1,11 +1,50 @@
 function setMenu($number) {
 	var menu, node;
-	menu=document.getElementById("menu").children;
-	node=menu[$number].children;
-	node[0].classList.add('active');
+	if(document.getElementById("menu")){
+		menu=document.getElementById("menu").children;
+		node=menu[$number].children;
+		node[0].classList.add('active');
+	}
 }
 setMenu(menuNum);
+function login(){
+	
+	var user, pass;
+	user=$("#username").val();
+	pass=$("#pass").val();
+	$('#submit').html(' <span class="spinner-grow spinner-grow-sm"></span>Loading..')
+	$('#submit').attr('disabled','');
+	setTimeout(function(){
+						
 
+	$.post('/login',
+		{
+			login:true,
+			username:user,
+			password:pass
+		},function(data, status){
+			if(data==0){
+				location.reload();
+			}
+			else if(data==1){
+				location.reload();
+			}
+			else{
+				$('#message').text(data);
+			}
+			$('#submit').html('Đăng nhập')
+			$('#submit').removeAttr('disabled','');
+	});
+
+
+
+
+
+
+
+
+					},500);
+}
 
 function changeModalHead($content){
 	document.getElementById("modal-head").innerHTML=$content;
@@ -29,7 +68,14 @@ function changeModalSubmit($function,$data){
 	} 
 	$('#submit').attr('onclick',$function+'('+$data+')');
 }
+function showModalSubmit(){
+	$('#submit').removeClass('d-none')
+}
+function hideModalSubmit(){
+	$('#submit').addClass('d-none')
+}
 function addPicture($number){
+	showModalSubmit();
 	const node = document.createElement('input');
 	node.setAttribute('type','file');
 	node.setAttribute('class','form-control');
@@ -41,6 +87,7 @@ function addPicture($number){
 }
 
 function orderDetail($number) {
+	hideModalSubmit();
 	$.get('/admin/orders?detail=true&id='+$number,function(data, status){
 		changeModalHead('Đơn hàng số '+$number);
 		changeModalBody(data);
@@ -62,6 +109,7 @@ function userDetail($username){
 	});
 }
 function feedbackDetail($number){
+	hideModalSubmit();
 	$.get('/admin/feedback?detail=true&id='+$number,function(data, status){
 		changeModalHead('Feedback '+$number);
 		changeModalBody(data);
@@ -405,5 +453,18 @@ function postChangeSts($button,$id){
 					status=$('#sts-'+$id).html('<span class="text-danger">Dừng hiển thị</span>');
 				}		
 			}
+	});
+}
+function resourceDetail($link,$type){
+	hideModalSubmit();
+	changeModalSubmit('resourceSubmit', $link);
+	$.get('/admin/resource?detail=true&link='+$link+'&type='+$type,function(data, status){
+		changeModalHead($link);
+		console.log(data);
+		changeModalBody(data);
+		if($type=='html'){
+			editorChange('descri');
+		}
+		
 	});
 }

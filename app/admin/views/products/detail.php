@@ -49,7 +49,7 @@
 		<?php foreach($this->product['picture'] as $key=>$pic){
 			echo '<div>Ảnh số '.($key+1).'</div>';
 		 ?>
-		<img src="../public/images/products/<?php echo $pic;?>" class="img-fluid">
+		<img class="border border-info rounded-3 mx-auto p-0" style="width: 80%!important;" src="../public/images/products/<?php echo $pic;?>" >
 		<?php } ?>
 		<!-- end display picture -->
 	</div>

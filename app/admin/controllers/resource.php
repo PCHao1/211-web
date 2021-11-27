@@ -9,8 +9,15 @@ class Resource extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
-		$this->view->title="Tài nguyên";
-		$this->view->menuNum=6;
+		//AJAX lấy chi tiết sản phẩm
+		if(isset($_GET['detail'])){
+			$this->detail();
+			return;
+		}
+		//Chạy chương trình chính
+		$this->main();
+	}
+	public function main(){
 		//Lấy danh sách tệp
 		$img_fb=glob("public/images/feedback/*.png");
 		$img_p=glob("public/images/products/*.png");
@@ -86,13 +93,27 @@ class Resource extends Controller{
 			];
 			$files[]=$file;
 		}
-		
-
 
 		usort($files, function ($item1, $item2) {
 		    return $item2['stamp'] <=> $item1['stamp'];
 		});
+
+
+
+		
+		$this->view->title="Tài nguyên";
+		$this->view->menuNum=6;
 		$this->view->lstFiles=$files;
 		$this->view->render("resource/index",false);
+	}
+	public function detail(){
+		$this->view->link=$_GET['link'];
+		$type=$_GET['type'];
+		if($type=='png'||$type=='jpg'){
+			$this->view->render("resource/picture",false);
+		}
+		else if($type=='html'){
+			$this->view->render("resource/html",false);
+		}
 	}
 }

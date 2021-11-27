@@ -1,17 +1,21 @@
 <?php 
 	include(__DIR__ .'/../header.php');
 ?> 
-		<div class="col-sm-9 mt-3" id='content'>
+		<div class="col-sm-8 mx-auto my-2 p-3 h-100 border rounded-3" id='content'>
 		<!-- CONTENT -->
-			<table class="table table-hover">
-				<tr>
-					<th style="width: 5%">ID</th>
-					<th style="width: 10%">Username</th>
-					<th style="width: 10%">Giá trị</th>
-					<th style="width: 20%">Địa chi</th>
-					<th style="width: 15%">Trạng thái</th>
-					<th>Action</th>
-				</tr>
+			<div class="container h-100 overflow-scroll">
+				<table id='table' class="table table-hover">
+				<thead style="position: sticky;top: 0;" class="bg-white">
+					<tr>
+						<th style="width: 5%">ID</th>
+						<th style="width: 10%">Username</th>
+						<th style="width: 10%">Giá trị</th>
+						<th style="width: 20%">Địa chi</th>
+						<th style="width: 15%">Trạng thái</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
 				<!-- Show list order -->
 				<?php foreach ($this->lstOrders as $order) {
 					 ?>
@@ -53,11 +57,12 @@
 								echo '<button class="btn btn-danger" onclick="orderDeny(this,'.$order["orderid"].')"> Hủy</button>';
 							}
 						?>
-						<button class="btn btn-basic"data-bs-toggle="modal" data-bs-target="#myModal" onclick="orderDetail(<?php echo $order["orderid"]; ?>)"> Chi tiết>></button>
+						<button class="btn btn-basic text-primary"data-bs-toggle="modal" data-bs-target="#myModal" onclick="orderDetail(<?php echo $order["orderid"]; ?>)"> Chi tiết>></button>
 					</div></td>
 				</tr>
 				<?php } ?>
 				<!-- End show list Order -->
+				</tbody>
 			</table>
 		<!-- End content -->
 		</div>

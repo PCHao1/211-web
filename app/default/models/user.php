@@ -15,7 +15,6 @@ class UserModel extends Model{
 				"s",
 				$username,
 			
-				// hash('sha256',$password)
 			]
 		]);
 		return $result;
@@ -28,7 +27,6 @@ class UserModel extends Model{
 				"s",
 				$email,
 			
-				// hash('sha256',$password)
 			]
 		]);
 		return $result;
@@ -42,7 +40,7 @@ class UserModel extends Model{
                 $name,
                 $phone,
                 $email,
-                $psw,
+                hash('sha256',$psw)
 
 			]
 		]);
