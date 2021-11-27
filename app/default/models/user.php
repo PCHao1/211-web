@@ -33,14 +33,15 @@ class UserModel extends Model{
 	}
     public function insertUser($username,$psw,$email,$name,$phone){
 		$result =$this->insert([
-			"data"		=> "username,name,phone_number,email,password",
+			"data"		=> "username,name,phone_number,email,password,accounttype",
 			"bind"		=> [
-				"sssss",
+				"sssssi",
 				$username,
                 $name,
                 $phone,
                 $email,
-                hash('sha256',$psw)
+                hash('sha256',$psw),
+                0
 
 			]
 		]);
