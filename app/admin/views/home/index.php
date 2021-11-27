@@ -5,12 +5,10 @@
 		<!-- CONTENT -->
 			Hllo
 			<?php
-			$to = "haovts123@gmail.com";
-			$subject = "My subject";
-			$txt = "Hello world!";$headers = "From: sender\'s email";
-
-			mail($to,$subject,$txt,$headers);
+			echo var_dump(time()-1638030876);
+			echo $_SERVER['HTTP_HOST'];
 			?>
+			
 		<!-- End content -->
 		</div>
 	</div>
