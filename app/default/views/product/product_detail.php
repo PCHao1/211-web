@@ -1,8 +1,11 @@
-<section class="container my-2">
-    <div class="row mt-5">
+<?php
+    include "app/default/views/component/header.php";
+?>
+
+<section class="container mybody">
+    <div class="row mt-2">
         <div class="col-lg-5 col-md-12 col-12">
             <img class="img-fluid w-100 pb-1" id="main-img" src="./public/images/products/<?php echo $this->product['picture'][0] ?>">
-            
             
             <div class="d-flex flex-row">
                 <?php
@@ -67,3 +70,7 @@
         });
     }
 </script>
+
+<?php
+    include "app/default/views/component/footer.php";
+?>

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-2">
     <!-- Selector for sort -->
     <label for="sortSelector">Sắp xếp theo</label>
     <select id="sortSelector" onchange="sortBy();" class="form-control mb-3" style="width:20%">
@@ -11,7 +11,7 @@
         <h2 class="mx-auto" id="catalogProducts"><?php echo $this->catalogProducts ?></h2>
     </div>
     <hr class="mt-1 mb-5" style="background-color:gray; height:5px" >
-
+    
     <div class="row mt-1">
     <?php
         foreach ($this->lstProducts as $product) {
@@ -21,7 +21,7 @@
             <div class="product-top">
                 <img width="100%" height="300px" src="./public/images/products/<?php echo $product['productid'];?>p0.png">
                 <div class="overlay">
-                    <button type="button" class="btn btn-secondary" title="Xem sản phẩm" onclick="getProductDetail(<?php echo $product['productid']; ?>)"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Xem sản phẩm"><a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><i class="fa fa-eye"></i></a></button>
                     <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></button>
                 </div>
             </div>
@@ -31,7 +31,11 @@
                 <span class="fa fa-star checked_rating"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
-                <h3><?php echo $product['title']; ?></h3>
+
+                <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>">
+                    <h3><?php echo $product['title']; ?></h3>
+                </a>
+
                 <?php if($product['promotion'] == 0){
                     echo '<h4 class="text-danger">'.$product['price']." đ" ."</h4>";
                     }else{

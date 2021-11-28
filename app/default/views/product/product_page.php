@@ -27,7 +27,7 @@
                     <div class="product-top">
                         <img width="100%" height="300px" src="./public/images/products/<?php echo $product['productid'];?>p0.png">
                         <div class="overlay">
-                            <button type="button" class="btn btn-secondary" title="Xem sản phẩm" onclick="getProductDetail(<?php echo $product['productid']; ?>)"><i class="fa fa-eye"></i></button>
+                            <button type="button" class="btn btn-secondary" title="Xem sản phẩm"><a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><i class="fa fa-eye"></i></a></button>
                             <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></button>
                         </div>
                     </div>
@@ -37,7 +37,11 @@
                         <span class="fa fa-star checked_rating"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
-                        <h3 onclick="getProductDetail(<?php echo $product['productid']; ?>)"><?php echo $product['title']; ?></h3>
+
+                        <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>">
+                            <h3><?php echo $product['title']; ?></h3>
+                        </a>
+
                         <?php if($product['promotion'] == 0){
                             echo '<h4 class="text-danger">'.$product['price']." đ" ."</h4>";
                             }else{
@@ -66,12 +70,6 @@
 
 
 <script type="text/javascript">
-    function getProductDetail(productid){
-        $.get('/product-detail?id_of_product='+productid,function(data){
-            $('#body').html(data);
-        });
-    }
-
     function sortBy(){
         $.get('/products?sortSelector='+$('#sortSelector').val()+'&catalog='+$('#catalogProducts').text(),function(data){
             $('#body').html(data);
