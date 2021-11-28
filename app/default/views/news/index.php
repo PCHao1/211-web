@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tin tức</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
 </head>
@@ -12,7 +12,7 @@
 <?php
     include "app/default/views/component/header.php";
 ?>
-<section class="vh-100 d-flex justify-content-center" >
+<section class="vh-100 d-flex justify-content-center" id="content">
     <div style="width:70vw">
         <div class="row">
             <div class="col-6 px-0" style="background-color:white">
@@ -57,7 +57,7 @@
 <script>
     function loadPostContent(post_id){
         $.get(`news?post_id=${post_id}`,function(data){
-            $('body').html(data)
+            $('#content').html(data)
         })
     }
 </script>

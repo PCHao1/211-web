@@ -96,7 +96,7 @@ class Cart extends Controller{
 		$this->view->priceOptions=["normal" => 10000, "fast"=>20000];
 		$this->view->totalPrice = $this->model->totalPrice($this->view->items);
 
-		
+		$this->view->title = "Giỏ hàng";
 		
 		$this->view->render("cart/cart", false);
 

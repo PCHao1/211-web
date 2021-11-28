@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo($this->title); ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/default/css/dao/sidebar.css">
 </head>
@@ -57,18 +57,19 @@
                             <th scope='col'>Số lượng</th>
                             <th scope='col'>Giá</th>
                             <th scope='col'>Thành tiền</th>
+                            <th scope='col'></th>
                         </tr>
                     </thead>
                     <tbody>");
 
                     foreach($item['items'] as &$subItem){
                         echo("
-                        <tr>
-                           
-                            <td>".$subItem['name']."</td>
-                            <td>".$subItem['quantity']."</td>
-                            <td>".number_format($subItem['price'])."</td>
-                            <td>".number_format($subItem['price']*$subItem['quantity'])."</td>
+                        <tr >
+                            <td class='align-middle'>".$subItem['name']."</td>
+                            <td class='align-middle'>".$subItem['quantity']."</td>
+                            <td class='align-middle'>".number_format($subItem['price'])."</td>
+                            <td class='align-middle'>".number_format($subItem['price']*$subItem['quantity'])."</td>
+                            <td class='align-middle'><button class='btn btn-info' onclick='showFeedback(".$subItem['productid'].",".$item['orderid'].")'>Đánh giá</button></td>
                         </tr>
                         ");
                     }
@@ -87,6 +88,10 @@
     </div>
 </div>    
 
-
+<script>
+    function showFeedback(productid, orderid){
+        window.open(`/feedback?productid=${productid}orderid=${orderid}`, "_blank");
+    }
+</script>
 </body>
 </html>

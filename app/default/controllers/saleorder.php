@@ -5,7 +5,7 @@ class SaleOrder extends Controller{
 	public function index(){
 		$info= $this->verify();
 		$this->view->items =  $this->model->getOrders($info['username']);;
-
+		$this->view->title = "Đơn hàng";
 		$this->view->render("saleorder/index", false);
 	}
 		
