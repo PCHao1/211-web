@@ -4,20 +4,41 @@ require_once APP_PATH . '/app/config/model.php';
 class SaleOrderModel extends Model{
 	public function __construct(){
 		parent::__construct();
-		$this->setTable("user");
+		$this->setTable("`order`");
 	}
 
-	public function checkLogin($username, $password){
-		$result = $this->selectOne([
-			"column"	=> "username, phone_number, name, email, accounttype, status",
-			"condition"	=> "username = ? AND password = ?",
-			"bind"		=> [
-				"ss",
-				$username,
-				$password
-				// hash('sha256',$password)
-			]
+	public function getOrders(){
+		$result = $this->selectMulti([
+			"column"	=> "orderid,username,status,address,shipfee",
 		]);
+		$this->setTable("orderdetail");
+		foreach ($result as $key=>$row) {
+			$order=$row['orderid'];
+	    	$raw_details = $this->selectMulti([
+				"column"	=> "orderid,productid,price, quantity",
+				"condition"	=> "orderid = ?",
+				"bind"		=> [
+					"i",
+					$order
+				]
+			]);
+			foreach ($raw_details as $key=>$row) {
+				$this->setTable("product");
+				$productid = $row['productid'];
+				$product_detail = $this->selectOne([
+					"column"	=> "title",
+					"condition"	=> "productid = ?",
+					"bind"		=> [
+						"i",
+						$productid
+					]
+				]);
+				$raw_details[$key] += array("name" => $product_detail['title']);
+				$this->setTable("orderdetail");
+			}
+			$result[$key] += array("items" => $raw_details);
+		}
+		$this->setTable("`order`");
 		return $result;
 	}
 }

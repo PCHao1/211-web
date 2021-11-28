@@ -20,19 +20,20 @@
     </div>
     <div class="col-8">
     <?php
+    //print_r($this->items)
     foreach($this->items as &$item){
     echo("
-        <div id='accordion".$item['id']."'>
+        <div id='accordion".$item['orderid']."'>
         <div class='card'>
-          <div class='card-header' id='heading".$item['id']."'>
+          <div class='card-header' id='heading".$item['orderid']."'>
             <h5 class='mb-0'>
-              <button class='btn btn-link' data-toggle='collapse' data-target='#collapse".$item['id']."' aria-expanded='true' aria-controls='collapse".$item['id']."'>
-                Đơn hàng #".$item['id']."
+              <button class='btn btn-link' data-toggle='collapse' data-target='#collapse".$item['orderid']."' aria-expanded='true' aria-controls='collapse".$item['orderid']."'>
+                Đơn hàng #".$item['orderid']."
               </button>
             </h5>
           </div>
       
-          <div id='collapse".$item['id']."' class='collapse show' aria-labelledby='heading".$item['id']."' data-parent='#accordion".$item['id']."'>
+          <div id='collapse".$item['orderid']."' class='collapse show' aria-labelledby='heading".$item['orderid']."' data-parent='#accordion".$item['orderid']."'>
             <div class='card-body'>
                 <div class='row'>
                     <div class='col-auto'>
@@ -51,7 +52,7 @@
                 <table class='table'>
                     <thead>
                         <tr>
-                            <th scope='col'>#</th>
+                       
                             <th scope='col'>Tên</th>
                             <th scope='col'>Số lượng</th>
                             <th scope='col'>Giá</th>
@@ -63,7 +64,7 @@
                     foreach($item['items'] as &$subItem){
                         echo("
                         <tr>
-                            <th scope='row'>".$subItem['id']."</th>
+                           
                             <td>".$subItem['name']."</td>
                             <td>".$subItem['quantity']."</td>
                             <td>".$subItem['price']."</td>

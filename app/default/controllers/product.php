@@ -18,8 +18,7 @@ class Product extends Controller{
             $this->view->render("product/product_page", false);
         }else{
             echo"khong co gi";
-        }
-        
+        }     
         
 	}
 	public function product_detail(){
