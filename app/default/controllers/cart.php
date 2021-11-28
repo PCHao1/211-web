@@ -87,9 +87,10 @@ class Cart extends Controller{
 			echo("Đặt hàng thành công");
 			return;
 		}
-		
-
-		$this->view->items = $_SESSION['cart'];
+		$this->view->items =[];
+		if(isset($_SESSION['cart'])){
+			$this->view->items = $_SESSION['cart'];
+		}
 
 
 		$this->view->priceOptions=["normal" => 10000, "fast"=>20000];
