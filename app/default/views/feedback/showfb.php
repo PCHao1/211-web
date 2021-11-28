@@ -91,7 +91,7 @@ label.star:before {
             ?></div>
           <div> <span style=" font-weight: bold;">Đánh giá: </span> <?php echo $feedback['comment']; ?></div>
           <br>
-          <div> <img style="width:30%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'.'.'png';?>"> </div>
+          <div> <img style="width:30%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'.'.'png';?>" onerror="this.style.display='none'"> </div>
           <hr style="align =center ;size=3; width=50px; noshade">
 
 				<?php } ?>
