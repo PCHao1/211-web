@@ -14,22 +14,13 @@
     color: orange;
 }
 
-.container .type-product{
+/* .container .type-product{
     background-color: #0062cc;
     color: #fff;
     width: 200px;
     font-size: 24px;
     padding: 5px;
     height: 40px;
-}
-
-/* .container h2::after{
-    content: '';
-    border-top: 40px solid #0062cc;
-    border-right: 40px solid transparent;
-    position: relative;
-    left: 30px;
-    top:36px;
 } */
 
 .product-bottom h3{
@@ -75,8 +66,12 @@
     color: #fff;
 }
 
-.home-body{
-    background-image: url("../../images/background-reg.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
+.mybody{
+    background-color: #fff;
+    height: 100%;
+    padding: 30px;
+}
+
+img{
+    border-radius: 20px;
 }

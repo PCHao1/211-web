@@ -2,7 +2,7 @@
     include "app/default/views/component/header.php";
 ?>
 
-<div class="home-body">
+<div class="container mybody">
     <?php
         include "app/default/views/component/slider.php";
     ?>

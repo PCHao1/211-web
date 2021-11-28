@@ -1,4 +1,4 @@
-<section class="container my-5 pt-5">
+<section class="container my-2">
     <div class="row mt-5">
         <div class="col-lg-5 col-md-12 col-12">
             <img class="img-fluid w-100 pb-1" id="main-img" src="./public/images/products/<?php echo $this->product['picture'][0] ?>">
@@ -62,7 +62,7 @@
         data["quantity"] = $('#quantity').val();
         data["price"] = Number( $('#product_price').text().slice(0,-2) );
         
-        $.get('/cart',{product:data,addProduct:true},function(data){
+        $.post('/cart',{product:data,addProduct:true},function(data){
             alert("Đã thêm vào giỏ hàng");
         });
     }
