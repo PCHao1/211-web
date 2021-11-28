@@ -65,23 +65,23 @@ label.star:before {
    
 </head>
 <body>
-<section class="vh-100" style="background-image: url('public/images/brfb.jpeg');background-attachment: fixed;">
+<section class="vh-100" style="background-image: url('public/images/image_news_1.jpg');background-attachment: fixed;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="background-color: #e8b1ec ;border-radius: 25px; height: 592px;width: 1102px; ">
+        <div class="card text-black" style="background-color:#ddd0d0 ;border-radius: 25px; height: 592px;width: 1102px; ">
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
             
             
             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-2 order-lg-1">
 
-                  <img style="width: 80%!important; border: 5px dashed green; " src="../public/images/products/<?php echo $this->list.'p0'.'.'.'png';?>">
+                  <img style="width: 80%!important; border: 10px dashed  #044a2a; " src="../public/images/products/<?php echo $this->list.'p0'.'.'.'png';?>">
                 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
 
-                <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4" style=" font-size:30px;font-family: Comic Sans MS; color: yellow;">Đánh giá sản phẩm</p>
+                <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4" style=" font-size:30px;font-family: Comic Sans MS; color:green;">Đánh giá sản phẩm</p>
                 
                 
                
@@ -103,7 +103,7 @@ label.star:before {
                       <label class="star star-2"  for="star-2"></label>
                       <input class="star star-1" value ="1" id="star-1" type="radio" name="rate[s1]"/>
                       <label class="star star-1"  for="star-1"></label>
-                      <label style=" font-family: Comic Sans MS;font-style: italic;color:#dc6a0b;margin-top: 25px; font-size: 25px;" >Vote: </label>
+                      <label style=" font-family: Comic Sans MS;font-style: italic;margin-top: 25px; font-size: 25px;" >Vote: </label>
                       
                     
                           <!-- <select name = "rate" class="form-select" aria-label="Default select example">
@@ -143,7 +143,10 @@ label.star:before {
                   
                   
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Gửi đánh giá</button>
+                    <button type="submit" class="btn btn-primary btn-lg" >Gửi đánh giá</button>
+                    &emsp;&emsp;
+                    <a href="/"><button class="btn btn-primary btn-lg" type="button">Trang chủ</button></a>
+
                   </div>
 
                 </form>
