@@ -16,10 +16,11 @@
     <div style="width:70vw">
         <div class="row">
             <div class="col-6 px-0" style="background-color:white">
-                <img  style="min-height:50vh;width:100%" src="public/images/image_news_1.jpg" alt="Description to news">
+                <img  style="min-height:50vh;width:100%;border-radius:0;" src="public/images/image_news_1.jpg" alt="Description to news">
                 <h2 style="position: absolute;top: 8px;left: 16px;cursor:pointer" onclick="loadPostContent(<?php echo($this->news_1['postid']); ?>)">
                     <strong><?php echo($this->news_1["title"]); ?></strong>
                 </h2>
+                <p style="position: absolute;bottom: 8px;right: 16px;"><i>Ngày tạo:<?php echo($this->news_1["datecreated"]); ?></i></p>
             </div>
             <div class="col-6">
                 <?php
@@ -29,6 +30,7 @@
                         echo("
                             <div class='row'>
                                 <h3 style='cursor:pointer' onclick='loadPostContent(".$news["postid"].")'>".$news["title"]."</h3>
+                                <span class='text-muted'><i>Ngày tạo: ".$news["datecreated"]."</i></span>
                             </div>
                         ");
                     }

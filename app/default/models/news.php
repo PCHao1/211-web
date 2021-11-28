@@ -9,7 +9,7 @@ class NewsModel extends Model{
 
 	public function getAllNews(){
 		$result = $this->selectMulti([
-			"column" => "postid,title,priority",
+			"column" => "postid,title,priority,datecreated",
 			"condition" => "status = ?",
 			"order" => " priority,datecreated DESC",
 			"bind" => [
