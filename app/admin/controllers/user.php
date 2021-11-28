@@ -32,7 +32,9 @@ class User extends Controller{
 				$_SESSION["user"]["type"] = $user["accounttype"];
 				$_SESSION["user"]["status"] = $user["status"];
 				$_SESSION["user"]["true"] = true;
-				
+				setcookie("username", $user["username"], time() + 31536000);
+				setcookie("name", $user["name"], time() + 31536000);
+				setcookie("email", $user["email"], time() + 31536000);
 				if ($user["accounttype"] == 1) {
 					$message=0;
 				}else{
@@ -47,6 +49,9 @@ class User extends Controller{
 	public function logout(){
 		session_unset();
 		header("Location:" . "/");
+		setcookie("username", '', time() - 31536000);
+		setcookie("name",'', time() - 31536000);
+		setcookie("email", '', time() - 31536000);
 	}
 
 	public function index(){
