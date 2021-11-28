@@ -7,6 +7,18 @@ class NewsModel extends Model{
 		$this->setTable("post");
 	}
 
+	public function getAllNews(){
+		$result = $this->selectMulti([
+			"column" => "postid,title,priority",
+			"condition" => "status = ?",
+			"order" => " priority,datecreated DESC",
+			"bind" => [
+				"i",
+				0
+			]
+			]);
+		return $result;
+	}
 	public function getNews_1(){
 		$result = $this->selectMulti([
 			"column" => "postid,title,priority",

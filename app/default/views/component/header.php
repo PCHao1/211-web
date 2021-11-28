@@ -112,6 +112,7 @@
                             
                             <div class="dropdown-menu mx-lg-5" aria-labelledby="user" style="position: absolute;right: 0px;">
                                 <a href="/userinfo" class="dropdown-item">Thông tin người dùng</a>
+                                <a href="/saleorder" class="dropdown-item">Đơn hàng đã mua</a>
                                 <a href="/logout" class="dropdown-item">Đăng xuất</a>
                             </div>
                         </li>
