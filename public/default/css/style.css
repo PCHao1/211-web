@@ -94,6 +94,20 @@ img{
     counter-increment: item
 }
 
+.intro hr {
+    background-color: #326e51;
+    height: 3px;
+    width: 10%;
+}
+
+.intro h5{
+    margin-top: 60px;
+}
+
+.intro .row{
+    text-align: center;
+}
+
 .mybody a {
     color: black;
 }

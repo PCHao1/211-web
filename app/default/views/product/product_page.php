@@ -16,19 +16,26 @@
             <div class="row">
                 <h2 class="mx-auto" id="catalogProducts"><?php echo $this->catalogProducts ?></h2>
             </div>
-            <hr class="mt-1 mb-5" style="background-color:gray; height:5px" >
+            <hr class="mt-1 mb-5">
             
             <div class="row mt-1">
             <?php
                 foreach ($this->lstProducts as $product) {
+                    if($product['promotion'] == 0){
+                        $price = $product['price'];
+                    }else{
+                        $price = $product['price'] - round($product['promotion'] / 100 * $product['price'], -3) ;
+                    }
             ?>
                 <!-- frame for 1 product -->
                 <div class="col-md-3 mb-3">
                     <div class="product-top">
                         <img width="100%" height="300px" src="./public/images/products/<?php echo $product['productid'];?>p0.png">
                         <div class="overlay">
-                            <button type="button" class="btn btn-secondary" title="Xem sản phẩm"><a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><i class="fa fa-eye"></i></a></button>
-                            <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></button>
+                            <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><button type="button" class="btn btn-secondary" title="Xem sản phẩm"><i class="fa fa-eye"></i></button></a>
+                            <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng" 
+                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>)">
+                            <i class="fa fa-shopping-cart"></i></button>
                         </div>
                     </div>
                     <div class="product-bottom text-center">
@@ -39,15 +46,14 @@
                         <span class="fa fa-star"></span>
 
                         <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>">
-                            <h3><?php echo $product['title']; ?></h3>
+                            <h3 id="product-title"><?php echo $product['title']; ?></h3>
                         </a>
 
                         <?php if($product['promotion'] == 0){
-                            echo '<h4 class="text-danger">'.$product['price']." đ" ."</h4>";
+                            echo '<h4 class="text-danger">'.$price." đ" ."</h4>";
                             }else{
-                                $price_of_promotion = $product['price'] - round($product['promotion'] / 100 * $product['price'], -3) ;
                                 echo '<s class="text-secondary pr-3">'.'<small>'.$product['price']." đ".'</small>'.'</s>'.
-                                '<h4 class="text-danger">'.$price_of_promotion." đ" ."</h4>";
+                                '<h4 class="text-danger">'.$price." đ" ."</h4>";
                             } 
                         ?>
                         <?php if($product['quantity'] == 0){
@@ -73,6 +79,18 @@
     function sortBy(){
         $.get('/products?sortSelector='+$('#sortSelector').val()+'&catalog='+$('#catalogProducts').text(),function(data){
             $('#body').html(data);
+        });
+    }
+
+    function addToCart(productid, product_title, product_price){
+        let data = new Object();
+        data.product_id = productid;
+        data.product_title = product_title;
+        data.quantity = 1;
+        data.price = Number(product_price);
+        //console.log(data);
+        $.post('/cart',{product:JSON.stringify(data),addProduct:true},function(data){
+            alert(data);
         });
     }
 </script>
