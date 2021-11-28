@@ -208,7 +208,7 @@ class Loader{
 		$router->any('/forgotpass',
 			[
 				'module'	=> 'default',
-				'controller'=> 'userinfo',
+				'controller'=> 'user',
 				'action'	=> 'forgotpass'
 			]
 		);

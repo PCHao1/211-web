@@ -74,3 +74,9 @@
     box-shadow: 2px 2px 3px #999;
     color: #fff;
 }
+
+.home-body{
+    background-image: url("../../images/background-reg.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

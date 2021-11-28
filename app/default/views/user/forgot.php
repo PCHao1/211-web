@@ -3,7 +3,7 @@
 </html>
 <html>
 <head>
-	<title>Đăng nhập</title>
+  <title>Quên mật khẩu</title>
     <link href="/public/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/public/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/public/default/js/jquery-3.6.0.js"></script>
@@ -13,7 +13,7 @@
     
     <!--Fontawesome CDN-->
 
-	<!--Custom styles-->
+  <!--Custom styles-->
 </head>
 <body>
         <div class="container">
@@ -26,28 +26,25 @@
                     </a>
                 </div>
                 <div class="title text-center">
-                    <h1>Đăng nhập</h1>
+                    <h1>Quên mật khẩu</h1>
                 </div>
                 <div class="form-group">
-                    <label for="username" style="font-weight: bold;">Tên tài khoản</label>
                     <span class="form-alert text-danger float-right"></span>
                     <input type="username" class="form-control" id="username" name="username" placeholder="Tên tài khoản" required>
-                </div>
+                </div><br>
                 <div class="form-group">
-                    <label for="password" style="font-weight: bold;">Mật khẩu</label>
                     <span class="form-alert text-danger float-right"></span>
-                    <input type="password" class="form-control" id="pass" name="pass" placeholder="Mật khẩu" required>
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Email" required>
                 </div>
-                
 
                 <div class="form-check" style="margin-top: 10px;">
                         <p class="text-danger" id="message"></p>
                 </div>
                 <div class="d-grid">
-                    <button type="button" id='submit' class="btn btn-success btn-block m-2" style="font-weight: bold;" onclick="login()">Đăng nhập</button>
+                    <button type="button" id='submit' class="btn btn-primary btn-block m-2" style="font-weight: bold;" onclick="forgotPass()">Lấy lại mật khẩu</button>
                 </div>
                 <div class=" text-center mt-3 text-bold">
-                    Chưa có tài khoản?<a href="/register">Đăng ký</a> | <a href="/forgotpass">Quên mật khẩu</a><br>
+                    <a href="/login">Đăng nhập</a><br>
                     <a href="/">Về trang chủ</a>
                 </div>
             </form>

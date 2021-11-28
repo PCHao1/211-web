@@ -96,4 +96,66 @@ class User extends Controller{
 	// public function product_detail(){
 		
 	// }
+	public function forgotpass(){
+		if($this->verify()) header("Location:" . "/");
+		//Send request
+		if(isset($_POST['forgot'])){
+			$user=$_POST['username'];
+			$email=$_POST['email'];
+			$veriUser=$this->model->checkRegisterUserName($user);
+			$veriEmail=$this->model->checkRegisterEmail($email);
+			if(!$veriUser){
+				echo 'Không có user này';
+				return;
+			}
+			if(!$veriEmail){
+				echo'Sai email';
+				return;
+			}
+			$code= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'].'?p=true&u='.$user.'&code='.$this->model->selectCode($user);
+			$to = $email;
+			$subject = "Yêu cầu lấy lại mật khẩu - Mỹ phẩm CSE";
+			$txt = '<h1>Chào mừng bạn đến với Mỹ phẩm - CSE</h1>
+					Yêu cầu lấy lại mật khẩu của bạn đã <b style="color:red;"> thành công</b> <br>
+					Vui lòng nhấn vào đường dẫn sau để hoàn thành việc lấy lại mật khẩu: <br>
+					<a href="'.$code.'">Nhấn vào đây</a>';
+			$headers = "From: Công ty Mỹ phẩm CSE". "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			mail($to,$subject,$txt,$headers);
+			echo 'Email đã được gửi đi, kiểm tra email '.$email.' để lấy mật khẩu';
+			return;
+		}
+		if(isset($_GET['p'])){
+			$code=$_GET['code'];
+			$user=$_GET['u'];
+			if($code!=$this->model->selectCode($user)){
+				header('Location: /');
+			}
+			else{
+				$this->view->user=$user;
+				$this->view->username=$this->model->selectName($user);
+				$this->view->render("user/changepass", false);
+				return;
+			}
+		}
+		if(isset($_POST['change'])){
+			$code=$_POST['code'];
+			$user=$_POST['username'];
+			$pass=$_POST['pass'];
+			if (!preg_match("/^\S{8,}$/",$pass)) {
+				echo "Phải gồm 8 kí tự trở lên";
+				return;
+			}
+			if($code!=$this->model->selectCode($user)){
+				echo 'Hết hạn sử dụng code này';
+				return;
+			}
+			else{
+				$this->model->updateUserPass($user,$pass);
+				echo 1;
+				return;
+			}
+		}
+		$this->view->render("user/forgot", false);
+	}
 }

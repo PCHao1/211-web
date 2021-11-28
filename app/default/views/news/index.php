@@ -12,7 +12,7 @@
 <?php
     include "app/default/views/component/header.php";
 ?>
-<section class="vh-100 d-flex justify-content-center" style="background-image: url('public/images/news_background.jpg');background-attachment: relative;">
+<section class="vh-100 d-flex justify-content-center" >
     <div style="width:70vw">
         <div class="row">
             <div class="col-6 px-0" style="background-color:white">
