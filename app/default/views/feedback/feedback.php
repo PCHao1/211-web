@@ -65,24 +65,23 @@ label.star:before {
    
 </head>
 <body>
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-100" style="background-image: url('public/images/brfb.jpeg');background-attachment: fixed;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
+        <div class="card text-black" style="background-color: #e8b1ec ;border-radius: 25px; height: 592px;width: 1102px; ">
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
             
             
             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-2 order-lg-1">
 
-
-                 <img src="/public/images/cmt/cmt1.jpeg" class="img-fluid" alt="Sample image" height = "60px">
+                  <img style="width: 80%!important; border: 5px dashed green; " src="../public/images/products/<?php echo $this->list.'p0'.'.'.'png';?>">
                 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
 
-                <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đánh giá sản phẩm</p>
+                <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4" style=" font-size:30px;font-family: Comic Sans MS; color: yellow;">Đánh giá sản phẩm</p>
                 
                 
                
@@ -104,7 +103,7 @@ label.star:before {
                       <label class="star star-2"  for="star-2"></label>
                       <input class="star star-1" value ="1" id="star-1" type="radio" name="rate[s1]"/>
                       <label class="star star-1"  for="star-1"></label>
-                      <label style="margin-top: 25px; font-size: 20px;" >Vonte: </label>
+                      <label style=" font-family: Comic Sans MS;font-style: italic;color:#dc6a0b;margin-top: 25px; font-size: 25px;" >Vote: </label>
                       
                     
                           <!-- <select name = "rate" class="form-select" aria-label="Default select example">
@@ -121,14 +120,14 @@ label.star:before {
 
                   <div class="d-flex flex-row align-items-center mb-4">
                   	<div class="form-outline flex-fill mb-0">
-                        <textarea name="feedcmt" id="comment"  cols="30" rows="5" class="form-control" placeHolder="Bình luận sản phẩm" style="background-color: white;" required></textarea>
+                        <textarea style="border: 2px solid red;" name="feedcmt" id="comment"  cols="30" rows="5" class="form-control" placeHolder="Bình luận sản phẩm" style="background-color: white;" required></textarea>
                        
                         </div>
                   </div>
 
                   <br>  
                   <div class="ro">
-                    <div style= "float:left;  ">Thêm hình ảnh:    </div>
+                    <div style= "float:left; font-family: Comic Sans MS;">Thêm hình ảnh:    </div>
                     <div style= "float:left;margin-left: 15px;"> <input style= " width : 250px;" type="file" name="myFile"> </div>
                     <!-- <input type="file" name="proImg[]"> -->
                     
@@ -144,7 +143,7 @@ label.star:before {
                   
                   
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Đánh giá</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Gửi đánh giá</button>
                   </div>
 
                 </form>

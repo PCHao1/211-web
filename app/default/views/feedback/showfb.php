@@ -100,7 +100,7 @@ label.star:before {
 					<td><?php echo $feedback['username']; ?></td>
 					<td><?php echo $feedback['comment']; ?></td>
 					<td><?php echo $feedback['star']; ?></td>
-          <td> <img style="width: 80%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'fb'.'.'.'jpg';?>"> </td>
+          <td> <img style="width: 80%!important;" src="../public/images/products/<?php echo $feedback['feedbackid'].'.'.'png';?>"> </td>
          
 
 					
