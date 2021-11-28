@@ -7,13 +7,19 @@ class SaleOrderModel extends Model{
 		$this->setTable("`order`");
 	}
 
-	public function getOrders(){
+	public function getOrders($username){
 		$result = $this->selectMulti([
 			"column"	=> "orderid,username,status,address,shipfee",
+			"condition" => "username = ?",
+			"bind" => [
+				"s",
+				$username
+			]
 		]);
 		$this->setTable("orderdetail");
 		foreach ($result as $key=>$row) {
 			$order=$row['orderid'];
+			
 	    	$raw_details = $this->selectMulti([
 				"column"	=> "orderid,productid,price, quantity",
 				"condition"	=> "orderid = ?",
@@ -22,6 +28,7 @@ class SaleOrderModel extends Model{
 					$order
 				]
 			]);
+			
 			foreach ($raw_details as $key=>$row) {
 				$this->setTable("product");
 				$productid = $row['productid'];
@@ -34,9 +41,11 @@ class SaleOrderModel extends Model{
 					]
 				]);
 				$raw_details[$key] += array("name" => $product_detail['title']);
-				$this->setTable("orderdetail");
+				
 			}
+			$this->setTable("orderdetail");
 			$result[$key] += array("items" => $raw_details);
+			$result[$key] += array("test" => "z");
 		}
 		$this->setTable("`order`");
 		return $result;

@@ -56,14 +56,14 @@
     });
 
     function addToCart(productid){
-        var data = [];
-        data["product_id"] = productid;
-        data["product_title"] = $('#product_title').text();
-        data["quantity"] = $('#quantity').val();
-        data["price"] = Number( $('#product_price').text().slice(0,-2) );
-        
-        $.post('/cart',{product:data,addProduct:true},function(data){
-            alert("Đã thêm vào giỏ hàng");
+        let data = new Object();
+        data.product_id = productid;
+        data.product_title = $('#product_title').text();
+        data.quantity = $('#quantity').val();
+        data.price = Number( $('#product_price').text().slice(0,-2) );
+        console.log(data)
+        $.post('/cart',{product:JSON.stringify(data),addProduct:true},function(data){
+            alert(data);
         });
     }
 </script>
