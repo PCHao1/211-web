@@ -42,13 +42,21 @@
             <p class="mt-5"><?php echo $this->product['descri'] ;?></p>
         </div>
     </div>
-    <h4>Đánh giá</h4>
-    <span class="fa fa-star checked_rating"></span>
-    <span class="fa fa-star checked_rating"></span>
-    <span class="fa fa-star checked_rating"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <h4>Bình luận</h4>
+    <h4 class="mt-5 ml-3">Đánh giá</h4>
+    <div class="ml-3">
+    <?php 
+        $star = round($this->product['star']);
+        for ($i = 0 ; $i <  $star; $i++){
+            echo '<span class="fa fa-star checked_rating"></span>';
+        }
+        for ($i = 0 ; $i < 5 - $star ; $i++){
+            echo '<span class="fa fa-star"></span>';
+        }
+    ?>
+    </div>
+    
+    <h4 class="mt-3 ml-3">Bình luận</h4>
+    <div class="comments"></div>
 </section>
 
 <script>
@@ -58,6 +66,10 @@
             $("#main-img").attr("src",$(this).attr('src'));
         });
     });
+
+    $.get('http://localhost:8080/payment?productid=<?php echo $this->product['productid']?>', function(data){
+        $('.comments').html(data);
+    })
 
     function addToCart(productid,product_title, product_price){
         let data = new Object();

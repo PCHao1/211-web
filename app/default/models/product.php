@@ -104,6 +104,19 @@ class ProductModel extends Model{
 			$pics[]=$product.'p'.$pic["priority"].'.png';
 		}
 		$result['picture']=$pics;
+
+        $this->setTable("feedback");
+        $star = $this->selectOne([
+			"column"	=> "avg(star)",
+			"condition"	=> "productid = ?",
+            "group"     => "productid",
+			"bind"		=> [
+				"i",
+				$product,
+			]
+		]);
+        $result['star']=$star['avg(star)'];
+
 		$this->setTable("product");
 		return $result;
 	}
