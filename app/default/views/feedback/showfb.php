@@ -48,16 +48,6 @@ label.star:before {
   font-family: FontAwesome;
 }
 
-/* .ro{
-  
-  display:flex;
-  
-}
-.ro > div {
-  
-  margin: 10px;
-  padding: 50px;
-} */
 
 
     </style>
@@ -103,24 +93,7 @@ label.star:before {
           <br>
           <div> <img style="width:30%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'.'.'png';?>"> </div>
           <hr style="align =center ;size=3; width=50px; noshade">
-          
-					
-          
-          
-          
 
-
-
-
-         
-        
-        
-        
-         
-         
-
-					
-				
 				<?php } ?>
 				<!-- End List feedback -->
 				
