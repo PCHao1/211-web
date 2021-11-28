@@ -18,8 +18,8 @@
 <?php
     include "app/default/views/component/header.php";
 ?>
-<div class="container fluid" style="background-color:white;">
-<div class="row">
+<div class="container-fluid py-5 my-5" style="background-color:rgba(255,255,255,0.6);">
+<div class="row mx-auto" style="background-color:rgba(255,255,255); width: 90%;border-radius: 5px;min-height: 50vh;">
 
 <div class="col-12">
     <div class="row">
@@ -27,13 +27,13 @@
             <div class="title">
                 <div class="row">
                     <div class="col">
-                        <h4><b>Giỏ hàng</b></h4>
+                        <span class="h1" style="color:var(--color1);">Giỏ hàng</span>
                     </div>
                 </div>
             </div>
             <?php
             foreach($this->items as &$item){
-            echo("<div class='row border-top border-bottom d-flex align-items-center'>
+            echo("<div class='row border m-2 p-2 d-flex align-items-center' style='border-radius:4px;background-color:#eee;'>
                     <div class='col-4 ml-3 py-1'>
                         <div class='row'>".$item['title']."</div>   
                     </div>
@@ -46,10 +46,7 @@
             ?>
            
         </div>
-        <div class="col-md-4" style="background-color:#ffb9e1">
-            <div>
-                <h5><b>Summary</b></h5>
-            </div>
+        <div class="my-5 p-4 text-white" style="background-color:var(--color11);width: 30%;border-radius: 4px;">
 
             <div class="row">
                 <div class="col-6">Số lượng <?php echo(count($this->items)) ?></div>
@@ -67,7 +64,7 @@
              
             </div> 
             <div class="row d-flex justify-content-center">
-                <button class="btn btn-secondary" onclick="onOrder()">ĐẶT HÀNG</button>
+                <button class="btn btn-light" onclick="onOrder()">ĐẶT HÀNG</button>
             </div>
         </div>
     </div>
