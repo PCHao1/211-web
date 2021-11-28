@@ -15,7 +15,7 @@ class Showfb extends Controller{
 		$this->view->render("feedback/showfb", false);
            
         }else{
-            echo"khong co ffffgi";
+            echo"khong co gi";
         }
 }
 }

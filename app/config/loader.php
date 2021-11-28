@@ -189,8 +189,8 @@ class Loader{
 		$router->any('/payment',
 			[
 				'module'	=> 'default',
-				'controller'=> 'payment',
-				'action'	=> 'index'
+				'controller'=> 'showfb',
+				'action'	=> 'showfb'
 			]
 		);
 

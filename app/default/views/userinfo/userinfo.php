@@ -81,12 +81,11 @@ label.star:before {
 				<thead style="position: sticky;top: 0;" class="bg-white">
 					<tr>
 						<!-- <th style="width: 5%">ID</th> -->
-						<th style="width: 20%">Sản phẩm</th>
-						<th style="width: 10%">ID sản phẩm</th>
-						<th style="width: 10%">Username</th>
-						<th style="width: 30%">Nội dung</th>
-						<th style="width: 7%">Star</th>
-            <th style="width: 30%">Ảnh</th>
+						<th style="width: 20%">Tên người dùng</th>
+						<th style="width: 10%">Tên tài khoản</th>
+						<th style="width: 10%">Số điện thoại</th>
+						<th style="width: 30%">Email</th>
+						
 						
 					</tr>
 				</thead>
@@ -100,7 +99,7 @@ label.star:before {
 					<td><?php echo $feedback['username']; ?></td>
 					<td><?php echo $feedback['comment']; ?></td>
 					<td><?php echo $feedback['star']; ?></td>
-          <td> <img style="width: 80%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'fb'.'.'.'jpg';?>"> </td>
+
          
 
 					

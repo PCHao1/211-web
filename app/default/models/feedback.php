@@ -8,7 +8,7 @@ class FeedbackModel extends Model{
 	}
 
 
-
+	
 	// public function checkorderid(){
 	// 	$this->setTable("order");
 
@@ -27,14 +27,14 @@ class FeedbackModel extends Model{
 	// 	return $result;
 	// }
 
-	public function insertFeedback($rate, $comment){
+	public function insertFeedback($orderid,$productid,$rate,$comment){
 
 		$rs = $this->insert([
 			"data"	=> "orderid,productid,star,comment",
 			"bind"		=> [
 				"iiis",
-				1,
-				34,
+				$orderid,
+				$productid,
 				$rate,
 				$comment
 			]

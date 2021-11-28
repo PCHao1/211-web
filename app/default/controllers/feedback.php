@@ -4,6 +4,25 @@ require_once APP_PATH . '/app/config/controller.php';
 class Feedback extends Controller{
 	public function feedback(){
 
+
+		if(isset($_GET['productid'])){
+            $productid = $_GET['productid'];
+			
+		
+		// header("Location:" . "/feedback");         
+        }else{
+            echo"khong co gi";
+        }
+		if(isset($_GET['orderid'])){
+            $orderid = $_GET['orderid'];
+			
+		
+		// header("Location:" . "/feedback");         
+        }else{
+            echo"khong co gi";
+        }
+
+
 		$method = $_SERVER['REQUEST_METHOD'];
 		if ($method == "POST") {
 			$rate1 = $_POST["rate"]["s1"]?? 9;
@@ -19,15 +38,20 @@ class Feedback extends Controller{
 			// }
 
 			$file = $_FILES['myFile']['tmp_name'];
+			echo $file;
 			$idfeedback = $this->model->getFeedback();
-            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".jpg";
+			
+            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 ."fb". ".jpg";
+			echo $path;
 			
             if(move_uploaded_file($file, $path)){
                 echo "Tải tập tin thành công";
 				
-            }else{
+            }
+			else{
                 echo "Tải tập tin thất bại";
-				
+				echo $idfeedback ;
+			die();
             }
 
 			if($rate1!=9)
@@ -59,7 +83,8 @@ class Feedback extends Controller{
 			if(isset($comment)){
 
 				//handlesubmit
-				$result = $this->model->insertFeedback($rate,$comment);
+				
+				$result = $this->model->insertFeedback($orderid,$productid,$rate,$comment);
 
 				
 				if($result){
