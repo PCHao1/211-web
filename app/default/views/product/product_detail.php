@@ -67,7 +67,7 @@
         });
     });
 
-    $.get('http://localhost:8080/payment?productid=<?php echo $this->product['productid']?>', function(data){
+    $.get('/payment?productid=<?php echo $this->product['productid']?>', function(data){
         $('.comments').html(data);
     })
 
