@@ -18,7 +18,7 @@
             <div class="col-6 px-0" style="background-color:white">
                 <img  style="min-height:50vh;width:100%" src="public/images/image_news_1.jpg" alt="Description to news">
                 <h2 style="position: absolute;top: 8px;left: 16px;cursor:pointer" onclick="loadPostContent(<?php echo($this->news_1[0]['postid']); ?>)">
-                    <strong><?php echo($this->news_1[0]["title"]); ?></strong>
+                    <strong><?php echo($this->news_1["title"]); ?></strong>
                 </h2>
             </div>
             <div class="col-6">

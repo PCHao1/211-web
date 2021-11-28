@@ -28,9 +28,9 @@ class SaleOrderModel extends Model{
 					$order
 				]
 			]);
-			
-			foreach ($raw_details as $key=>$row) {
-				$this->setTable("product");
+			$this->setTable("product");
+			foreach ($raw_details as $key1=>$row) {
+				
 				$productid = $row['productid'];
 				$product_detail = $this->selectOne([
 					"column"	=> "title",
@@ -40,12 +40,14 @@ class SaleOrderModel extends Model{
 						$productid
 					]
 				]);
-				$raw_details[$key] += array("name" => $product_detail['title']);
+				$raw_details[$key1] += array("name" => $product_detail['title']);
 				
 			}
 			$this->setTable("orderdetail");
-			$result[$key] += array("items" => $raw_details);
+			
 			$result[$key] += array("test" => "z");
+			$result[$key] += array("items" => $raw_details);
+			
 		}
 		$this->setTable("`order`");
 		return $result;

@@ -67,7 +67,7 @@ class Cart extends Controller{
 				if($cart[$i]['productid'] == $_POST['id']){
 					$cart[$i]['quantity'] = $_POST['quantity'];
 					$_SESSION['cart'] = $cart;
-					echo($this->model->totalPrice($_SESSION['cart']));
+					echo(number_format($this->model->totalPrice($_SESSION['cart'])));
 					return;
 				}
 			}
