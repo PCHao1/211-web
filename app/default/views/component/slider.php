@@ -1,5 +1,5 @@
-<div class="container-fluid mt-5">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="container pt-5">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel"  data-interval="2000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

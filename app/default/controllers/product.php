@@ -3,24 +3,32 @@ require_once APP_PATH . '/app/config/controller.php';
 
 class Product extends Controller{
 	public function product_info(){
-        $this->view->title="Tất cả sản phẩm";
+        $this->view->title="Sản phẩm";
         //$this->view->lstCatalogs=$this->model->getcatalogs();
         if(isset($_GET['catalog'])){
             $catalog = $_GET['catalog'];
-            $this->view->catalogProducts=$catalog;
-            if(isset($_GET['sortSelector'])){
-                $sortSelector = $_GET['sortSelector'];
-                $this->view->lstProducts=$this->model->getAllProducts($sortSelector,$catalog);
-                $this->view->render("product/products", false);
-                return;
+            if($catalog == "Tất cả sản phẩm"){
+                $this->view->catalogProducts = "Tất cả sản phẩm";
+                if(isset($_GET['sortSelector'])){
+                    $sortSelector = $_GET['sortSelector'];
+                    $this->view->lstProducts=$this->model->getAllProducts($sortSelector);
+                    $this->view->render("product/products", false);
+                    return;
+                }
+                $this->view->lstProducts=$this->model->getAllProducts(0);
+                $this->view->render("product/product_page", false);
+            }else{
+                $this->view->catalogProducts = $catalog;
+                if(isset($_GET['sortSelector'])){
+                    $sortSelector = $_GET['sortSelector'];
+                    $this->view->lstProducts=$this->model->getAllProductsWithCatalog($sortSelector,$catalog);
+                    $this->view->render("product/products", false);
+                    return;
+                }
+                $this->view->lstProducts=$this->model->getAllProductsWithCatalog(0,$catalog);
+                $this->view->render("product/product_page", false);
             }
-            $this->view->lstProducts=$this->model->getAllProducts(0,$catalog);
-            $this->view->render("product/product_page", false);
-        }else{
-            echo"khong co gi";
         }
-        
-        
 	}
 	public function product_detail(){
         if(isset($_GET['id_of_product'])){

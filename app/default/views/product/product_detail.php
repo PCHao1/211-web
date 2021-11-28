@@ -16,22 +16,25 @@
         </div>
 
         <div class="col-lg-6 col-md-12 col-12">
-            <h5><?php echo $this->product['title'] ;?></h5>
+            <h5 id="product_title"><?php echo $this->product['title'] ;?></h5>
             <?php if($this->product['promotion'] == 0){
-                echo '<h4 class="text-danger">'.$this->product['price']." đ" ."</h4>";
+                echo '<h4 class="text-danger" id="product_price">'.$this->product['price']." đ" ."</h4>";
             }else{
                 $price_of_promotion = $this->product['price'] - round($this->product['promotion'] / 100 * $this->product['price'], -3) ;
-                echo '<h4 class="text-danger">'.
-                '<s class="text-secondary pr-3">'.'<small>'.$this->product['price']." đ".'</small>'.'</s>'
-                .$price_of_promotion." đ" ."</h4>";
+                echo 
+                '<s class="text-secondary pr-3">'.'<small>'.$this->product['price']." đ".'</small>'.'</s>'.
+                '<h4 class="text-danger" id="product_price">'.$price_of_promotion." đ" ."</h4>";
             } 
             ?>
-            <form class="form-inline" action="" method="POST">
-                <div class="form-group">
-                    <input class="form-control w-25 mr-5" type="number" value="1">
-                    <button class="btn btn-primary ">Thêm vào giỏ hàng</button>
-                </div>
-            </form>
+            
+            <div class="form-inline">
+                <input class="form-control w-25 mr-5" type="number" value="1" id="quantity">
+                <button class="btn btn-primary" 
+                    onclick="addToCart(<?php echo $this->product['productid']?>)">
+                    Thêm vào giỏ hàng
+                </button>
+            </div>
+            
             <p class="mt-5"><?php echo $this->product['descri'] ;?></p>
         </div>
     </div>
@@ -52,4 +55,16 @@
         });
     });
 
+    function addToCart(productid){
+        var data = [];
+        data["product_id"] = productid;
+        data["product_title"] = $('#product_title').text();
+        data["quantity"] = $('#quantity').val();
+        data["price"] = Number( $('#product_price').text().slice(0,-2) );
+        console.log(data);
+        
+        $.get('./app/default/views/product/addToCart.php',{product:data},function(data){
+            alert("Đã thêm vào giỏ hàng");
+        });
+    }
 </script>
