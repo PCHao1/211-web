@@ -46,4 +46,51 @@ class UserModel extends Model{
 		]);
 		return $result;
 	}
+	public function updateUserAccess($username){
+		$result=$this->update([
+				"data"		=> "lastlogin=CURRENT_TIMESTAMP",
+				"condition"	=> "username=?",
+				"bind"		=> [
+					"s",
+					$username
+				]
+			]);
+		return $result;
+	}
+	public function selectCode($username){
+		$result = $this->selectOne([
+			"column"	=> "password",
+			"condition"	=> "username = ?",
+			"bind"		=> [
+				"s",
+				$username,
+			
+			]
+		]);
+		return $result['password'];
+	}
+	public function updateUserPass($username,$pass){
+		$result=$this->update([
+				"data"		=> "password=?",
+				"condition"	=> "username=?",
+				"bind"		=> [
+					"ss",
+					hash('sha256',$pass),
+					$username
+				]
+			]);
+		return $result;
+	}
+	public function selectName($username){
+		$result = $this->selectOne([
+			"column"	=> "name",
+			"condition"	=> "username = ?",
+			"bind"		=> [
+				"s",
+				$username,
+			
+			]
+		]);
+		return $result['name'];
+	}
 }

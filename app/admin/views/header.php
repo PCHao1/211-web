@@ -24,13 +24,15 @@
  		</div>
  		<div class="col-sm-9  bg-white"style="min-height: 70px;">
  			<div class="row h-100">
- 				<div class="col-sm-11 my-auto text-center display-6 text-success"><?php  echo $this->title; ?></div>
-	 			<div class="col-sm-1 my-auto">
+ 				<div class="col-sm-2"></div>
+ 				<div class="col-sm-8 my-auto text-center display-6 text-success"><?php  echo $this->title; ?></div>
+	 			<div class="col-sm-2 my-auto">
 	 				<div class="row">
 	 					<!-- <div class="col-6 text-white">Chào,<br><b>Hào</b></div> -->
 	 					<div class="col-12">
 	 						<div class="dropdown">
-							  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+								<?php echo $_SESSION['user']['username']; ?>
+							  <button type="button" class="btn p-0" data-bs-toggle="dropdown">
 	 								<img src="/public/admin/user-icon.png" width="50px"  alt="account">
 							  </button>
 							  <ul class="dropdown-menu">

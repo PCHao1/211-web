@@ -21,7 +21,8 @@ class UserModel extends Model{
 	}
 	public function getAllUser(){
 		$result = $this->selectMulti([
-			"column"	=> "username, status,lastlogin,accounttype"
+			"column"	=> "username, status,lastlogin,accounttype",
+			"order"	=> "lastlogin desc"
 		]);
 		// $result=[];
 		// while($row=$query->fetch_assoc()){
@@ -92,6 +93,17 @@ class UserModel extends Model{
 					$phone,
 					$email,
 					$type,
+					$username
+				]
+			]);
+		return $result;
+	}
+	public function updateUserAccess($username){
+		$result=$this->update([
+				"data"		=> "lastlogin=CURRENT_TIMESTAMP",
+				"condition"	=> "username=?",
+				"bind"		=> [
+					"s",
 					$username
 				]
 			]);

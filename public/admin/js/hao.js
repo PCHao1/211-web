@@ -46,6 +46,85 @@ function login(){
 					},500);
 }
 
+function changePass(){
+	$('#submit').html(' <span class="spinner-grow spinner-grow-sm"></span>Loading..');
+	$('#submit').attr('disabled','');
+	var user, code, pass,npass;
+	const urlSearchParams = new URLSearchParams(window.location.search);
+	const params = Object.fromEntries(urlSearchParams.entries());
+	code=params['code'];
+	user=params['u'];
+	pass=$("#npass").val();
+	npass=$("#nnpass").val();
+	if(pass!=npass){
+		$('#message').text('Mật khẩu không khớp');
+		$('#submit').html('Lấy mật khẩu')
+		$('#submit').removeAttr('disabled','');
+		return;
+	}
+	setTimeout(function(){
+						
+
+	$.post('/forgotpass',
+		{
+			change:true,
+			username:user,
+			code:code,
+			pass:pass
+		},function(data, status){
+			if(data==1){
+				$('#message').text('Thành công');
+				setTimeout(function(){
+						location.reload();
+				},1500);
+				return;
+			}
+			$('#message').text(data);
+			$('#submit').html('Đổi mật khẩu')
+			$('#submit').removeAttr('disabled','');
+			// $('#submit').attr('onclick','verifyPass');
+	});
+
+
+
+
+
+
+
+
+					},500);
+}
+function forgotPass(){
+	var user, mail;
+	user=$("#username").val();
+	mail=$("#mail").val();
+	$('#submit').html(' <span class="spinner-grow spinner-grow-sm"></span>Loading..');
+	$('#submit').attr('disabled','');
+	setTimeout(function(){
+						
+
+	$.post('/forgotpass',
+		{
+			forgot:true,
+			username:user,
+			email:mail
+		},function(data, status){
+
+			$('#message').text(data);
+			$('#submit').html('Lấy mật khẩu')
+			$('#submit').removeAttr('disabled','');
+			// $('#submit').attr('onclick','verifyPass');
+	});
+
+
+
+
+
+
+
+
+					},500);
+}
 function changeModalHead($content){
 	document.getElementById("modal-head").innerHTML=$content;
 }

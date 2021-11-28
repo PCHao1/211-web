@@ -9,7 +9,7 @@ class PostsModel extends Model{
 	public function getAllPost(){
 		$result = $this->selectMulti([
 			"column"	=> "postid,title,priority ,status,datecreated",
-			"condition"	=> "1 order by status, priority"
+			"condition"	=> "1 order by status, priority,datecreated desc"
 		]);
 		return $result;
 	}
