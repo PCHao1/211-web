@@ -28,7 +28,7 @@
                 if(count($this->news_2) >0){
                     foreach($this->news_2 as &$news){
                         echo("
-                            <div class='row ml-2' style='box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;'>
+                            <div class='row ml-2 my-2' style='box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;'>
                                 <h3 style='cursor:pointer' onclick='loadPostContent(".$news["postid"].")'>".$news["title"]."</h3>
                                 <span class='text-muted'><i>Ngày tạo: ".$news["datecreated"]."</i></span>
                             </div>
