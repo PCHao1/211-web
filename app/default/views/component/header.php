@@ -15,6 +15,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	<link rel="stylesheet" href="./public/default/css/style.css">
     <link rel="stylesheet" href="./public/default/css/style1.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
 </head>
 <body>
