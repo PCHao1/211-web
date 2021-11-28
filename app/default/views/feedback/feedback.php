@@ -47,6 +47,19 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
+
+/* .ro{
+  
+  display:flex;
+  
+}
+.ro > div {
+  
+  margin: 10px;
+  padding: 50px;
+} */
+
+
     </style>
 
    
@@ -62,22 +75,17 @@ label.star:before {
             
             
             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-2 order-lg-1">
-                
 
-                <img src="/public/images/cmt/cmt1.jpeg" class="img-fluid" alt="Sample image" height = "60px">
-                
 
+                 <img src="/public/images/cmt/cmt1.jpeg" class="img-fluid" alt="Sample image" height = "60px">
+                
               </div>
               <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
 
                 <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đánh giá sản phẩm</p>
                 
                 
-                <!-- <div class="stars" >
-                  <form action="" method="post">
-                    
-                  </form>
-                </div> -->
+               
 
                 <form class="mx-1 mx-md-4" method="post" enctype="multipart/form-data">
                     
@@ -117,17 +125,21 @@ label.star:before {
                        
                         </div>
                   </div>
-                  <div>
-                    
-                  Select image to upload:
+
+                  <br>  
+                  <div class="ro">
+                    <div style= "float:left;  ">Thêm hình ảnh:    </div>
+                    <div style= "float:left;margin-left: 15px;"> <input style= " width : 250px;" type="file" name="myFile"> </div>
                     <!-- <input type="file" name="proImg[]"> -->
-                    <input type="file" name="myFile">
+                    
                     <!-- <input type="file" name="fileToUpload" id="fileToUpload">
                     <input type="submit" value="Upload Image" name="submit"> -->
-                    
-                  </div>
-
                   
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                
 
                   
                   

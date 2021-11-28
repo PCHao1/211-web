@@ -49,4 +49,15 @@ class NewsModel extends Model{
 			]);
 			return $result;
 	}
+	public function getNews($id){
+		$result = $this->selectOne([
+			"column" => "postid,title,priority",
+			"condition" => "postid = ?",
+			"bind" => [
+				"i",
+				$id
+			]
+			]);
+		return $result;
+	}
 }
