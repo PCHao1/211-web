@@ -19,10 +19,9 @@ class Feedback extends Controller{
 			// }
 
 			$file = $_FILES['myFile']['tmp_name'];
-			echo $file;
-            $path = APP_PATH . "/public/images/feedback/"."idfeedback" . "_" . ".jpg";
+			$idfeedback = $this->model->getFeedback();
+            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".jpg";
 			
-			echo $path;
             if(move_uploaded_file($file, $path)){
                 echo "Tải tập tin thành công";
 				
@@ -30,6 +29,7 @@ class Feedback extends Controller{
                 echo "Tải tập tin thất bại";
 				
             }
+
 			if($rate1!=9)
 			{
 				$rate = $rate1;
@@ -60,20 +60,34 @@ class Feedback extends Controller{
 
 				//handlesubmit
 				$result = $this->model->insertFeedback($rate,$comment);
+
 				
 				if($result){
+					
 					header("Location:" . "/");
-	
 				}
+				
 			}
-			if(isset($hinhanh))
-			{
 
-			}
+			
+			// if(isset($hinhanh))
+			// {
+
+			// }
 		}
+
+		// if(isset($_GET['productid'])){
+        //     $productid = $_GET['productid'];
+		// 	$list = $this->model->getAllFeedback($productid);
+		// 	$this->view->list=$list;
+		// // header("Location:" . "/feedback");
+		// $this->view->render("feedback/", false);
+           
+        // }else{
+        //     echo"khong co gi";
+        // }
+
 		$this->view->render("feedback/feedback", false);
 	}
-	public function product_detail(){
-		
-	}
+	
 }

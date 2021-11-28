@@ -6,7 +6,7 @@ class Userinfo extends Controller{
 		echo 'info';
 	}
 	public function product_info(){
-		$this->view->render("product/1", false);
+		$this->view->render("showfb", false);
 	}
 	public function product_detail(){
 		
