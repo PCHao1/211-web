@@ -8,10 +8,28 @@ class News extends Controller{
 			$this->content($post_id);
 			return;
 		}
-		$this->view->news_1 = $this->model->getNews_1();
-		$this->view->news_2 = $this->model->getNews_2();
+		$this->view->news = $this->model->getAllNews();
+		$this->view->news_1 = NULL;
+		$this->view->news_2 = [];
+		$this->view->news_3 = [];
+		if(count($this->view->news) >0){
+			$this->view->news_1 = $this->view->news[0];
+			if(count($this->view->news) >1){
+				if(count($this->view->news) < 7){
+					for($i = 1; $i<count($this->view->news); $i++){
+						array_push($this->view->news_2,$this->view->news[$i]);
+					}
+				}else{
+					for($i = 1; $i<6; $i++){
+						array_push($this->view->news_2,$this->view->news[$i]);
+					}
+					for($i = 6; $i<count($this->view->news); $i++){
+						array_push($this->view->news_3,$this->view->news[$i]);
+					}
+				}
+			}
+		}
 		
-		$this->view->news_3 = $this->model->getNews_3();
 		
 		$this->view->render("news/index", false);
 	}

@@ -18,13 +18,10 @@
 <?php
     include "app/default/views/component/header.php";
 ?>
+<div class="container fluid" style="background-color:white;">
 <div class="row">
-<div class="col-2">
-<?php
-        include "app/default/views/component/usersidebar.php";
-    ?>
-</div>
-<div class="col-9">
+
+<div class="col-12">
     <div class="row">
         <div class="col-md-8">
             <div class="title">
@@ -36,17 +33,14 @@
             </div>
             <?php
             foreach($this->items as &$item){
-            echo("<div class='row border-top border-bottom'>
-                <div class='row main align-items-center'>
-                    <div class='col-2'><img class='img-fluid' src='https://i.imgur.com/1GrakTl.jpg'></div>
-                    <div class='col-3'>
-                        <div class='row text-muted'>".$item['title']."</div>
-                        <div class='row'>".$item['title']."</div>
+            echo("<div class='row border-top border-bottom d-flex align-items-center'>
+                    <div class='col-4 ml-3 py-1'>
+                        <div class='row'>".$item['title']."</div>   
                     </div>
                     <div class='col-2'><input style='width:100%' id='quantity-".$item['productid']."' type='number' value='".$item['quantity']."' onchange='updateItem(".$item['productid'].")'></div>
-                    <div class='col-2'>".$item['price']."&#8363;</div>
-                    <div class='col-3'><button class='btn btn-danger' onclick='removeItem(".$item['productid'].")'>Xóa</button></div>
-                </div>
+                    <div class='col-3 d-flex justify-content-end mx-2 px-0'>".number_format($item['price'])."&#8363;</div>
+                    <div class='col-2 d-flex justify-content-end'><button class='btn btn-danger py-1'  onclick='removeItem(".$item['productid'].")'>Xóa</button></div>
+                
             </div>");
             }
             ?>
@@ -58,28 +52,32 @@
             </div>
 
             <div class="row">
-                <div class="col">Số lượng sản phẩm <?php echo(count($this->items)) ?></div>
-                <div class="col text-right">Thành tiền: <span id="total_item"><?php echo($this->totalPrice) ?></span> </div>
+                <div class="col-6">Số lượng <?php echo(count($this->items)) ?></div>
+                <div class="col-6 text-right">Thành tiền: <span id="total_item"><?php echo(number_format($this->totalPrice)) ?></span> </div>
             </div>
             <form>
-                <p>Vận chuyển</p> 
+                <h5>Vận chuyển</h5> 
                 <select class="form-control" id="shipfee">
-                    <option class="text-muted" value="<?php echo($this->priceOptions["normal"]); ?>">Vận chuyển thông thường - <?php echo($this->priceOptions["normal"]); ?>&#8363;</option>
-                    <option class="text-muted" value="<?php echo($this->priceOptions["fast"]); ?>">Chuyển phát nhanh - <?php echo($this->priceOptions["fast"]); ?>&#8363;</option>
+                    <option class="text-muted" value="<?php echo($this->priceOptions["normal"]); ?>">Vận chuyển thông thường - <?php echo(number_format($this->priceOptions["normal"])); ?>&#8363;</option>
+                    <option class="text-muted" value="<?php echo($this->priceOptions["fast"]); ?>">Chuyển phát nhanh - <?php echo(number_format($this->priceOptions["fast"])); ?>&#8363;</option>
                 </select>
-                <p>Địa chỉ</p> <input class="form-control" id="delivery_address" placeholder="Nhập địa chỉ giao hàng">
+                <h5>Địa chỉ</h5> <input class="form-control" id="delivery_address" placeholder="Nhập địa chỉ giao hàng">
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
              
             </div> 
             <div class="row d-flex justify-content-center">
-                <button class="btn btn-secondary" onclick="onOrder()">THANH TOÁN</button>
+                <button class="btn btn-secondary" onclick="onOrder()">ĐẶT HÀNG</button>
             </div>
         </div>
     </div>
 </div>
 </div>
+</div>
 <script>
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     function removeItem($id){
         $.post('/cart',
         {
