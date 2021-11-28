@@ -34,7 +34,7 @@ class FeedbackModel extends Model{
 			"bind"		=> [
 				"iiis",
 				1,
-				33,
+				34,
 				$rate,
 				$comment
 			]
@@ -50,8 +50,62 @@ class FeedbackModel extends Model{
 			
 		]);
 		
+		
 		return $re['max(feedbackid)'];
 	}
+
+	// public function getlistFeedback($productid){
+
+	// 	$rel = $this->selectMulti([
+	// 		"column"	=> "star,comment"
+	// 	]);
+		
+	// 	return $rel;
+	// }
+
+	// public function getAllFeedback($productid){
+	// 	$result = $this->selectMulti([
+	// 		"column"	=> "feedbackid,orderid ,productid ,star,comment",
+	// 		"condition"	=> "productid = ?",
+	// 			"bind"		=> [
+	// 				"i",
+	// 				$productid,
+	// 			]
+	// 	]);
+	// 	//Get product name
+	// 	$this->setTable("product");
+	// 	foreach ($result as $key=>$row) {
+	// 		$product=$row['productid'];
+	//     	$raw_details = $this->selectOne([
+	// 			"column"	=> "title",
+	// 			"condition"	=> "productid = ?",
+	// 			"bind"		=> [
+	// 				"i",
+	// 				$product,
+	// 			]
+	// 		]);
+	// 		$sum=0;
+	// 		$result[$key]['productname']=$raw_details['title'];
+	// 	}
+	// 	//Get username
+	// 	$this->setTable("`order`");
+	// 	foreach ($result as $key=>$row) {
+	// 		$order=$row['orderid'];
+	//     	$raw_details = $this->selectOne([
+	// 			"column"	=> "username",
+	// 			"condition"	=> "orderid = ?",
+	// 			"bind"		=> [
+	// 				"i",
+	// 				$order,
+	// 			]
+	// 		]);
+	// 		$sum=0;
+	// 		$result[$key]['username']=$raw_details['username'];
+	// 	}
+	// 	//Get username
+	// 	$this->setTable("feedback");
+	// 	return $result;
+	// }
 	// public function getFeedback(){
 
 	// 	$result = $this->selectMulti([

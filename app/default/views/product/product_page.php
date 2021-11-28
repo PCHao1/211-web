@@ -45,7 +45,15 @@
                             echo '<s class="text-secondary pr-3">'.'<small>'.$product['price']." đ".'</small>'.'</s>'.
                             '<h4 class="text-danger">'.$price_of_promotion." đ" ."</h4>";
                         } 
+
                     ?>
+                    <?php
+                        echo '<a href="/feedback?productid='.$product['productid'].'">
+                        button
+                        </a>'
+                    ?>
+                    
+                    
                     <?php if($product['quantity'] == 0){
                         echo '<span style="color: red">Hết hàng</span>';
                     }else{
