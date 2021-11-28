@@ -61,9 +61,8 @@
         data["product_title"] = $('#product_title').text();
         data["quantity"] = $('#quantity').val();
         data["price"] = Number( $('#product_price').text().slice(0,-2) );
-        console.log(data);
         
-        $.get('./app/default/views/product/addToCart.php',{product:data},function(data){
+        $.get('/cart',{product:data,addProduct:true},function(data){
             alert("Đã thêm vào giỏ hàng");
         });
     }
