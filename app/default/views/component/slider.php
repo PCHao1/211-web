@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container pt-2">
     <div id="myCarousel" class="carousel slide" data-ride="carousel"  data-interval="2000">
     <!-- Indicators -->
     <ol class="carousel-indicators">

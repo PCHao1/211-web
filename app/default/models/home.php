@@ -20,4 +20,15 @@ class HomeModel extends Model{
 		]);
 		return $result;
 	}
+
+    public function getBestSellingProducts(){
+        $this->setTable("orderdetail");
+        $result = $this->selectMulti([
+            "column"	=> "productid",
+            "order"		=> "",
+            "group"		=> "productid",
+            "limit"		=> 5,
+        ]);
+        return $result;
+    }
 }
