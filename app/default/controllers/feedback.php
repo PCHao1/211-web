@@ -7,15 +7,15 @@ class Feedback extends Controller{
 
 		if(isset($_GET['productid'])){
             $productid = $_GET['productid'];
+			$this->view->list=$productid;
 			
-		
+			
 		// header("Location:" . "/feedback");         
         }else{
             echo"khong co gi";
         }
 		if(isset($_GET['orderid'])){
             $orderid = $_GET['orderid'];
-			
 		
 		// header("Location:" . "/feedback");         
         }else{
@@ -41,7 +41,7 @@ class Feedback extends Controller{
 			echo $file;
 			$idfeedback = $this->model->getFeedback();
 			
-            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 ."fb". ".jpg";
+            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".ppg";
 			echo $path;
 			
             if(move_uploaded_file($file, $path)){
