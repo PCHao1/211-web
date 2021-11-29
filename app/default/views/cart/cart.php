@@ -132,7 +132,7 @@
             },function(data){
                 alert(data);
                 setTimeout(()=>{
-                    window.location.reload();
+                    window.open(`/saleorder`,"_self");
                 },1000);
             })
             }

@@ -37,15 +37,26 @@
             <div class='card-body'>
                 <div class='row'>
                     <div class='col-auto'>
-                        Trạng thái: ".$item['status']."
-                    </div>
-                    <div class='col-auto'>
                         Địa chỉ: ".$item['address']."
                     </div>
                     <div class='col-auto'>
                          Phí ship: ".number_format($item['shipfee'])."
                     </div>
                 </div>
+                <div class='row px-3'>
+                    Tổng tiền: ".$item['total']."
+                </div>
+                <div class='row px-3'>
+                    Trạng thái: ".$item['status_map']."
+                </div>");
+                if($item['status'] == 5){
+                    echo("
+                    <div class='row px-3'>
+                        Lý do hủy đơn: ".$item['reason']."
+                    </div>
+                    ");
+                }
+                echo("
                 <div class='row px-3'>
                     Chi tiết:
                 </div>
