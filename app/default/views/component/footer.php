@@ -3,14 +3,14 @@
 	<div class=" text-center py-3"style="height:300px;background-color: rgba(255,255,255,0.6);width: 100%;color:var(--color1);" >
 	    <span class="h2">Mỹ phẩm Web Assignment</span><br>
 	    <div class="row  mt-2 text-dark text-left mx-5">
-	    	<div class="col-sm-4">
+	    	<div class="col-md-4">
 	    		<div><b>Hỗ trợ khách hàng</b></div>
 	    		<div>Hotline: 19009999</div>
 	    		<div>(Miễn phí gọi)</div>
 	    		<div>Đại Học Bách Khoa HCM</div>
 	    		<div><a href="/contact" style="text-decoration:none;color:black;">Thông tin liên hệ</a></div>
 	    	</div>
-	    	<div class="col-sm-4">
+	    	<div class="col-md-4">
 	    		<div><b>Về Web Assignment</b></div>
 	    		<div>GVHD: Nguyễn Hữu Hiếu</div>
 	    		<div>
@@ -23,7 +23,7 @@
 	    			</ul>
 	    		</div>
 	    	</div>
-	    	<div class="col-sm-3 d-flex">
+	    	<div class="col-md-3 d-flex">
 	    		<div class="align-self-center">@Copyright by CSE</div>
 	    	</div>
 	    </div>
