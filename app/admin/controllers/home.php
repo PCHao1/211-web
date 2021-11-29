@@ -9,6 +9,7 @@ class Home extends Controller{
 		}
 		else if($info["type"]!=1)
 			header("Location:" . "/");
+		die(phpinfo());
 		$this->view->title="DASHBOARD";
 		$this->view->menuNum=0;
 		$this->view->render("home/index",false);

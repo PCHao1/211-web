@@ -41,7 +41,7 @@ class Feedback extends Controller{
 			
 			$idfeedback = $this->model->getFeedback();
 			
-            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".ppg";
+            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".png";
 			
 			
             if(move_uploaded_file($file, $path)){

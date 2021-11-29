@@ -102,7 +102,7 @@
 
 <script>
     function showFeedback(productid, orderid){
-        window.open(`/feedback?productid=${productid}orderid=${orderid}`, "_blank");
+        window.open(`/feedback?productid=${productid}&orderid=${orderid}`, "_blank");
     }
 </script>
 </body>
