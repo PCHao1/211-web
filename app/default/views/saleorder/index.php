@@ -21,7 +21,7 @@
     <div class="col-8">
     <?php
     
-    foreach($this->items as &$item){
+    foreach($this->items as $key=>$item){
     echo("
         <div id='accordion".$item['orderid']."'>
         <div class='card'>
@@ -33,12 +33,9 @@
             </h5>
           </div>
       
-          <div id='collapse".$item['orderid']."' class='collapse show' aria-labelledby='heading".$item['orderid']."' data-parent='#accordion".$item['orderid']."'>
+          <div id='collapse".$item['orderid']."' class='collapse ".($key == 0? "show":"")."' aria-labelledby='heading".$item['orderid']."' data-parent='#accordion".$item['orderid']."'>
             <div class='card-body'>
                 <div class='row'>
-                    <div class='col-auto'>
-                        Trạng thái: ".$item['status']."
-                    </div>
                     <div class='col-auto'>
                         Địa chỉ: ".$item['address']."
                     </div>
@@ -46,6 +43,20 @@
                          Phí ship: ".number_format($item['shipfee'])."
                     </div>
                 </div>
+                <div class='row px-3'>
+                    Tổng tiền: ".$item['total']."
+                </div>
+                <div class='row px-3'>
+                    Trạng thái: ".$item['status_map']."
+                </div>");
+                if($item['status'] == 5){
+                    echo("
+                    <div class='row px-3'>
+                        Lý do hủy đơn: ".$item['reason']."
+                    </div>
+                    ");
+                }
+                echo("
                 <div class='row px-3'>
                     Chi tiết:
                 </div>

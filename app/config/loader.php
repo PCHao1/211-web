@@ -27,6 +27,7 @@ class Loader{
 		 			[$controller, $this->actionName], 
 		 			$this->urlParams
 		 		);
+				$controller->verify();
 		 	}else{
 		 		$this->notFound();
 		 	}

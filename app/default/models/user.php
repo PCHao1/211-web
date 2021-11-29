@@ -47,7 +47,7 @@ class UserModel extends Model{
 		return $result;
 	}
 	public function updateUserAccess($username){
-		$result=$this->update([
+		$update=$this->update([
 				"data"		=> "lastlogin=CURRENT_TIMESTAMP",
 				"condition"	=> "username=?",
 				"bind"		=> [
@@ -55,7 +55,15 @@ class UserModel extends Model{
 					$username
 				]
 			]);
-		return $result;
+		$result = $this->selectOne([
+			"column"	=> "status",
+			"condition"	=> "username = ?",
+			"bind"		=> [
+				"s",
+				$username
+			]
+		]);
+		return $result['status'];
 	}
 	public function selectCode($username){
 		$result = $this->selectOne([

@@ -9,8 +9,9 @@ class SaleOrderModel extends Model{
 
 	public function getOrders($username){
 		$result = $this->selectMulti([
-			"column"	=> "orderid,username,status,address,shipfee",
+			"column"	=> "orderid,username,status,reason,address,shipfee",
 			"condition" => "username = ?",
+			"order" 	=> "orderid DESC",
 			"bind" => [
 				"s",
 				$username
@@ -45,7 +46,6 @@ class SaleOrderModel extends Model{
 			}
 			$this->setTable("orderdetail");
 			
-			$result[$key] += array("test" => "z");
 			$result[$key] += array("items" => $raw_details);
 			
 		}
