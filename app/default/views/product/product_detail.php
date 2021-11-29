@@ -34,7 +34,7 @@
             <div class="form-inline">
                 <input class="form-control w-25 mr-5" type="number" value="1" id="quantity">
                 <button class="btn btn-primary" 
-                    onclick="addToCart(<?php echo $this->product['productid']?>,'<?php echo $this->product['title'];?>',<?php echo $price;?>)">
+                    onclick="addToCart(<?php echo $this->product['productid']?>,'<?php echo $this->product['title'];?>',<?php echo $price;?>,<?php echo $this->info ?>)">
                     Thêm vào giỏ hàng
                 </button>
             </div>
@@ -72,6 +72,14 @@
     })
 
 </script>
+
+<?php 
+    $cookie = isset($_COOKIE["seen_recently"]) ? $_COOKIE["seen_recently"] : [];
+    array_push($cookie,$this->product);
+    //setcookie("seen_recently", $cookie, time() + (86400 * 30), "/");
+    setcookie("seen_recently", $cookie, time() + 30, "/");
+    echo $_COOKIE["seen_recently"] ;
+?>
 
 <?php
     include "app/default/views/component/footer.php";

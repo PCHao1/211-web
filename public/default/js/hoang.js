@@ -6,7 +6,7 @@ function sortBy(){
 
 function addToCart(productid, product_title, product_price,verify){
     if(verify == null){
-        alert("Bạn phải đăng nhập!")
+        alert("Bạn phải đăng nhập!");
     }else{
         let data = new Object();
         data.product_id = productid;
