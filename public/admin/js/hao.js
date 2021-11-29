@@ -464,11 +464,8 @@ function postAdd(){
 			priority:priority, 
 			content:content
 		},function(data, status){
-			if(data==0){
-				$('#message').text('Có trường nhập rỗng');
-			}
-			else if(data==1){
-				$('#message').text('Username đã có');
+            if(data!=2){
+				$('#message').text('Có lỗi xảy ra');
 			}
 			else if(data==2){
 				$('#message').text('Thành công, reload sau 2 giây');

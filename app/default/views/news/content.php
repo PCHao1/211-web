@@ -1,5 +1,8 @@
 
-<section class="d-flex align-items-center" style="flex-direction:column; width: 90%;">
+    <style>
+    </style>
+
+<section  id='news-content'  class="d-flex align-items-center" style="flex-direction:column; width: 90%;">
     <div class="col d-flex align-items-center" style="flex-direction:column; background-color:white;" >
         <div class="row d-flex justify-content-center" style="width:80%;" >
             <div class="col-10">

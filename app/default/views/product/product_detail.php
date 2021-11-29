@@ -161,7 +161,7 @@
             <div class="form-inline">
                 <input class="form-control w-25 mr-5" type="number" value="1" id="quantity">
                 <button class="btn btn-primary" 
-                    onclick="addToCart(<?php echo $this->product['productid']?>,'<?php echo $this->product['title'];?>',<?php echo $price;?>,<?php echo $this->info; ?>)">
+                    onclick="addToCartInDetail(<?php echo $this->product['productid']?>,'<?php echo $this->product['title'];?>',<?php echo $price;?>,<?php echo $this->info; ?>)">
                     Thêm vào giỏ hàng
                 </button>
             </div>
@@ -198,6 +198,22 @@
         $('.comments').html(data);
     })
 
+    function addToCartInDetail(productid, product_title, product_price,verify){
+        if(verify == null){
+            alert("Bạn phải đăng nhập!");
+        }else{
+            let data = new Object();
+            data.product_id = productid;
+            data.product_title = product_title;
+            data.quantity = $('#quantity').val();
+            data.price = Number(product_price);
+            //console.log(data);
+            $.post('/cart',{product:JSON.stringify(data),addProduct:true},function(data){
+                alert(data);
+            });
+        }
+        
+    }
 </script>
 
 

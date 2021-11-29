@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tin tức</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
 </head>
 <body>
 <?php
     include "app/default/views/component/header.php";
 ?>
-<section class="vh-100 d-flex justify-content-center" id="content">
-    <div style="width:70vw;height:100%;background-color:white;overflow:auto;display:block;">
+<section class="col-10 mx-auto my-0 p-0" style="min-height:100vh!important;" id="content">
+    <div class="h-100" style="min-height:100vh!important;width:100%;background-color:white;">
         <div class="row mt-1 ml-2" style="background-color:white;width:100%;">
-            <div class="col-6 px-0 ml-4 mr-2 mt-3" style="background-image: url('public/images/news1_bg.jpg');background-repeat: no-repeat;background-size: cover;">
+            <div class="col-6 px-0 ms-4 me-2 mt-3" style="background-image: url('public/images/news1_bg.jpg');background-repeat: no-repeat;background-size: cover;">
                 <h2 style="cursor:pointer" onclick="loadPostContent(<?php echo($this->news_1['postid']); ?>)">
                     <strong><?php echo($this->news_1["title"]); ?></strong>
                 </h2>
                 <p class="text-muted"><i>Ngày tạo:<?php echo($this->news_1["datecreated"]); ?></i></p>
             </div>
-            <div class="col-5 px-0 ml-4">
+            <div class="col-5 px-0 ms-4">
                 <?php
                 if($this->news_2 != null){
                 if(count($this->news_2) >0){
