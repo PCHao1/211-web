@@ -48,76 +48,65 @@ label.star:before {
   font-family: FontAwesome;
 }
 
-/* .ro{
-  
-  display:flex;
-  
-}
-.ro > div {
-  
-  margin: 10px;
-  padding: 50px;
-} */
 
 
     </style>
 
    
 </head>
-<body>
-<section class="vh-100" style="background-color: #eee;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
+<body >
+<section style="background-color: #eee; height:50vh;">
+  <div class="container h-100" >
+    <div class="row d-flex justify-content-center align-items-center h-100" style="overflow-y:auto;overflow-x:auto;">
+      <div class="col-lg-12 col-xl-11"  >
+        <!-- <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5"> -->
+            <!-- <div class="row justify-content-center">
             
             
             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-2 order-lg-1">
-                <!-- List feedback -->
-                <div class="container h-100 overflow-scroll">
-				<table id='table' class="table table-hover">
-				<thead style="position: sticky;top: 0;" class="bg-white">
-					<tr>
+                
+                <div class="container h-100 overflow-scroll"> -->
+				
+				
 						<!-- <th style="width: 5%">ID</th> -->
-						<th style="width: 20%">Sản phẩm</th>
-						<th style="width: 10%">ID sản phẩm</th>
-						<th style="width: 10%">Username</th>
-						<th style="width: 30%">Nội dung</th>
-						<th style="width: 7%">Star</th>
-            <th style="width: 30%">Ảnh</th>
 						
-					</tr>
-				</thead>
-				<tbody>
+						
+						
+					
+				
 				<!-- List feedback -->
 				<?php foreach ($this->list as $feedback){ ?>
 					
-				<tr>
-					<td><?php echo $feedback['productname']; ?></td>
-					<td><?php echo $feedback['productid']; ?></td>
-					<td><?php echo $feedback['username']; ?></td>
-					<td><?php echo $feedback['comment']; ?></td>
-					<td><?php echo $feedback['star']; ?></td>
-          <td> <img style="width: 80%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'fb'.'.'.'jpg';?>"> </td>
-         
+				
+					<div> <span style=" font-weight: bold;">Người dùng: </span> <?php echo $feedback['username']; ?></div>
+          <div> <span style=" font-weight: bold;">Vote: </span> <?php 
+            // $star = round($this->product['star']);
+            for ($i = 0 ; $i <  $feedback['star']; $i++){
+                echo '<span class="fa fa-star checked_rating"></span>';
+            }
+            for ($i = 0 ; $i < 5 - $feedback['star'] ; $i++){
+                echo '<span class="fa fa-star"></span>';
+            }
+            ?></div>
+          <div> <span style=" font-weight: bold;">Đánh giá: </span> <?php echo $feedback['comment']; ?></div>
+          <br>
+          <div> <img style="width:30%!important;" src="../public/images/feedback/<?php echo $feedback['feedbackid'].'.'.'png';?>" onerror="this.style.display='none'"> </div>
+          <hr style="align =center ;size=3; width=50px; noshade">
 
-					
-				</tr>
 				<?php } ?>
 				<!-- End List feedback -->
-				</tbody>
-			</table>
+				
+			
                  <!-- <img src="/public/images/cmt/cmt1.jpeg" class="img-fluid" alt="Sample image" height = "60px"> -->
                 
 
-              </div>
+              <!-- </div>
               
             </div>
-          </div>
-        </div>
-      </div>
+          </div> -->
+        <!-- </div>
+      </div> -->
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

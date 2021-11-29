@@ -18,7 +18,7 @@
         Bản đồ dẫn đường đến chi nhánh
     </div>
     <div>
-       <div class="mapouter mx-auto overflow-hidden border border-success" style="width: 90%; border-radius: 5px;">
+       <div class="mapouter mx-auto overflow-hidden border border-success" style="width: 90%;max-width: 900px;   border-radius: 5px;">
            <div class="gmap_canvas">
             <iframe width="896" height="687" id="gmap_canvas" src="https://maps.google.com/maps?q=dai%20h%E1%BB%8Dc%20bach%20khoa%20h%E1%BB%93%20ch%C3%AD%20minh&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
             </iframe><a href="https://putlocker-is.org">putlocker</a><br>

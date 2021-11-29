@@ -7,15 +7,15 @@ class Feedback extends Controller{
 
 		if(isset($_GET['productid'])){
             $productid = $_GET['productid'];
+			$this->view->list=$productid;
 			
-		
+			
 		// header("Location:" . "/feedback");         
         }else{
             echo"khong co gi";
         }
 		if(isset($_GET['orderid'])){
             $orderid = $_GET['orderid'];
-			
 		
 		// header("Location:" . "/feedback");         
         }else{
@@ -38,21 +38,17 @@ class Feedback extends Controller{
 			// }
 
 			$file = $_FILES['myFile']['tmp_name'];
-			echo $file;
+			
 			$idfeedback = $this->model->getFeedback();
 			
-            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 ."fb". ".jpg";
-			echo $path;
+            $path = APP_PATH . "/public/images/feedback/". $idfeedback+1 . ".ppg";
+			
 			
             if(move_uploaded_file($file, $path)){
                 echo "Tải tập tin thành công";
 				
             }
-			else{
-                echo "Tải tập tin thất bại";
-				echo $idfeedback ;
-			die();
-            }
+			
 
 			if($rate1!=9)
 			{
@@ -87,9 +83,13 @@ class Feedback extends Controller{
 				$result = $this->model->insertFeedback($orderid,$productid,$rate,$comment);
 
 				
+				
 				if($result){
 					
-					header("Location:" . "/");
+					echo '<script language="javascript">';
+					echo 'alert("Cảm ơn bạn đã đánh giá cho sản phẩm của chúng tôi !")';
+					echo '</script>';
+					//header("Location:" . "/");
 				}
 				
 			}
@@ -111,7 +111,7 @@ class Feedback extends Controller{
         // }else{
         //     echo"khong co gi";
         // }
-
+		
 		$this->view->render("feedback/feedback", false);
 	}
 	

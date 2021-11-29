@@ -10,11 +10,12 @@ class UserModel extends Model{
 	public function checkLogin($username, $password){
 		$result = $this->selectOne([
 			"column"	=> "username, phone_number, name, email, accounttype, status",
-			"condition"	=> "username = ? AND password = ?",
+			"condition"	=> "username = ? AND password = ? AND status = ?",
 			"bind"		=> [
-				"ss",
+				"ssi",
 				$username,
-                hash('sha256',$password)
+                hash('sha256',$password),
+                0
 			]
 		]);
 		return $result;
@@ -99,7 +100,7 @@ class UserModel extends Model{
 		return $result;
 	}
 	public function updateUserAccess($username){
-		$result=$this->update([
+		$update=$this->update([
 				"data"		=> "lastlogin=CURRENT_TIMESTAMP",
 				"condition"	=> "username=?",
 				"bind"		=> [
@@ -107,6 +108,14 @@ class UserModel extends Model{
 					$username
 				]
 			]);
-		return $result;
+		$result = $this->selectOne([
+			"column"	=> "status",
+			"condition"	=> "username = ?",
+			"bind"		=> [
+				"s",
+				$username
+			]
+		]);
+		return $result['status'];
 	}
 }

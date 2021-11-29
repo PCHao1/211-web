@@ -10,7 +10,12 @@ class Controller{
 	public function verify(){
 		if (isset($_SESSION["user"]["true"])) {
 				$model=$this->loadModelOther('user');
-				$model->updateUserAccess($_SESSION["user"]['username']);
+				$check=$model->updateUserAccess($_SESSION["user"]['username']);
+				if($check==1){
+					session_unset();
+					header("Location:" . "/");
+					return NULL;
+				}
 				return $_SESSION["user"];
 			}
 		return NULL;

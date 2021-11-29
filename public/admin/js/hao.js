@@ -75,7 +75,7 @@ function changePass(){
 			if(data==1){
 				$('#message').text('Thành công');
 				setTimeout(function(){
-						location.reload();
+						window.location="/login";
 				},1500);
 				return;
 			}
