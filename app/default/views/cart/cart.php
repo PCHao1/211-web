@@ -140,3 +140,6 @@
     <script src="./public/default/js/jquery-3.6.0.js"></script>
 </body>
 </html>
+<?php
+    include "app/default/views/component/footer.php";
+?>
