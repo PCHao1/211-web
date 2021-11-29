@@ -89,6 +89,7 @@
             </div>
           </div>
       </div>
+      </div>
         "
         );
     }
@@ -106,3 +107,6 @@
 </script>
 </body>
 </html>
+<?php
+    include "app/default/views/component/footer.php";
+?>

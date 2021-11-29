@@ -15,15 +15,15 @@ class News extends Controller{
 		if(count($this->view->news) >0){
 			$this->view->news_1 = $this->view->news[0];
 			if(count($this->view->news) >1){
-				if(count($this->view->news) < 7){
+				if(count($this->view->news) < 3){
 					for($i = 1; $i<count($this->view->news); $i++){
 						array_push($this->view->news_2,$this->view->news[$i]);
 					}
 				}else{
-					for($i = 1; $i<6; $i++){
+					for($i = 1; $i<4; $i++){
 						array_push($this->view->news_2,$this->view->news[$i]);
 					}
-					for($i = 6; $i<count($this->view->news); $i++){
+					for($i = 4; $i<count($this->view->news); $i++){
 						array_push($this->view->news_3,$this->view->news[$i]);
 					}
 				}

@@ -26,10 +26,11 @@ class HomeModel extends Model{
         $products = $this->selectMulti([
             "column"	=> "productid,sum(quantity)",
             "order"		=> "sum(quantity) desc",
-            "group"		=> "productid"            //"limit"		=> 5,
+            "group"		=> "productid" ,           
+            "limit"		=> 4,
         ]);
-        //print_r($products);
-        die(var_dump($products));
+        
+        //die(var_dump($products));
         
         $result = [];
         $this->setTable("product");
@@ -43,7 +44,7 @@ class HomeModel extends Model{
                 ]
             ]));
         }
-        die($result);
+        //die($result);
         //$this->setTable("user");
         return $result;
     }

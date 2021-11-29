@@ -4,6 +4,7 @@ require_once APP_PATH . '/app/config/controller.php';
 class Product extends Controller{
 	public function product_info(){
         $this->view->title="Sản phẩm";
+        $this->view->info = $this->verify();
         //$this->view->lstCatalogs=$this->model->getcatalogs();
         if(isset($_GET['catalog'])){
             $catalog = $_GET['catalog'];
@@ -31,6 +32,7 @@ class Product extends Controller{
         }
 	}
 	public function product_detail(){
+        $this->view->info = $this->verify();
         if(isset($_GET['id_of_product'])){
             $id_of_product=$_GET['id_of_product'];
 			$this->view->product=$this->model->getDetailProduct($id_of_product);

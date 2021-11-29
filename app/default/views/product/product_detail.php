@@ -71,17 +71,6 @@
         $('.comments').html(data);
     })
 
-    function addToCart(productid,product_title, product_price){
-        let data = new Object();
-        data.product_id = productid;
-        data.product_title = product_title;
-        data.quantity = Number( $('#quantity').val() );
-        data.price = Number( product_price );
-        //console.log(data)
-        $.post('/cart',{product:JSON.stringify(data),addProduct:true},function(data){
-            alert(data);
-        });
-    }
 </script>
 
 <?php
