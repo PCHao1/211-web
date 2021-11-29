@@ -46,25 +46,27 @@
             ?>
            
         </div>
-        <div class="my-5 p-4 text-white" style="background-color:var(--color11);width: 30%;border-radius: 4px;">
-
-            <div class="row">
-                <div class="col-6">Số lượng <?php echo(count($this->items)) ?></div>
-                <div class="col-6 text-right">Thành tiền: <span id="total_item"><?php echo(number_format($this->totalPrice)) ?></span> </div>
-            </div>
-            <form>
-                <h5>Vận chuyển</h5> 
-                <select class="form-control" id="shipfee">
-                    <option class="text-muted" value="<?php echo($this->priceOptions["normal"]); ?>">Vận chuyển thông thường - <?php echo(number_format($this->priceOptions["normal"])); ?>&#8363;</option>
-                    <option class="text-muted" value="<?php echo($this->priceOptions["fast"]); ?>">Chuyển phát nhanh - <?php echo(number_format($this->priceOptions["fast"])); ?>&#8363;</option>
-                </select>
-                <h5>Địa chỉ</h5> <input class="form-control" id="delivery_address" placeholder="Nhập địa chỉ giao hàng">
-            </form>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-             
-            </div> 
-            <div class="row d-flex justify-content-center">
-                <button class="btn btn-light" onclick="onOrder()">ĐẶT HÀNG</button>
+        <div class="text-white col-lg-4" >
+            <div class="my-5 p-4" style="background-color:var(--color11);border-radius: 4px;">
+                <div class="row" >
+                    <div class="col-12">Số lượng <?php echo(count($this->items)) ?></div>
+                    <div class="col-12">Thành tiền: <span id="total_item"><?php echo(number_format($this->totalPrice)) ?></span> </div>
+                </div>
+                <form>
+                    <h5>Vận chuyển</h5> 
+                    <select class="form-control" id="shipfee">
+                        <option class="text-muted" value="<?php echo($this->priceOptions["normal"]); ?>">Vận chuyển thông thường - <?php echo(number_format($this->priceOptions["normal"])); ?>&#8363;</option>
+                        <option class="text-muted" value="<?php echo($this->priceOptions["fast"]); ?>">Chuyển phát nhanh - <?php echo(number_format($this->priceOptions["fast"])); ?>&#8363;</option>
+                    </select>
+                    <h5>Địa chỉ</h5> <input class="form-control" id="delivery_address" placeholder="Nhập địa chỉ giao hàng">
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                 
+                </div> 
+                <div class="row d-flex justify-content-center">
+                    <button class="btn btn-light" onclick="onOrder()">ĐẶT HÀNG</button>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -140,3 +142,6 @@
     <script src="./public/default/js/jquery-3.6.0.js"></script>
 </body>
 </html>
+<?php
+    include "app/default/views/component/footer.php";
+?>
