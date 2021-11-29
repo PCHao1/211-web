@@ -36,6 +36,7 @@ class News extends Controller{
 	public function content($post_id){
 		$this->view->content= $post_id;
 		$this->view->title = $this->model->getNews($post_id)['title'];
+		$this->view->date = $this->model->getNews($post_id)['datecreated'];
 		$this->view->render("/news/content", false);
 	}
 }

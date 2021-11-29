@@ -12,11 +12,11 @@
     include "app/default/views/component/header.php";
 ?>
 <section class="col-10 mx-auto my-0 p-0" style="min-height:100vh!important;" id="content">
-    <div class="h-100" style="min-height:100vh!important;width:100%;background-color:white;">
-        <div class="row mt-1 ml-2" style="background-color:white;width:100%;">
-            <div class="col-6 px-0 ms-4 me-2 mt-3" style="background-image: url('public/images/news1_bg.jpg');background-repeat: no-repeat;background-size: cover;">
+    <div class="h-100 py-2" style="background-color:rgba(255,255,255,0.8);min-height:100vh!important;width:100%;">
+        <div class="row" style="width:100%;">
+            <div class="col-6 px-0 ms-4 me-2 mt-3 p-4 rounded-3 border border-success" style="background-image: url('public/images/news1_bg.jpg');background-repeat: no-repeat;background-size: cover;">
                 <h2 style="cursor:pointer" onclick="loadPostContent(<?php echo($this->news_1['postid']); ?>)">
-                    <strong><?php echo($this->news_1["title"]); ?></strong>
+                    <strong style="color:var(--color1)"><?php echo($this->news_1["title"]); ?></strong>
                 </h2>
                 <p class="text-muted"><i>Ngày tạo:<?php echo($this->news_1["datecreated"]); ?></i></p>
             </div>
@@ -26,8 +26,8 @@
                 if(count($this->news_2) >0){
                     foreach($this->news_2 as &$news){
                         echo("
-                            <div class='row my-2'>
-                                <h4 style='cursor:pointer' onclick='loadPostContent(".$news["postid"].")'>".$news["title"]."</h4>
+                            <div class='row my-2 py-2 bg-white border rounded-3'>
+                                <h4 style='cursor:pointer;color:var(--color1)' onclick='loadPostContent(".$news["postid"].")'>".$news["title"]."</h4>
                                 <span class='text-muted'><i>Ngày tạo: ".$news["datecreated"]."</i></span>
                             </div>
                         ");
@@ -42,8 +42,8 @@
             if(count($this->news_3) >0){
                 foreach($this->news_3 as &$news){
                     echo("
-                    <div class='row pl-2' style='background-color:white;width:100%;'>
-                        <div class='col-6 my-2 ml-4'>
+                    <div class='row m-3 py-2 bg-white border rounded-3' style='background-color:white;'>
+                        <div class='col-6 my-2 ml-4 '>
                             <h4 style='cursor:pointer' onclick='loadPostContent(".$news["postid"].")'>".$news["title"]."</h4>
                             <span class='text-muted'><i>Ngày tạo: ".$news["datecreated"]."</i></span>
                         </div>

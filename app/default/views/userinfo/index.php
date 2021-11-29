@@ -24,7 +24,7 @@ input:focus:valid {
   border-color: #28921f;
 }
 </style>
-<section class="vh-100" style="background-image: url('public/images/image_news_1.jpg');background-color: #eee;">
+<section class="mh-100 py-5" style="background-image: url('public/images/background-reg1.png');background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">

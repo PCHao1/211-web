@@ -48,7 +48,7 @@
  	<div class="row h-100">
  		<div class="col-sm-3 bg-dark border-end p-0 pt-3">
  			<ul id="menu" class="nav nav-pills flex-column">
-			  <li class="nav-item ">
+			  <li class="nav-item d-none">
 			    <a class="nav-link" href="../admin"><p>DASHBOARD</p></a>
 			  </li>
 			  <li class="nav-item">

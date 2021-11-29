@@ -4,7 +4,7 @@
 
     <a href="#" class="toTopButton"><i class="fa fa-arrow-up fa-2x" aria-hidden="false"></i></a>
 
-    <div class="container mybody intro">
+    <div class="container mybody intro" style="padding: 5% 5%;">
         <div class="title">
             <ol>
                 <li>
@@ -65,7 +65,7 @@
         
 
         <div class="row mt-5">
-            <h3 id="1" class="mx-auto">Web Assignmet - Trang web bán mỹ phẩm uy tín</h3>
+            <h3 id="2" class="mx-auto">Web Assignmet - Trang web bán mỹ phẩm uy tín</h3>
         </div>
         <hr class="mt-1 mb-5 mx-auto">
 

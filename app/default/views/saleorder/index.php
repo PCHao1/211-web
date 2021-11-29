@@ -18,16 +18,16 @@
         include "app/default/views/component/usersidebar.php";
     ?>
     </div>
-    <div class="col-8">
+    <div class="col-8 pt-3" style="background-color: rgba(0,0,0,0.3);min-height: 50vh;">
     <?php
-    
+    echo '<div class="h2">'.count($this->items).' đơn hàng đã đặt</div>';
     foreach($this->items as $key=>$item){
     echo("
         <div id='accordion".$item['orderid']."'>
-        <div class='card'>
+        <div class='card my-3'>
           <div class='card-header' id='heading".$item['orderid']."'>
             <h5 class='mb-0'>
-              <button class='btn btn-link' data-toggle='collapse' data-target='#collapse".$item['orderid']."' aria-expanded='true' aria-controls='collapse".$item['orderid']."'>
+              <button class='btn text-success' data-toggle='collapse' data-target='#collapse".$item['orderid']."' aria-expanded='true' aria-controls='collapse".$item['orderid']."'>
                 Đơn hàng #".$item['orderid']."
               </button>
             </h5>
