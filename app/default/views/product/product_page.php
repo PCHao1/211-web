@@ -34,26 +34,20 @@
                         <div class="overlay">
                             <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><button type="button" class="btn btn-secondary" title="Xem sản phẩm"><i class="fa fa-eye"></i></button></a>
                             <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng" 
-                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>)">
+                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>,<?php $this->info;?>)">
                             <i class="fa fa-shopping-cart"></i></button>
                         </div>
                     </div>
                     <div class="product-bottom text-center">
-                        <span class="fa fa-star checked_rating"></span>
-                        <span class="fa fa-star checked_rating"></span>
-                        <span class="fa fa-star checked_rating"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-
                         <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>">
                             <h3 id="product-title"><?php echo $product['title']; ?></h3>
                         </a>
 
                         <?php if($product['promotion'] == 0){
-                            echo '<h4 class="text-danger">'.$price." đ" ."</h4>";
+                            echo '<h4 class="text-danger">'.number_format($price)." đ" ."</h4>";
                             }else{
-                                echo '<s class="text-secondary pr-3">'.'<small>'.$product['price']." đ".'</small>'.'</s>'.
-                                '<h4 class="text-danger">'.$price." đ" ."</h4>";
+                                echo '<s class="text-secondary pr-3">'.'<small>'.number_format($product['price'])." đ".'</small>'.'</s>'.
+                                '<h4 class="text-danger">'.number_format($price)." đ" ."</h4>";
                             } 
                         ?>
                         <?php if($product['quantity'] == 0){
@@ -75,7 +69,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function sortBy(){
         $.get('/products?sortSelector='+$('#sortSelector').val()+'&catalog='+$('#catalogProducts').text(),function(data){
             $('#body').html(data);
@@ -93,7 +87,7 @@
             alert(data);
         });
     }
-</script>
+</script> -->
 
 <?php
     include "app/default/views/component/footer.php";

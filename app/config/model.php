@@ -209,14 +209,14 @@ class Model{
 		if (isset($input['condition'])) {
 			$sql .= " WHERE " . $input['condition'];
 		}
-		if (isset($input['order'])) {
-			$sql .= " ORDER BY " . $input['order'];
-		}
 		if (isset($input['group'])) {
 			$sql .= " GROUP BY " . $input['group'];
 		}
 		if (isset($input['having'])) {
 			$sql .= " HAVING " . $input['having'];
+		}
+		if (isset($input['order'])) {
+			$sql .= " ORDER BY " . $input['order'];
 		}
 		if (isset($input['limit'])) {
 			$sql .= " LIMIT " . $input['limit'];

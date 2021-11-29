@@ -39,7 +39,7 @@
         </div>
         <hr class="mt-1 mb-5 mx-auto">
         <div class="row" data-aos="zoom-in">
-            <p class="col-lg-6">
+            <p class="col-lg-6 d-flex justify-content-between">
             Đẹp - Là một từ mà mọi người đều khát khao cả nam lẫn nữ. Đẹp đi đôi 
             với khỏe mạnh, đẹp đi đôi với sự lựa chọn thông minh. Đẹp toát ra từ vẻ ngoài 
             tươi tắn tràn đầy năng lượng sống. Chính vì vậy sức khỏe và làm đẹp ngày càng được 
@@ -50,7 +50,7 @@
             phẩm bao gồm chăm sóc da, chăm sóc tóc, chăm sóc toàn thân, chăm sóc cá nhân, 
             nước hoa lần lượt ra đời và đa dạng hóa để đáp ứng nhu cầu làm đẹp của con người.
             </p>
-            <p class="col-lg-6">
+            <p class="col-lg-6 d-flex justify-content-between">
             Chăm sóc da mặt là một quá trình công phu gồm nhiều bước như sữa rửa mặt, nước hoa 
             hồng, serum, sữa dưỡng, và kem , là sự tự thưởng cho bản thân, và tất nhiên kết quả 
             gặt được sau một quá trình kiên trì là 1 làn da đẹp mỹ mãn. Còn Trang điểm là một phép 
