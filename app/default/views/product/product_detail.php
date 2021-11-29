@@ -22,12 +22,12 @@
             <h5><?php echo $this->product['title'] ;?></h5>
             <?php if($this->product['promotion'] == 0){
                 $price = $this->product['price'];
-                echo '<h4 class="text-danger" >'.$this->product['price']." đ" ."</h4>";
+                echo '<h4 class="text-danger" >'.number_format($price)." đ" ."</h4>";
             }else{
                 $price = $this->product['price'] - round($this->product['promotion'] / 100 * $this->product['price'], -3) ;
                 echo 
-                '<s class="text-secondary pr-3">'.'<small>'.$this->product['price']." đ".'</small>'.'</s>'.
-                '<h4 class="text-danger" >'.$price." đ" ."</h4>";
+                '<s class="text-secondary pr-3">'.'<small>'.number_format($this->product['price'])." đ".'</small>'.'</s>'.
+                '<h4 class="text-danger" >'.number_format($price)." đ" ."</h4>";
             } 
             ?>
             

@@ -115,6 +115,7 @@ img{
 
 .intro p{
     font-size: 20px;
+    text-align: justify;
 }
 
 .intro .row{

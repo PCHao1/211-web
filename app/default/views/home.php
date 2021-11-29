@@ -38,10 +38,10 @@
                 </a>
 
                 <?php if($product['promotion'] == 0){
-                    echo '<h4 class="text-danger">'.$price." đ" ."</h4>";
+                    echo '<h4 class="text-danger">'.number_format($price)." đ" ."</h4>";
                     }else{
-                        echo '<s class="text-secondary pr-3">'.'<small>'.$product['price']." đ".'</small>'.'</s>'.
-                        '<h4 class="text-danger">'.$price." đ" ."</h4>";
+                        echo '<s class="text-secondary pr-3">'.'<small>'.number_format($product['price'])." đ".'</small>'.'</s>'.
+                        '<h4 class="text-danger">'.number_format($price)." đ" ."</h4>";
                     } 
                 ?>
                 <?php if($product['quantity'] == 0){

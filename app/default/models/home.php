@@ -23,26 +23,28 @@ class HomeModel extends Model{
 
     public function getBestSellingProducts(){
         $this->setTable("orderdetail");
-        $arr_id = $this->selectMulti([
-            "column"	=> "productid,count(productid)",
-            "order"		=> "count(productid)",
-            "group"		=> "productid",
-            "limit"		=> 5,
+        $products = $this->selectMulti([
+            "column"	=> "productid,sum(quantity)",
+            "order"		=> "sum(quantity) desc",
+            "group"		=> "productid"            //"limit"		=> 5,
         ]);
-
+        //print_r($products);
+        die(var_dump($products));
+        
         $result = [];
-
-        foreach($arr_id as $id){
+        $this->setTable("product");
+        foreach($products as $product){
             array_push($result, $this->selectOne([
-                "column"	=> "productid,title,price,quantity,promotion,",
+                "column"	=> "productid,title,price,quantity,promotion",
                 "condition"	=> "productid = ?",
                 "bind"		=> [
                     "i",
-                    $id,
+                    $product['productid'],
                 ]
             ]));
         }
-
+        die($result);
+        //$this->setTable("user");
         return $result;
     }
 }
