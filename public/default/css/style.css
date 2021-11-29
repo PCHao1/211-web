@@ -129,3 +129,10 @@ img{
 .mybody button a{
     color: white;
 }
+
+.recently-seen-pro-wrraper{
+    display: flex;
+    overflow-x: auto; 
+    
+}
+

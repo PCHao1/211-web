@@ -115,6 +115,11 @@ class ProductModel extends Model{
 				$product,
 			]
 		]);
+        if($star == false){
+            $star = [
+                'avg(star)' => 5
+            ];
+        }
         $result['star']=$star['avg(star)'];
 
 		$this->setTable("product");

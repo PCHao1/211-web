@@ -30,7 +30,7 @@
                 <!-- frame for 1 product -->
                 <div class="col-md-3 mb-3">
                     <div class="product-top">
-                        <img width="100%" height="300px" src="./public/images/products/<?php echo $product['productid'];?>p0.png">
+                        <img class="img-pro" width="100%" height="300px" src="./public/images/products/<?php echo $product['productid'];?>p0.png">
                         <div class="overlay">
                             <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><button type="button" class="btn btn-secondary" title="Xem sản phẩm"><i class="fa fa-eye"></i></button></a>
                             <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng" 

@@ -30,8 +30,6 @@ class HomeModel extends Model{
             "limit"		=> 4,
         ]);
         
-        //die(var_dump($products));
-        
         $result = [];
         $this->setTable("product");
         foreach($products as $product){
@@ -44,8 +42,27 @@ class HomeModel extends Model{
                 ]
             ]));
         }
-        //die($result);
-        //$this->setTable("user");
         return $result;
+    }
+
+    public function getRecentlySeenProducts(){
+        if(isset($_COOKIE["seen_recently"])){
+            $products = explode(',',$_COOKIE["seen_recently"]);
+            $products = array_unique($products);
+            array_pop($products);  
+
+            $result = [];
+            foreach($products as $product){
+                array_push($result, $this->selectOne([
+                    "column"	=> "productid,title,price,quantity,promotion",
+                    "condition"	=> "productid = ?",
+                    "bind"		=> [
+                        "i",
+                        $product,
+                    ]
+                ]));
+            }
+            return $result;
+        }
     }
 }

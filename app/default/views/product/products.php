@@ -28,7 +28,7 @@
                         <div class="overlay">
                             <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><button type="button" class="btn btn-secondary" title="Xem sản phẩm"><i class="fa fa-eye"></i></button></a>
                             <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng" 
-                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>,<?php echo $this->info ?>)">
+                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>,<?php echo $this->info; ?>)">
                             <i class="fa fa-shopping-cart"></i></button>
                         </div>
                     </div>
