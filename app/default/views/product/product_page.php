@@ -34,7 +34,7 @@
                         <div class="overlay">
                             <a href="/product-detail?id_of_product=<?php echo $product['productid'];?>"><button type="button" class="btn btn-secondary" title="Xem sản phẩm"><i class="fa fa-eye"></i></button></a>
                             <button type="button" class="btn btn-secondary" title="Thêm vào giỏ hàng" 
-                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>)">
+                                onclick="addToCart(<?php echo $product['productid'];?>,'<?php echo $product['title'];?>',<?php echo $price;?>,<?php $this->info;?>)">
                             <i class="fa fa-shopping-cart"></i></button>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function sortBy(){
         $.get('/products?sortSelector='+$('#sortSelector').val()+'&catalog='+$('#catalogProducts').text(),function(data){
             $('#body').html(data);
@@ -87,7 +87,7 @@
             alert(data);
         });
     }
-</script>
+</script> -->
 
 <?php
     include "app/default/views/component/footer.php";

@@ -22,7 +22,7 @@
                 }
         ?>
         <!-- frame for 1 product -->
-        <div class="mb-3">
+        <div class="mb-3 col-lg-3 col-md-4 col-sm-6 col-12">
             <div class="product-top">
                 <img width="100%" height="300px" src="./public/images/products/<?php echo $product['productid'];?>p0.png">
                 <div class="overlay">
