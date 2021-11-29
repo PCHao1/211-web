@@ -21,7 +21,7 @@
     <div class="col-8">
     <?php
     
-    foreach($this->items as &$item){
+    foreach($this->items as $key=>$item){
     echo("
         <div id='accordion".$item['orderid']."'>
         <div class='card'>
@@ -33,7 +33,7 @@
             </h5>
           </div>
       
-          <div id='collapse".$item['orderid']."' class='collapse show' aria-labelledby='heading".$item['orderid']."' data-parent='#accordion".$item['orderid']."'>
+          <div id='collapse".$item['orderid']."' class='collapse ".($key == 0? "show":"")."' aria-labelledby='heading".$item['orderid']."' data-parent='#accordion".$item['orderid']."'>
             <div class='card-body'>
                 <div class='row'>
                     <div class='col-auto'>
