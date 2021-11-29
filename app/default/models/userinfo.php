@@ -5,19 +5,20 @@ class UserinfoModel extends Model{
 	public function __construct(){
 		parent::__construct();
 		$this->setTable("user");
-	}
+	}	
+	public function updateUser($username,$name,$email){
 
-	public function checkLogin($username, $password){
-		$result = $this->selectOne([
-			"column"	=> "username, phone_number, name, email, accounttype, status",
-			"condition"	=> "username = ? AND password = ?",
-			"bind"		=> [
-				"ss",
-				$username,
-				$password
-				// hash('sha256',$password)
-			]
-		]);
+		$result=$this->update([
+				"data"		=> "name=?,email=?",
+				"condition"	=> "username=?",
+				"bind"		=> [
+					"sss",
+					$name,
+					$email,
+					$username
+					
+				]
+			]);
 		return $result;
 	}
 }
